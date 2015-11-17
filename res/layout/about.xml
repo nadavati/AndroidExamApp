@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#FFFFFF" >
+
+    <!-- view1 goes on top -->
+
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/ScrollView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="90sp" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/lpi_about"
+            android:textColor="#000000" >
+        </TextView>
+    </ScrollView>
+
+    <!-- view2 goes on the bottom -->
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:padding="5dip" >
+
+           <Button
+               android:id="@+id/okButton"
+               android:layout_width="100dp"
+               android:layout_height="wrap_content"
+               android:layout_alignParentLeft="true"
+               android:layout_centerVertical="true"
+               android:background="@drawable/btn_default_holo_light"
+               android:minWidth="200dip"
+               android:text="@string/ok"
+               android:textColor="#FFFFFF"
+               android:textSize="20sp" />
+
+             <Button
+                 android:id="@+id/button2"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_alignBaseline="@+id/button1"
+                 android:layout_alignBottom="@+id/button1"
+                 android:layout_alignParentRight="true"
+                 android:background="@drawable/btn_default_holo_light"
+                 android:text="Contact"
+                 android:textColor="#FFFFFF"
+                 android:textSize="20sp" />
+
+             <Button
+                 android:id="@+id/button1"
+                 android:layout_width="100dp"
+                 android:layout_height="wrap_content"
+                 android:layout_alignParentTop="true"
+                 android:layout_centerHorizontal="true"
+                 android:background="@drawable/btn_default_holo_light"
+                 android:text="Rate"
+                 android:textColor="#FFFFFF"
+                 android:textSize="20sp" />
+        
+    </RelativeLayout>
+
+</RelativeLayout>

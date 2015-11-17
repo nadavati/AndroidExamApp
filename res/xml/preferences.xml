@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+  
+  
+	
+
+
+    <PreferenceCategory
+            android:title="@string/lpi_exam">
+<!-- 
+      
+-->        
+     
+
+      <CheckBoxPreference
+                android:key="wrong_answers_only"
+                android:title="@string/title_wrong_answers_only"
+                android:summary="@string/summary_wrong_answers_only" />
+
+    </PreferenceCategory>
+    
+    <PreferenceCategory
+            android:title="@string/about">
+        <PreferenceScreen
+                android:key="about_preference"
+                android:title="@string/title_about_preference"
+                android:summary="@string/summary_about_preference">
+            
+            <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="certwin.apps.sfdcadm201"
+                android:targetClass="certwin.apps.sfdcadm201.ADMAbout" />
+                    
+        </PreferenceScreen>
+    </PreferenceCategory> 
+
+
+</PreferenceScreen>

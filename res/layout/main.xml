@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/TextView01"
+        android:layout_width="fill_parent"
+        android:layout_height="159dp"
+        android:gravity="center"
+      
+        android:text="@string/lpi_quiz_title"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:textStyle="normal" >
+
+    </TextView>
+  
+
+ 
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <TableLayout
+            android:id="@+id/TableLayout01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center|center_vertical|center_horizontal" >
+
+            <TableRow
+                android:id="@+id/TableRow01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:id="@+id/startQuizButton"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dip"
+                    android:maxLines="1"
+                    android:minWidth="200dip"
+                     android:textColor="#FFFFFF"
+                     android:textSize="20sp"
+                    android:background="@drawable/btn_default_holo_light"
+                    android:text="@string/start_quiz"
+                    android:textStyle="bold" >
+                </Button>
+            </TableRow>
+            <!--
+		<TableRow android:id="@+id/TableRow02" android:layout_width="fill_parent" android:layout_height="wrap_content">
+			<Button android:id="@+id/Button02" style="?android:attr/buttonStyleSmall" android:layout_height="fill_parent" android:text="LPI-102" android:layout_width="wrap_content">
+			</Button>
+		</TableRow>
+            -->
+
+            <TableRow
+                android:id="@+id/TableRow02"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:id="@+id/optionsButton"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dip"
+                    android:maxLines="1"
+                     android:textSize="20sp"
+                      android:textColor="#FFFFFF"
+                     android:background="@drawable/btn_default_holo_light"
+                    android:minWidth="200dip"
+                    android:text="@string/options"
+                    android:textStyle="bold" >
+                </Button>
+            </TableRow>
+            <!--
+		<TableRow android:id="@+id/TableRow03" android:layout_width="fill_parent" android:layout_height="wrap_content">
+			<Button android:id="@+id/aboutButton" style="?android:attr/buttonStyleSmall" android:layout_width="fill_parent" android:text="@string/about" android:maxLines="1" android:minWidth="200dip" android:layout_height="60dip">
+			</Button>
+		</TableRow>
+            -->
+
+            <TableRow
+                android:id="@+id/TableRow04"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:id="@+id/exitButton"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="fill_parent"
+                    android:layout_height="60dip"
+                    android:maxLines="1"
+                     android:textColor="#FFFFFF"
+                      android:textSize="20sp"
+                     android:background="@drawable/btn_default_holo_light"
+                    android:minWidth="200dip"
+                    android:text="@string/exit"
+                    android:textStyle="bold" >
+                </Button>
+            </TableRow>
+        </TableLayout>
+    </RelativeLayout>
+
+</LinearLayout>

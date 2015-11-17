@@ -1,0 +1,803 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Quiz xmlns="http://mycompany.com/hr/schemas">
+	<TestQuestion isMultiple="0">
+		<Question>What would you expect to see if you type uname -a?</Question>
+		<Answer isTrue="0" name="A">Information on the username of the current user, including the user’s real name.</Answer>
+		<Answer isTrue="1" name="B">Information on the running system, such as the OS, the kernel version, and the CPU type.</Answer>
+		<Answer isTrue="0" name="C">Information on the computer’s hostname, as it’s defined locally.</Answer>
+		<Answer isTrue="0" name="D">Information on the loaded kernel modules, including the modules upon which they depend.</Answer>
+		<Explanation>The uname command displays system information, and the -a option to that command causes it to display all the information it’s designed to summarize. Options A, C, and D are all incorrect, although other utilities will produce these results: whoami, hostname, and lsmod do the jobs described by options A, C, and D, respectively.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>What is the most important practical difference between insmod and modprobe?</Question>
+		<Answer isTrue="0" name="A">insmod unloads a single module, whereas modprobe loads a single module.</Answer>
+		<Answer isTrue="1" name="B">insmod loads a single module, whereas modprobe loads a module and all those upon which it depends.</Answer>
+		<Answer isTrue="0" name="C">insmod isn’t a real Linux command, but modprobe loads a module and all those upon which it depends.</Answer>
+		<Answer isTrue="0" name="D">insmod loads a single module, whereas modprobe displays information about modules.</Answer>
+		<Explanation>Option B correctly summarizes the main actions of both of these commands. Option A states that modprobe loads a single module. This is only partially correct; modprobe loads the module you specify and those upon which it depends. Option A also states that insmod unloads a module, when in fact it loads a module. Option C says that insmod isn’t a real command, but it is. Option D says that modprobe displays information about modules, but it doesn’t; that function is handled by modinfo.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>You type the command rmmod ide_core, but the system responds with the message ERROR: Module ide_core is in use by via82cxxx,ide_cd,ide_disk. What is the meaning of this response?</Question>
+		<Answer isTrue="1" name="A">The via82cxxx, ide_cd, and ide_disk modules all rely on ide_core, so ide_core can’t be unloaded without first unloading these other modules.</Answer>
+		<Answer isTrue="0" name="B">The ide_core module relies on via82cxxx, ide_cd, and ide_disk modules, so they can’t be unloaded without first unloading ide_core.</Answer>
+		<Answer isTrue="0" name="C">The ide_core module is a core module, meaning that it can never be unloaded once it’s loaded.</Answer>
+		<Answer isTrue="0" name="D">The ide_core module is buggy or the rmmod utility is broken; it should never return an error message.</Answer>
+		<Explanation>The rmmod utility can only remove modules that are not being used by other modules or by other system software. The error message in this case indicates that the other specified modules rely on ide_core, so you can’t unload ide_core until that dependency is broken by unloading these other modules. Option B specifies this dependency backwards. Although some modules are hard to remove once loaded, they aren’t called “core modules,” as option C specifies. The rmmod utility can and does return error messages when you ask it to do something it can’t do, contrary to what option D says.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="1">
+		<Question>What file or files might you edit to change the options that are automatically passed to kernel modules? (Select all that apply.)</Question>
+		<Answer isTrue="1" name="A">Files in the /etc/modules.d directory</Answer>
+		<Answer isTrue="0" name="B">modules.dep in the modules directory</Answer>
+		<Answer isTrue="0" name="C">.config in the kernel directory</Answer>
+		<Answer isTrue="1" name="D">/etc/modules.conf</Answer>
+		<Explanation>The /etc/modules.conf file controls automatic module loading and options passed to modules automatically. On most distributions, you edit this file directly; however, some require you to edit files in /etc/modules.d and then type modules-update to have the system update modules.conf itself. The modules.dep file referred to in option B specifies module dependencies, not module options passed to the modules. The kernel’s .config file controls what kernel features are compiled; it doesn’t specify options passed to the modules.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Which of the following commands would you type to configure a Linux kernel using an interactive text-mode tool?</Question>
+		<Answer isTrue="0" name="A">make xconfig</Answer>
+		<Answer isTrue="1" name="B">make menuconfig</Answer>
+		<Answer isTrue="0" name="C">make config</Answer>
+		<Answer isTrue="0" name="D">make textconfig</Answer>
+		<Explanation>The make menuconfig kernel configuration command starts a text-based interactive menu configuration tool. This tool provides the same capabilities as the X-based tool that’s started by make xconfig. Both of these tools are more flexible than the bare-bones text-mode make config. There is no make textconfig target.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="1">
+		<Question>Which of the following kernel features should you compile into the main kernel file of a regular disk-based installation to simplify booting the system? (Select all that apply.)</Question>
+		<Answer isTrue="1" name="A">Drivers for your boot disk’s ATA controller or SCSI host adapter.</Answer>
+		<Answer isTrue="1" name="B">Support for your root (/) filesystem.</Answer>
+		<Answer isTrue="0" name="C">Drivers for your RS-232 serial port.</Answer>
+		<Answer isTrue="0" name="D">Drivers for your CD-ROM drive.</Answer>
+		<Explanation>The Linux kernel needs to be able to access your hard disk to continue past the most basic boot stage, so it needs drivers for your hard disk’s ATA controller or SCSI host adapter as well as support for whatever filesystem you use on your root (/) partition in the kernel itself. Alternatively, these drivers can be placed on an initial RAM disk, but this configuration requires more work. Both the RS-232 serial port and the CD-ROM drive aren’t needed during the boot process. (CD-ROM drivers are, of course, needed for CD-ROM-based distributions, but the question specified a hard-disk-based installation.)</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>What is the conventional name for a locally compiled Linux kernel on an x86 system?</Question>
+		<Answer isTrue="0" name="A">/boot/kernel-version</Answer>
+		<Answer isTrue="0" name="B">/boot/vmlinuz</Answer>
+		<Answer isTrue="1" name="C">/boot/bzImage-version</Answer>
+		<Answer isTrue="0" name="D">/usr/src/linux-version</Answer>
+		<Explanation>Locally-compiled Linux kernels are usually called /boot/bzImage or /boot/bzImage-version, where version is the version number. There is no standard /boot/kernel-version file. The /boot/vmlinuz or /boot/vmlinuz-version file is the stock distribution’s kernel, not a locally compiled kernel. The /usr/src/linux-version name is held by the Linux kernel source directory, not a compile kernel file.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Where might the BIOS find a boot loader?</Question>
+		<Answer isTrue="0" name="A">RAM</Answer>
+		<Answer isTrue="0" name="B">/dev/boot</Answer>
+		<Answer isTrue="1" name="C">MBR</Answer>
+		<Answer isTrue="0" name="D">/dev/kmem</Answer>
+		<Explanation>The Master Boot Record (MBR) can contain a boot loader that is up to 512 bytes in size. If more space is required, the boot loader would have to load a secondary boot loader. Although the boot loader is loaded into RAM, it’s not stored there permanently because RAM is volatile storage. Both /dev/boot and /dev/kmem are references to files on Linux filesystems; they’re meaningful only after the BIOS has found a boot loader and run it and lots of other boot processes have occurred.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Which of the following is the LILO boot loader configuration file?</Question>
+		<Answer isTrue="0" name="A">/dev/lilo</Answer>
+		<Answer isTrue="0" name="B">The MBR</Answer>
+		<Answer isTrue="0" name="C">/boot/lilo/lilo.conf</Answer>
+		<Answer isTrue="1" name="D">/etc/lilo.conf</Answer>
+		<Explanation>Option D is the correct LILO configuration file. Option A is a fictitious file; it doesn’t exist. Although LILO’s boot loader code may be written to the MBR, as implied by option B, this isn’t the location of the LILO configuration file. Option C is reminiscent of the location of the GRUB configuration file; it’s not the location of the LILO configuration file.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Which command is used to install GRUB into the MBR of your first ATA hard drive?</Question>
+		<Answer isTrue="0" name="A">grub (hd0,1)</Answer>
+		<Answer isTrue="0" name="B">grub-install /dev/hda1</Answer>
+		<Answer isTrue="0" name="C">lilo /dev/hda</Answer>
+		<Answer isTrue="1" name="D">grub-install /dev/hda</Answer>
+		<Explanation>You use grub-install to install the GRUB boot loader code into an MBR or boot sector. When using grub-install, you specify the boot sector on the command line. The MBR is the first sector on a hard drive, so you give it the Linux device identifier for the entire hard disk, /dev/hda. Option A specifies using the grub utility, which is an interactive tool, and the device identifier shown in option A is a GRUB-style identifier for what would probably be the /dev/ hda3 partition in Linux. Option B is almost correct but installs GRUB to the /dev/hda1 partition’s boot sector rather than the hard disk’s MBR. Option C is the command to install LILO to the MBR rather than to install GRUB.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>What line in /etc/inittab would indicate that your default runlevel is 5?</Question>
+		<Answer isTrue="0" name="A">ca:12345:ctrlaltdel:/sbin/shutdown -t1 -a -r now</Answer>
+		<Answer isTrue="1" name="B">id:5:initdefault:</Answer>
+		<Answer isTrue="0" name="C">si:5:sysinit:/etc/init.d/rcS</Answer>
+		<Answer isTrue="0" name="D">l5:5:wait:/etc/init.d/rc 5</Answer>
+		<Explanation>It is the initdefault action that specifies the default runlevel.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="1">
+		<Question>Which runlevels are reserved by init for reboot, shutdown, and single user mode purposes? (Select all that apply.)</Question>
+		<Answer isTrue="1" name="A">0</Answer>
+		<Answer isTrue="1" name="B">1</Answer>
+		<Answer isTrue="0" name="C">5</Answer>
+		<Answer isTrue="1" name="D">6</Answer>
+		<Explanation>Runlevel 0 is the reserved runlevel for halting the system. Runlevel 1 is reserved for single user mode. Runlevel 6 is reserved for rebooting. Runlevel 5 is a regular, user-configurable runlevel. (Many systems use it for a regular boot with a GUI login prompt.)</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="1">
+		<Question>You type the following command:&lt;br&gt;$ runlevel&lt;br&gt;5 3&lt;br&gt;What can you tell about your runlevel status? (Select all that apply.)</Question>
+		<Answer isTrue="0" name="A">The current runlevel is 5</Answer>
+		<Answer isTrue="1" name="B">The current runlevel is 3</Answer>
+		<Answer isTrue="1" name="C">The previous runlevel is 5</Answer>
+		<Answer isTrue="0" name="D">The previous runlevel is 3</Answer>
+		<Explanation>The first number in the runlevel output is the previous runlevel (the letter N is used to indicate that the system has not changed runlevels since booting). The second number is the current runlevel.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Where is the best location for the current directory indicator (.) to reside in root’s PATH environment variable?</Question>
+		<Answer isTrue="0" name="A">Before all other directories.</Answer>
+		<Answer isTrue="0" name="B">After all other directories.</Answer>
+		<Answer isTrue="1" name="C">Nowhere; it shouldn’t be in root’s path.</Answer>
+		<Answer isTrue="0" name="D">Wherever is convenient.</Answer>
+		<Explanation>The current directory indicator is particularly dangerous in root’s PATH environment variable because it can be used by unscrupulous local users to trick root into running programs of the unscrupulous user’s design.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>You want to create a shortcut for the command cd ~/papers/trade. Which of the following lines, if entered in a bash startup script, will accomplish this goal?</Question>
+		<Answer isTrue="1" name="A">alias cdpt='cd ~/papers/trade'</Answer>
+		<Answer isTrue="0" name="B">export cdpt='cd ~/papers/trade'</Answer>
+		<Answer isTrue="0" name="C">cd ~/papers/trade</Answer>
+		<Answer isTrue="0" name="D">shortcut cdpt "cd ~/papers/trade"</Answer>
+		<Explanation>The alias built-in command creates a duplicate name for a (potentially much longer) command. Option A shows the correct syntax for using this built-in command; it causes the new alias cdpt to work like the much longer cd ~/papers/trade. The export command in option B creates an environment variable called cdpt that holds the value cd ~/papers/trade. This will have no useful effect. Option C, if placed in a bash startup script, will cause the user’s current directory to shift to ~/papers/trade immediately after the user logs in. There is no standard shortcut command, so option D is meaningless.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>In what environment variable is the current working directory stored?</Question>
+		<Answer isTrue="0" name="A">PATH</Answer>
+		<Answer isTrue="0" name="B">CWD</Answer>
+		<Answer isTrue="1" name="C">PWD</Answer>
+		<Answer isTrue="0" name="D">PRESENT</Answer>
+		<Explanation>The PWD environment variable holds the present working directory. The PATH environment variable holds a colon-delimited list of directories in which executable programs are stored so that they may be run without specifying their complete pathnames. There are no standard CWD or PRESENT environment variables.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Which of the following commands, if typed in a bash shell, will create an environment variable called MYVAR with the contents mystuff?</Question>
+		<Answer isTrue="1" name="A">export MYVAR='mystuff'</Answer>
+		<Answer isTrue="0" name="B">MYVAR='mystuff'</Answer>
+		<Answer isTrue="0" name="C">$MYVAR==mystuff</Answer>
+		<Answer isTrue="0" name="D">echo $MYVAR mystuff</Answer>
+		<Explanation>Option A creates the desired environment variable. Option B creates a local variable—but not an environment variable—called MYVAR holding the value mystuff. After typing option B, you could also type export MYVAR to achieve the desired goal, but option B by itself is insufficient. Option C isn’t a valid bash shell command. Option D displays the contents of the MYVAR variable and also echoes mystuff to the screen, but it doesn’t change the contents of any environment variable.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>After using a text editor to create a shell script, what step should you take before trying to use the script?</Question>
+		<Answer isTrue="1" name="A">Set one or more executable bits using chmod.</Answer>
+		<Answer isTrue="0" name="B">Copy the script to the /usr/bin/scripts directory.</Answer>
+		<Answer isTrue="0" name="C">Compile the script by typing bash scriptname, where scriptname is the script’s name.</Answer>
+		<Answer isTrue="0" name="D">Run a virus checker on the script to be sure it contains no viruses.</Answer>
+		<Explanation>Scripts, like binary programs, normally have at least one executable bit set, although they can be run in certain ways without this feature. There is no standard /usr/bin/scripts directory, and scripts can reside in any directory. Scripts are interpreted programs, which means they don’t need to be compiled. Typing bash scriptname will run the script. Viruses are extremely rare in Linux, and because you just created the script, the only ways it could possibly contain a virus would be if your system was already infected or if you wrote it as a virus.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Describe the effect of the following short script, cp1, if it’s called as cp1 big.c big.cc:&lt;br&gt;#!/bin/sh&lt;br&gt;cp $2 $1</Question>
+		<Answer isTrue="0" name="A">It has the same effect as the cp command—copying the contents of big.c to big.cc.</Answer>
+		<Answer isTrue="0" name="B">It compiles the C program big.c and calls the result big.cc.</Answer>
+		<Answer isTrue="1" name="C">It copies the contents of big.cc to big.c, eliminating the old big.c.</Answer>
+		<Answer isTrue="0" name="D">It converts the C program big.c into a C++ program called big.cc.</Answer>
+		<Explanation>The cp command is the only one called in the script, and that command copies files. Because the script passes the arguments ($1 and $2) to cp in reverse order, their effect is reversed—where cp copies its first argument to the second name, the cp1 script copies the second argument to the first name. The cp command has nothing to do with compiling C or C++ programs, so neither does the script.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>What is the purpose of conditional expressions in shell scripts?</Question>
+		<Answer isTrue="0" name="A">They prevent scripts from executing if license conditions aren’t met.</Answer>
+		<Answer isTrue="0" name="B">They display information on the script’s computer environment.</Answer>
+		<Answer isTrue="1" name="C">They enable the script to take different actions in response to variable data.</Answer>
+		<Answer isTrue="0" name="D">They enable scripts to learn in a manner reminiscent of Pavlovian conditioning.</Answer>
+		<Explanation>Conditional expressions return a “true” or “false” response, enabling the script to execute one set of instructions or another or to terminate or continue a loop.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Which of the following statements is a fair comparison of HOWTO documents to man pages?</Question>
+		<Answer isTrue="0" name="A">HOWTOs do not require Internet access to be read; man pages do.</Answer>
+		<Answer isTrue="0" name="B">HOWTOs are a type of electronic documentation; man pages are printed.</Answer>
+		<Answer isTrue="0" name="C">HOWTOs are programmers’ documents; man pages describe software from a user’s point of view.</Answer>
+		<Answer isTrue="1" name="D">HOWTOs are tutorial in nature; man pages are briefer reference documents.</Answer>
+		<Explanation>HOWTOs are intended as introductions to packages or broad topics. On the other hand, man pages are intended to give you quick information on commands, configuration files, or the like.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Which of the following commands searches the man page database for entries or descriptions that include a specified keyword?</Question>
+		<Answer isTrue="0" name="A">info</Answer>
+		<Answer isTrue="1" name="B">apropos</Answer>
+		<Answer isTrue="0" name="C">grep</Answer>
+		<Answer isTrue="0" name="D">apackage</Answer>
+		<Explanation>The apropos utility searches the man page database for entries or descriptions that include a specified keyword. The info utility simply returns help information on a utility, while grep is an all-purpose searching tool not focused on man pages. There is no standard utility called apackage.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>What file would you edit to change the man path?</Question>
+		<Answer isTrue="1" name="A">/etc/man.conf</Answer>
+		<Answer isTrue="0" name="B">/etc/conf.man</Answer>
+		<Answer isTrue="0" name="C">/etc/paths.conf</Answer>
+		<Answer isTrue="0" name="D">/etc/conf.paths</Answer>
+		<Explanation>The man configuration file is /etc/man.conf. Among other things, this file sets the man path. Options B, C, and D all refer to fictitious files.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Which of the following is a difference between man pages and info pages?</Question>
+		<Answer isTrue="0" name="A">man pages are designed to be translated by machine translation programs for reading in over a dozen languages; info pages lack this feature.</Answer>
+		<Answer isTrue="0" name="B">man pages are the preferred documentation system of the Free Software Foundation; the FSF shuns the info page system.</Answer>
+		<Answer isTrue="1" name="C">man pages are “flat” text files, much like ASCII text files; info pages are structured with hyperlinks, much like HTML documents.</Answer>
+		<Answer isTrue="0" name="D">man pages describe only system calls and other programming tools; info pages describe only user programs and configuration files.</Answer>
+		<Explanation>The man page system provides no hyperlinks; individual documents are “flat.” The info page system, by contrast, uses hyperlinks to help organize its documents. In principle, you can pass either man pages or info pages through machine translation software, but neither system was designed with this use in mind. Option B is essentially backwards; the FSF prefers info pages to man pages. Both man pages and info pages describe system calls, programming tools, user programs, and configuration files; Option D describes a nonexistent distinction.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>What information is certain to appear in a package’s /usr/share/doc subdirectory?</Question>
+		<Answer isTrue="0" name="A">A PDF reference manual.</Answer>
+		<Answer isTrue="0" name="B">An HTML reference manual.</Answer>
+		<Answer isTrue="0" name="C">A sample configuration file.</Answer>
+		<Answer isTrue="1" name="D">None of the above is certain to appear.</Answer>
+		<Explanation>Although options A, B, and C are all possible contents of a package’s documentation directory, none of these is certain to appear. These directories’ contents are inherently uncertain, but they often contain whatever documentation doesn’t fit elsewhere on the system.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="1">
+		<Question>What are the three main classes of documents hosted by the Linux Documentation Project?</Question>
+		<Answer isTrue="0" name="A">RFCs</Answer>
+		<Answer isTrue="1" name="B">HOWTOs</Answer>
+		<Answer isTrue="1" name="C">FAQs</Answer>
+		<Answer isTrue="1" name="D">Guides</Answer>
+		<Explanation>The LDP hosts three main classes of documents: HOWTOs, which are tutorial documents designed to help you learn how to use a program or perform a task; FAQs, which are collections of common questions and answers about Linux; and guides, which are book-length tutorial and reference documents. RFCs are Requests for Comments, which are networking standards documents that are not maintained by the LDP.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="1">
+		<Question>What do you need to read Usenet newsgroups? (Select all that apply.)</Question>
+		<Answer isTrue="1" name="A">A newsreader</Answer>
+		<Answer isTrue="0" name="B">A password to the Reuters website</Answer>
+		<Answer isTrue="1" name="C">Access to a news server</Answer>
+		<Answer isTrue="0" name="D">The Usenet network stack in your kernel</Answer>
+		<Explanation>Usenet newsgroups are distributed via a global collection of news servers, which exchange messages with one another. To read Usenet news, you need a newsreader program and access to one of these news servers, which are run by ISPs, universities, and businesses. Usenet news has nothing to do with the Reuters news service or its website, as option B suggests. Usenet is also not a network stack, as option D suggests.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>You recently “chatted” with a group of people online to help fix a problem in real-time with the PatheticMail program. What type of Internet help resource did you use?</Question>
+		<Answer isTrue="0" name="A">A web forum</Answer>
+		<Answer isTrue="1" name="B">IRC</Answer>
+		<Answer isTrue="0" name="C">Usenet news</Answer>
+		<Answer isTrue="0" name="D">A mailing list</Answer>
+		<Explanation>Internet Relay Chat (IRC) is a real-time system for communicating with a group of people. It can be used to get real-time help in solving problems. Web forums, Usenet news, and mailing lists can all be mediums for obtaining help, and often fairly quickly, but not in real time.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>You want to deliver a message to would-be Telnet users that your system is for official use by employees of your company. What file would you edit to deliver this message before Telnet users see a login: prompt?</Question>
+		<Answer isTrue="0" name="A">/etc/profile.net</Answer>
+		<Answer isTrue="0" name="B">/etc/profile</Answer>
+		<Answer isTrue="1" name="C">/etc/issue.net</Answer>
+		<Answer isTrue="0" name="D">/etc/issue</Answer>
+		<Explanation>The /etc/issue.net file contains text that’s sent by the Telnet server to the remote Telnet client prior to Telnet’s sending the login: prompt—precisely what the question requires. There is no standard /etc/profile.net configuration file, and /etc/profile is a configuration file for the bash shell, which won’t help achieve the question’s goals. The /etc/issue file is similar to /etc/issue.net, but it controls the message that’s displayed on the local text-mode console.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>In reviewing files in /etc, you find that /etc/motd is completely empty. What does this mean?</Question>
+		<Answer isTrue="1" name="A">The system won’t display a message of the day after users log in.</Answer>
+		<Answer isTrue="0" name="B">Morton’s Own Temporary Documentation is not installed on the system.</Answer>
+		<Answer isTrue="0" name="C">The motd.conf file’s name has become corrupted and its contents lost.</Answer>
+		<Answer isTrue="0" name="D">Users will see no witty aphorisms appear on the screen after logging in.</Answer>
+		<Explanation>The /etc/motd file holds the message of the day, which is displayed after users log in using text-mode tools such as text-mode consoles or SSH. An empty /etc/motd file simply means that no such message will appear, as option A describes. There is no such thing as Morton’s Own Temporary Documentation, referred to in option B. There is no standard /etc/motd.conf file, as described in option C. Witty aphorisms are created by the fortune program, which is usually called in ways that don’t involve /etc/motd. Although they might not be displayed, as option D suggests, there’s no linkage between this and the empty /etc/motd file; fortunes are enabled or disabled in other ways.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="1">
+		<Question>Which of the following are firewall tools that may be used with 2.6.x kernels? (Select all that apply.)</Question>
+		<Answer isTrue="1" name="A">ipfwadm</Answer>
+		<Answer isTrue="0" name="B">ipfire</Answer>
+		<Answer isTrue="1" name="C">ipchains</Answer>
+		<Answer isTrue="1" name="D">iptables</Answer>
+		<Explanation>The ipfwadm and ipchains programs were the preferred firewall tools for pre-2.4.x Linux kernels, but they remain as options up to at least the 2.6.x kernel series. The iptables program was introduced along with the 2.4.x kernel and is the preferred firewall tool for use with the 2.6.x kernel. There is no standard ipfire program.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>A server/computer combination appears in both hosts.allow and hosts.deny. What’s the result of this configuration when TCP Wrappers runs?</Question>
+		<Answer isTrue="0" name="A">TCP Wrappers refuses to run and logs an error in /var/log/messages.</Answer>
+		<Answer isTrue="0" name="B">The system’s administrator is paged to decide whether to allow access.</Answer>
+		<Answer isTrue="0" name="C">hosts.deny takes precedence; the client is denied access to the server.</Answer>
+		<Answer isTrue="1" name="D">hosts.allow takes precedence; the client is granted access to the server.</Answer>
+		<Explanation>TCP Wrappers uses this feature to allow you to override broad denials by adding more specific explicit access permissions to hosts.allow, as when setting a default deny policy (ALL : ALL) in hosts.deny.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>When is the bind option of xinetd most useful?</Question>
+		<Answer isTrue="0" name="A">When you want to run two servers on one port.</Answer>
+		<Answer isTrue="0" name="B">When you want to specify computers by name rather than IP address.</Answer>
+		<Answer isTrue="1" name="C">When xinetd is running on a system with two network interfaces.</Answer>
+		<Answer isTrue="0" name="D">When resolving conflicts between different servers.</Answer>
+		<Explanation>The bind option of xinetd lets you tie a server to just one network interface rather than link to them all. It has nothing to do with running multiple servers on one port, specifying computers by hostname, or resolving conflicts between servers.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>What is the best way to remain abreast of security developments?</Question>
+		<Answer isTrue="0" name="A">Read the CERT/CC website on a regular basis.</Answer>
+		<Answer isTrue="0" name="B">Subscribe to and read the Bugtraq mailing list.</Answer>
+		<Answer isTrue="0" name="C">Check your distribution’s security web page on a regular basis.</Answer>
+		<Answer isTrue="1" name="D">All of the above</Answer>
+		<Explanation>To obtain the best possible view of security developments, you should consult as many sources as possible. The CERT/CC website, the Bugtraq mailing list, and your distribution’s security page are three good sources of information (but by no means the only three available). Consulting just one of these sources may not be adequate because an obscure issue that’s important to you might escape notice on a single source.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>At what point during system installation should you configure Tripwire?</Question>
+		<Answer isTrue="0" name="A">Prior to installing major servers like Apache.</Answer>
+		<Answer isTrue="0" name="B">After installing major servers but before configuring them.</Answer>
+		<Answer isTrue="1" name="C">After installing and configuring major servers but before connecting the computer to the Internet.</Answer>
+		<Answer isTrue="0" name="D">After connecting the computer to the Internet and running it for one to four weeks.</Answer>
+		<Explanation>Tripwire records checksums and hashes of major files, including server executables and configuration files. Thus, these files should be in place and properly configured before you configure Tripwire. Once the system has been running on the Internet, there’s a chance that it’s been compromised; you should install Tripwire prior to connecting the computer to the Internet in order to reduce the risk that its database reflects an already-compromised system.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Of the following, which is the best password?</Question>
+		<Answer isTrue="0" name="A">Odysseus</Answer>
+		<Answer isTrue="1" name="B">iA71Oci^My</Answer>
+		<Answer isTrue="0" name="C">pickettomato</Answer>
+		<Answer isTrue="0" name="D">Denver2Colorado</Answer>
+		<Explanation>Ideally, passwords should be completely random but still memorable. Option B’s password was generated from a personally meaningful acronym and then modified to change the case of some letters and add random numbers and symbols. This creates a password that’s close to random but still memorable. Option A uses a well-known mythological figure, who is likely to be in a dictionary. Option C uses two common words, which is arguably better than option A, but not by much. Option D uses two closely related words separated by a single number, which is also a poor choice for a password.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Which of the following types of attacks involves sending bogus e-mail to lure unsuspecting individuals into divulging sensitive financial or other information?</Question>
+		<Answer isTrue="1" name="A">Phishing</Answer>
+		<Answer isTrue="0" name="B">Script kiddies</Answer>
+		<Answer isTrue="0" name="C">Spoofing</Answer>
+		<Answer isTrue="0" name="D">Ensnaring</Answer>
+		<Explanation>Phishing involves sending bogus e-mail or setting up fake websites that lure unsuspecting individuals into divulging sensitive financial or other information. Script kiddies are intruders who use root kits. Spoofing involves pretending data is coming from one computer when it is coming from another. Ensnaring is not a type of attack.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>You want to configure a system so that e-mail addressed to root is sent to hires@sassafras .example.com. Which file might you edit to accomplish this goal?</Question>
+		<Answer isTrue="0" name="A">/etc/mail/forwarding-rules</Answer>
+		<Answer isTrue="0" name="B">/var/spool/mail/root</Answer>
+		<Answer isTrue="1" name="C">/etc/aliases</Answer>
+		<Answer isTrue="0" name="D">None of the above</Answer>
+		<Explanation>The aliases file, commonly found in /etc, /etc/mail, or a server-specific subdirectory of /etc, holds mail aliases—addresses or other forwarding rules to use for accounts whose mail should be permanently forwarded elsewhere. There is no standard /etc/mail/ forwarding-rules file. Although /var/spool/mail/root may exist (it’s the root mail spool file on many systems), you wouldn’t edit it to adjust forwarding for the root (or any other) account.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>You’ve discovered that your system is not using shadow passwords. What action should you take?</Question>
+		<Answer isTrue="0" name="A">Browbeat your users to get them to use shadow passwords.</Answer>
+		<Answer isTrue="0" name="B">Run the Crack program to verify that your passwords are still good.</Answer>
+		<Answer isTrue="0" name="C">Run the shadow-suite program to generate shadow password files.</Answer>
+		<Answer isTrue="1" name="D">Run the pwconv and grpconv programs to generate shadow password files.</Answer>
+		<Explanation>The pwconv and grpconv programs convert the /etc/passwd and /etc/group files, respectively, into forms that use shadow password files (/etc/shadow and /etc/gshadow, respectively). Because shadow passwords are desirable, taking this action is also desirable. Users have no control over whether the system uses shadow passwords, so option A will be unproductive. The Crack program attempts to discover poorly chosen passwords, but such passwords can exist on either shadowed or non-shadowed systems, so option B won’t affect the system’s shadow password status. There is no standard shadow-suite program, as referenced in option C.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Your login server is using PAM and you want to limit users’ access to system resources. Which configuration file will you need to edit?</Question>
+		<Answer isTrue="0" name="A">/etc/limits.conf</Answer>
+		<Answer isTrue="0" name="B">/etc/pam/limits.conf</Answer>
+		<Answer isTrue="1" name="C">/etc/security/limits.conf</Answer>
+		<Answer isTrue="0" name="D">/etc/security/pam/limits.conf</Answer>
+		<Explanation>The /etc/security/limits.conf file holds the configuration settings that will allow you to limit users’ access. The other options listed do not give the correct path to this file.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="1">
+		<Question>Which of the following are legal Linux usernames? (Select all that apply.)</Question>
+		<Answer isTrue="1" name="A">larrythemoose</Answer>
+		<Answer isTrue="0" name="B">4sale</Answer>
+		<Answer isTrue="1" name="C">PamJones</Answer>
+		<Answer isTrue="0" name="D">Samuel_Bernard_Delaney_the_Fourth</Answer>
+		<Explanation>A Linux username must contain fewer than 32 characters and start with a letter, and it may consist of letters, numbers, and certain symbols. Options A and C both meet these criteria. (Option C uses mixed upper- and lowercase characters, which is legal but discouraged.) Option B begins with a number, which is invalid. Option D is longer than 32 characters.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Why are groups important to the Linux user administration and security models?</Question>
+		<Answer isTrue="1" name="A">They can be used to provide a set of users with access to files without giving all users access to the files.</Answer>
+		<Answer isTrue="0" name="B">They allow you to set a single login password for all users within a defined group.</Answer>
+		<Answer isTrue="0" name="C">Users may assign file ownership to a group, thereby hiding their own creation of the file.</Answer>
+		<Answer isTrue="0" name="D">By deleting a group, you can quickly remove the accounts for all users in the group.</Answer>
+		<Explanation>Groups provide a good method of file-access control. Although they may have passwords, these are not account login passwords; those passwords are set on a per-account basis. Files do have associated groups, but these are in addition to individual file ownership and so they cannot be used to mask the file’s owner. Deleting a group does not delete all the accounts associated with the group.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>An administrator types chage -M 7 time. What is the effect of this command?</Question>
+		<Answer isTrue="1" name="A">The time account’s password must be changed at least once every seven days.</Answer>
+		<Answer isTrue="0" name="B">All users must change their passwords at least once every seven days.</Answer>
+		<Answer isTrue="0" name="C">All users are permitted to change their passwords at most seven times.</Answer>
+		<Answer isTrue="0" name="D">The time account’s age is set to seven months.</Answer>
+		<Explanation>The chage command changes various account expiration options. The -M parameter sets the maximum number of days for which a password is valid, and in the context of the given command, time is a username. Thus, option A is correct. Options B, C, and D are all simply made up.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="1">
+		<Question>What is wrong with the following /etc/passwd file entry? (Select all that apply.)&lt;br&gt;4sally:x:529:Sally Jones:/home/myhome:/bin/passwd</Question>
+		<Answer isTrue="0" name="A">The default shell is set to /bin/passwd, which is an invalid shell.</Answer>
+		<Answer isTrue="1" name="B">The username is invalid; Linux usernames can’t begin with a number.</Answer>
+		<Answer isTrue="0" name="C">The home directory doesn’t match the username.</Answer>
+		<Answer isTrue="1" name="D">Either the UID or the GID field is missing.</Answer>
+		<Explanation>As stated in option B, Linux usernames may not begin with numbers, so the username is invalid. The /etc/passwd entries have third and fourth fields of the UID and the GID, but this line has only one of those fields (which one is intended is impossible to determine); this example line’s fourth field is clearly the fifth field of a valid entry. Option A is incorrect because, although /bin/passwd is an unorthodox login shell, it’s perfectly valid. This configuration might be used on, say, a Samba file server or a POP mail server to enable users to change their passwords via SSH without granting login shell access. Option C is a correct observation but an incorrect answer; the username and the user’s home directory name need not match.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>You want sally, tom, and dale to be members of the group managers (GID 501). How would you edit the managers entry in /etc/group to accomplish this goal?</Question>
+		<Answer isTrue="0" name="A">managers:501:sally tom dale</Answer>
+		<Answer isTrue="0" name="B">managers:501:sally:tom:dale</Answer>
+		<Answer isTrue="0" name="C">managers:x:501:sally:tom:dale</Answer>
+		<Answer isTrue="1" name="D">managers:x:501:dale,sally,tom</Answer>
+		<Explanation>Option D shows a valid /etc/group entry that has the desired effect. (Note that the order of users in the comma-separated user list is unimportant.) Option A has two problems: It’s missing a password field (x in the correct entry) and the usernames are separated by spaces rather than commas. Option B also has two problems: It’s missing a password field and its usernames are separated by colons rather than commas. Option C has just one problem: Its usernames are separated by colons rather than commas.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="1">
+		<Question>What types of files might be reasonable files to include in /etc/skel? (Select all that apply.)</Question>
+		<Answer isTrue="0" name="A">A copy of the /etc/shadow file</Answer>
+		<Answer isTrue="1" name="B">An empty set of directories to encourage good file management practices</Answer>
+		<Answer isTrue="1" name="C">A README or similar welcome file for new users</Answer>
+		<Answer isTrue="1" name="D">A starting .bashrc file</Answer>
+		<Explanation>Files in /etc/skel are copied from this directory to new users’ home directories by certain account-creation tools. Thus, files you want in all new users’ home directories should reside in /etc/skel. Options B, C, and D all describe reasonable possibilities, although none is absolutely required. Including a copy of /etc/shadow in /etc/skel would be a very bad idea, though, because this would give all users access to all other users’ encrypted passwords, at least as of the moment of account creation.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Which of the following system logging codes represents the highest priority?</Question>
+		<Answer isTrue="1" name="A">emerg</Answer>
+		<Answer isTrue="0" name="B">warning</Answer>
+		<Answer isTrue="0" name="C">crit</Answer>
+		<Answer isTrue="0" name="D">debug</Answer>
+		<Explanation>The emerg priority code is the highest code available and so is higher than all the other options. (The panic code is equivalent to emerg but isn’t one of the options.) From highest to lowest priorities, the codes given as options are emerg, crit, warning, and debug.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Which of the following configuration files does the logrotate program consult for its settings?</Question>
+		<Answer isTrue="1" name="A">/etc/logrotate.conf</Answer>
+		<Answer isTrue="0" name="B">/usr/sbin/logrotate/logrotate.conf</Answer>
+		<Answer isTrue="0" name="C">/usr/src/logrotate/logrotate.conf</Answer>
+		<Answer isTrue="0" name="D">/etc/logrotate/.conf</Answer>
+		<Explanation>The logrotate program consults a configuration file called /etc/logrotate.conf, which includes several default settings and typically refers to files in /etc/logrotate.d to handle specific log files.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Your manager has asked that you configure logrotate to run on a regular, unattended basis. What utility/feature should you configure to make this possible?</Question>
+		<Answer isTrue="0" name="A">at</Answer>
+		<Answer isTrue="0" name="B">logrotate.d</Answer>
+		<Answer isTrue="1" name="C">cron</Answer>
+		<Answer isTrue="0" name="D">inittab</Answer>
+		<Explanation>The logrotate program can be started automatically—and unattended—on a regular basis by adding an entry for it in cron. The at utility would be used if you wanted the program to run only once, while logrotate.d defines how the program is to handle specific log files. The inittab file is used for services and startup and not for individual programs.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>You’re configuring a Linux system that does not boot any other OS. What is the recommended time to which the computer’s hardware clock should be set?</Question>
+		<Answer isTrue="0" name="A">Helsinki time</Answer>
+		<Answer isTrue="0" name="B">Local time</Answer>
+		<Answer isTrue="0" name="C">US Pacific time</Answer>
+		<Answer isTrue="1" name="D">UTC</Answer>
+		<Explanation>Linux, like Unix, maintains its time internally in Coordinated Universal Time (UTC), so setting the computer’s hardware clock to UTC is the recommended procedure for computers that run only Linux. Although Linus Torvalds spent time at the University of Helsinki, Helsinki time (as in option A) has no special place in Linux. Local time (as in option B) is appropriate if the computer dual-boots to an OS, such as Windows, that requires the hardware clock to be set to local time, but this is the second-best option for a Linux-only system. Option C’s US Pacific time, like Helsinki time, has no special significance in Linux.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>What does the following command and its output reveal about the computer?&lt;br&gt;$ ls -l /etc/localtime&lt;br&gt;lrwxrwxrwx 1 root root 30 Apr 15 14:24 /etc/localtime -> /usr/share/zoneinfo/US/Eastern</Question>
+		<Answer isTrue="0" name="A">The time zone is misconfigured; there is no /usr/share/zoneinfo/US/Eastern time zone file.</Answer>
+		<Answer isTrue="0" name="B">The computer’s security could easily be breached; this file should not have rwxrwxrwx permissions.</Answer>
+		<Answer isTrue="1" name="C">The computer is configured to use the U.S. Eastern time zone as the local time.</Answer>
+		<Answer isTrue="0" name="D">The current time in the U.S. Eastern time zone is 14:24 (2:24 PM).</Answer>
+		<Explanation>The /etc/localtime file holds time zone information and is frequently a symbolic link pointing to a time zone file in the /usr/share/zoneinfo directory tree. The US/Eastern file in this directory configures the system for the U.S. Eastern time zone, so option C is correct. This file is a common one, so option A is incorrect. Although the permissions on the link do look alarming at first glance, this is not a problem for symbolic links, which always have these permissions, so option B is incorrect. Although it’s possible that the computer’s time happens to be 2:24 PM, the time in the listing is the time the /etc/localtime link was created, not the current time, so option D is incorrect.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>You’ve set your system (software) clock on a Linux-only computer to the correct time, and now you want to set the hardware clock to match. What command might you type to accomplish this goal?</Question>
+		<Answer isTrue="0" name="A">date --sethwclock</Answer>
+		<Answer isTrue="0" name="B">ntpdate</Answer>
+		<Answer isTrue="1" name="C">hwclock --utc --systohc</Answer>
+		<Answer isTrue="0" name="D">time --set --hw</Answer>
+		<Explanation>The hwclock utility is used to view or set the hardware clock. The --utc option tells it to use UTC, which is appropriate for a Linux-only system, while --systohc sets the hardware clock based on the current value of the software clock. Thus, option C is correct. Option A’s date utility can be used to set the software clock but not the hardware clock; it has no --sethwclock option. Option B’s ntpdate is used to set the software clock to the time maintained by an NTP server; it doesn’t directly set the hardware clock. Option D’s time command is used to time how long a command takes to complete; it has no --set or --hw options and does not set the hardware clock.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>You’ve configured one computer on your five-computer network, gateway.pangaea.edu, as an NTP server that obtains its time signal from ntp.example.com. What computer(s) should your network’s other computers use as their time source(s)?</Question>
+		<Answer isTrue="0" name="A">You should consult a public NTP server list to locate the best server for you.</Answer>
+		<Answer isTrue="0" name="B">Both gateway.pangaea.edu and ntp.example.com.</Answer>
+		<Answer isTrue="0" name="C">Only ntp.example.com.</Answer>
+		<Answer isTrue="1" name="D">Only gateway.pangaea.edu.</Answer>
+		<Explanation>Once you’ve configured one computer on your network to use an outside time source and run NTP, the rest of your computers should use the first computer as their time reference. This practice reduces the load on the external time servers, as well as your own external network traffic. Thus, option D is correct. (Very large networks might configure two or three internal time servers that refer to outside servers for redundancy, but this isn’t necessary for the small network described in the question.) Option A describes the procedure to locate a time server for the first computer configured (gateway.pangaea.edu) but not for subsequent computers. Although configuring other computers to use ntp.example.com instead of or in addition to gateway.pangaea.edu is possible, doing so will needlessly increase your network traffic and the load on the ntp.example.com server.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="1">
+		<Question>Which of the following tasks is likely to be handled by a cron job? (Select all that apply.)</Question>
+		<Answer isTrue="1" name="A">Starting an important server when the computer boots.</Answer>
+		<Answer isTrue="1" name="B">Finding and deleting old temporary files.</Answer>
+		<Answer isTrue="0" name="C">Scripting supervised account creation.</Answer>
+		<Answer isTrue="1" name="D">Monitoring the status of servers and e-mailing a report to the superuser.</Answer>
+		<Explanation>The cron utility is a good tool for performing tasks that can be done in an unsupervised manner, like deleting old temporary files or checking to see that servers are running correctly. Tasks that require interaction, like creating accounts, are not good candidates for cron jobs, which must execute unsupervised. Although a cron job could restart a crashed server, it’s not normally used to start a server when the system boots; that’s done through SysV startup scripts or a super server.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Which of the following lines, if used in a user cron job, will run /usr/local/bin/cleanup twice a day?</Question>
+		<Answer isTrue="0" name="A">15 7,19 * * * tbaker /usr/local/bin/cleanup</Answer>
+		<Answer isTrue="1" name="B">15 7,19 * * * /usr/local/bin/cleanup</Answer>
+		<Answer isTrue="0" name="C">15 */2 * * * tbaker /usr/local/bin/cleanup</Answer>
+		<Answer isTrue="0" name="D">15 */2 * * * /usr/local/bin/cleanup</Answer>
+		<Explanation>User cron jobs don’t include a username specification (tbaker in options A and C). The */2 specification for the hour in options C and D causes the job to execute every other hour; the 7,19 specification in options A and B causes it to execute twice a day, on the 7th and 19th hours (in conjunction with the 15 minute specification, that means at 7:15 AM and 7:15 PM).</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>You’re installing Linux on a laptop computer. Which of the following programs might you want to add to ensure that log rotation is handled correctly?</Question>
+		<Answer isTrue="0" name="A">tempus</Answer>
+		<Answer isTrue="1" name="B">anacron</Answer>
+		<Answer isTrue="0" name="C">crontab</Answer>
+		<Answer isTrue="0" name="D">ntpd</Answer>
+		<Explanation>The anacron program is a supplement to cron that helps ensure that log rotation, /tmp directory cleanup, and other traditional cron tasks are handled even when the computer is shut down (and, hence, when cron isn’t running) for extended periods of time. Thus, this is the program to add to the system to achieve the stated goal. There is no common Linux utility called tempus. Option C’s crontab is the name of a file or program for controlling cron, which is likely to be an unreliable means of log rotation on a laptop computer. The ntpd program is the NTP daemon, which helps keep the system clock in sync with an external source. Although running ntpd on a laptop computer is possible, it won’t directly help with the task of scheduling log rotation.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>What do the following commands accomplish? (The administrator presses Ctrl+D after typing the second command.)&lt;br&gt;# at teatime&lt;br&gt;at> /usr/local/bin/system-maintenance</Question>
+		<Answer isTrue="0" name="A">Nothing; these commands aren’t valid.</Answer>
+		<Answer isTrue="0" name="B">Nothing; teatime isn’t a valid option to at.</Answer>
+		<Answer isTrue="0" name="C">Nothing; you may only type valid bash built-in commands at the at> prompt.</Answer>
+		<Answer isTrue="1" name="D">The /usr/local/bin/system-maintenance program or script is run at 4:00 PM.</Answer>
+		<Explanation>The at command runs a specified program at the stated time in the future. This time may be specified in several ways, one of which is teatime, which stands for 4:00 PM. Thus, option D is correct. The objections stated in options A, B, and C are all invalid.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="1">
+		<Question>Which of the following commands are commonly used to back up Linux systems? (Select all that apply.)</Question>
+		<Answer isTrue="0" name="A">restore</Answer>
+		<Answer isTrue="1" name="B">tar</Answer>
+		<Answer isTrue="0" name="C">tape</Answer>
+		<Answer isTrue="1" name="D">cpio</Answer>
+		<Explanation>The tar and cpio programs are common Linux archive-creation utilities that are frequently used for backing up the computer. The restore command restores (but does not back up) data; its backup counterpart command is dump, but dump is no longer a recommended backup tool on Linux. There is no standard tape command in Linux.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>You need to restore some files that were accidentally deleted. Which of the following commands can be used to list the contents of an archive stored on a SCSI tape prior to actually restoring the files?</Question>
+		<Answer isTrue="0" name="A">tar uvf /dev/st0</Answer>
+		<Answer isTrue="0" name="B">tar cvf /dev/st0</Answer>
+		<Answer isTrue="0" name="C">tar xvf /dev/st0</Answer>
+		<Answer isTrue="1" name="D">tar tvf /dev/st0</Answer>
+		<Explanation>With the tar utility, the --list (t) command is used to read the archive and display its contents. The --verbose (v) option creates a verbose file listing, while --file (f) specifies the filename—/dev/st0 for a SCSI tape device. Option D uses all of these features. Options A, B, and C all substitute other commands for --list, which is required by the question.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="1">
+		<Question>You arrive at work on Monday morning to find that the server has crashed. All indications point to the crash as occurring after midnight on Monday morning. Scripts automatically do a full backup of the server every Friday night and an incremental backup all other nights. Which tapes do you need to restore the data on a new server? (Select all that apply.)</Question>
+		<Answer isTrue="0" name="A">Thursday’s tape</Answer>
+		<Answer isTrue="1" name="B">Friday’s tape</Answer>
+		<Answer isTrue="1" name="C">Saturday’s tape</Answer>
+		<Answer isTrue="1" name="D">Sunday’s tape</Answer>
+		<Explanation>In order to restore the data, you must restore the most recent full backup—which was done on Friday night. After the full restore, you must restore the incremental backups in the order in which they were done. In this case, two incremenatals (Saturday’s and Sunday’s) were done after the full backup and they must be restored as well.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="1">
+		<Question>Which types of network hardware does Linux support? (Select all that apply.)</Question>
+		<Answer isTrue="1" name="A">Token Ring</Answer>
+		<Answer isTrue="1" name="B">Ethernet</Answer>
+		<Answer isTrue="0" name="C">DHCP</Answer>
+		<Answer isTrue="1" name="D">Fibre Channel</Answer>
+		<Explanation>Ethernet is currently the most common type of network hardware for local networks. Linux supports it very well, and Linux also includes support for Token Ring and Fibre Channel network hardware. DHCP is a protocol used to obtain a TCP/IP configuration over a TCP/IP network. It’s not a type of network hardware, but it can be used over hardware that supports TCP/IP.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Which of the following is a valid IP address for a computer on a TCP/IP network?</Question>
+		<Answer isTrue="0" name="A">202.9.257.33</Answer>
+		<Answer isTrue="1" name="B">63.63.63.63</Answer>
+		<Answer isTrue="0" name="C">107.29.5.3.2</Answer>
+		<Answer isTrue="0" name="D">98.7.104.0/24</Answer>
+		<Explanation>IP addresses consist of four 1-byte numbers (0–255). They’re normally expressed in base 10 and separated by periods. 63.63.63.63 meets these criteria. 202.9.257.33 includes one value (257) that’s not a 1-byte number. 107.29.5.3.2 includes five 1-byte numbers. 98.7.104.0/24 is a network address—the trailing /24 indicates that the final byte is a machine identifier, and the first 3 bytes specify the network.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>You want to set up a computer on a local network via a static TCP/IP configuration, but you lack a gateway address. Which of the following is true?</Question>
+		<Answer isTrue="0" name="A">Because the gateway address is necessary, no TCP/IP networking functions will work.</Answer>
+		<Answer isTrue="0" name="B">TCP/IP networking will function, but you’ll be unable to convert hostnames to IP addresses or vice versa.</Answer>
+		<Answer isTrue="1" name="C">You’ll be able to communicate with machines on your local network segment but not with other systems.</Answer>
+		<Answer isTrue="0" name="D">The computer won’t be able to tell which other computers are local and which are remote.</Answer>
+		<Explanation>The gateway computer is a router that transfers data between two or more network segments. As such, if a computer isn’t configured to use a gateway, it won’t be able to communicate beyond its local network segment. (If your DNS server is on a different network segment, name resolution via DNS won’t work, although other types of name resolution, such as /etc/hosts file entries, will still work.)</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Which of the following is not a Linux DHCP client?</Question>
+		<Answer isTrue="0" name="A">pump</Answer>
+		<Answer isTrue="0" name="B">dhcpcd</Answer>
+		<Answer isTrue="1" name="C">dhcpd</Answer>
+		<Answer isTrue="0" name="D">dhclient</Answer>
+		<Explanation>Option C, dhcpd, is the Linux DHCP server. The others are all DHCP clients. Most distributions ship with just one or two of the DHCP clients.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="1">
+		<Question>Which of the following types of information is returned by typing ifconfig eth0? (Select all that apply.)</Question>
+		<Answer isTrue="0" name="A">The names of programs that are using eth0.</Answer>
+		<Answer isTrue="1" name="B">The IP address assigned to eth0.</Answer>
+		<Answer isTrue="1" name="C">The hardware address of eth0.</Answer>
+		<Answer isTrue="0" name="D">The hostname associated with eth0.</Answer>
+		<Explanation>When used to display information on an interface, ifconfig shows the hardware and IP addresses of the interface, the protocols (such as TCP/IP) bound to the interface, and statistics on transmitted and received packets. This command does not return information on programs using the interface or the hostname associated with the interface.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Which of the following programs can be used to perform a DNS lookup?</Question>
+		<Answer isTrue="1" name="A">host</Answer>
+		<Answer isTrue="0" name="B">dnslookup</Answer>
+		<Answer isTrue="0" name="C">pump</Answer>
+		<Answer isTrue="0" name="D">ifconfig</Answer>
+		<Explanation>The host program is a commonly used program to perform a DNS lookup. There is no standard dnslookup program, although the nslookup program is a deprecated program for performing DNS lookups. pump is a DHCP client, while ifconfig is used for configuration of networking parameters and cards.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Which of the following entries are found in the /etc/hosts file?</Question>
+		<Answer isTrue="0" name="A">A list of hosts allowed to remotely access this one.</Answer>
+		<Answer isTrue="1" name="B">Mappings of IP addresses to hostnames.</Answer>
+		<Answer isTrue="0" name="C">A list of users allowed to remotely access this host.</Answer>
+		<Answer isTrue="0" name="D">Passwords for remote web administration.</Answer>
+		<Explanation>The /etc/hosts file holds mappings of IP addresses to hostnames, on a one-line-per-mapping basis. It does not list the users or other hosts allowed to remotely access this one or affect remote administration through a web browser.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Which of the following commands should you use to add to host 192.168.0.10 a default gateway to 192.168.0.1?</Question>
+		<Answer isTrue="0" name="A">route add default gw 192.168.0.10 192.168.0.1</Answer>
+		<Answer isTrue="1" name="B">route add default gw 192.168.0.1</Answer>
+		<Answer isTrue="0" name="C">route add 192.168.0.10 default 192.168.0.1</Answer>
+		<Answer isTrue="0" name="D">route 192.168.0.10 gw 192.168.0.1</Answer>
+		<Explanation>To add a default gateway of 192.168.0.1, the command would be route add default gw 192.168.0.1. Specifying the IP address of the host system is not necessary and in fact will confuse the route command.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="1">
+		<Question>Which of the following pieces of information are usually required to initiate a PPP connection over an analog telephone line? (Select all that apply.)</Question>
+		<Answer isTrue="1" name="A">The ISP’s telephone number</Answer>
+		<Answer isTrue="0" name="B">The client IP address</Answer>
+		<Answer isTrue="1" name="C">An account name (username)</Answer>
+		<Answer isTrue="1" name="D">A password</Answer>
+		<Explanation>You need a telephone number to dial the call (although this is not needed for a PPPoE or PPPoA broadband connection). Most ISPs use a username and password to authenticate access. Although you can specify an IP address, this option is only used in specialized circumstances.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>What is the purpose of PAP and CHAP?</Question>
+		<Answer isTrue="0" name="A">They’re tools to manage multiple servers, thus reducing the memory load of running many server programs.</Answer>
+		<Answer isTrue="0" name="B">They’re methods of converting IP addresses to hostnames,) or vice versa, for applications.</Answer>
+		<Answer isTrue="1" name="C">They’re protocols for exchanging username and password data in a standardized way in a PPP connection.</Answer>
+		<Answer isTrue="0" name="D">They’re competing systems for managing printers on a Linux system, with PAP being the more common one today.</Answer>
+		<Explanation>Option C correctly describes the purpose of PAP and CHAP. Option A describes the function of super servers, such as inetd or xinetd. Option B describes the purpose of DNS or the /etc/ hosts file. Option D describes the function of the BSD LPD, LPRng, and CUPS daemons.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>What tool might you use to simplify PPP configuration, letting the tool figure out how to enter your authentication information?</Question>
+		<Answer isTrue="0" name="A">netstat</Answer>
+		<Answer isTrue="0" name="B">ppp-off</Answer>
+		<Answer isTrue="1" name="C">wvdial</Answer>
+		<Answer isTrue="0" name="D">pppd</Answer>
+		<Explanation>The wvdial program simplifies PPP configuration and use by providing a somewhat “brainier” front end to pppd than the standard scripts. The netstat command of option A is a general-purpose network diagnostic and configuration tool, but it’s not useful in automating PPP configuration. The ppp-off utility of option B is used to terminate a PPP connection, not to simplify the creation of such a connection. Option D’s pppd is used to initiate a PPP connection, but by itself it’s not a very friendly or simple tool; it’s generally used with the help of a dialing script (ppp-on), wvdial, or a GUI dialing program.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="1">
+		<Question>Which of the following are potential benefits of running a server via a super server? (Select all that apply.)</Question>
+		<Answer isTrue="1" name="A">Reduced memory load when running many small servers.</Answer>
+		<Answer isTrue="0" name="B">Improved server response speed.</Answer>
+		<Answer isTrue="1" name="C">Increased security from the super server’s options.</Answer>
+		<Answer isTrue="0" name="D">Better capacity to retain data between connections to the server.</Answer>
+		<Explanation>Super servers can reduce memory load and have the potential to improve security by applying extra security checks on incoming connections. Super servers do not improve response speed or improve servers’ ability to retain data between connections; if anything, these are benefits of running the server directly, without the help of a super server.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>You have just finished editing and changing the inetd.conf file. Which of the following commands will cause some Linux distributions to read the changed file?</Question>
+		<Answer isTrue="0" name="A">/etc/inetd restart</Answer>
+		<Answer isTrue="0" name="B">/etc/bin/inetd restart</Answer>
+		<Answer isTrue="0" name="C">/etc/sbin/inetd restart</Answer>
+		<Answer isTrue="1" name="D">/etc/rc.d/init.d/inetd restart</Answer>
+		<Explanation>The inetd SysV startup script is usually located in /etc/rc.d/init.d , /etc/init.d, or /etc/rc.d. After changing the inetd.conf file, you can run this startup script with the restart or reload option to tell the inetd super server to implement the changes you’ve made. The other options all refer to the inetd SysV startup script in locations in which it never resides.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>You’ve installed a new server that includes its own xinetd configuration file in /etc/xinetd.d. This new server is not responding, even after you restart your distribution’s standard xinetd. Which of the following is one of the first things you should check when debugging this problem?</Question>
+		<Answer isTrue="0" name="A">Type inetd verify to review the super server configuration to be sure that the new server is properly configured.</Answer>
+		<Answer isTrue="0" name="B">Look for a line for the server in /etc/inetd.conf. If it’s present but begins with a hash mark (#), remove the hash mark.</Answer>
+		<Answer isTrue="0" name="C">Use nslookup to verify that xinetd is listening on the port for the new server. If it’s not, type xinetd listen to fix the problem.</Answer>
+		<Answer isTrue="1" name="D">Look for a disable = yes line in the configuration file in /etc/xinetd.d. If you find it, change it to read disable = no.</Answer>
+		<Explanation>Many servers that ship with xinetd configuration files include the disable = yes line in these files as a security precaution. This configuration prevents the server from being active until the user explicitly activates it by changing yes to no on this line. Option A describes a nonexistent option to inetd, which isn’t the right super server for this question. Option B’s inetd.conf file is also the wrong configuration file, although this would be a reasonable thing to check if the system were running inetd rather than xinetd. The nslookup program is used to translate hostnames to IP addresses and vice versa; it’s not a useful diagnostic tool in this situation.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>You need to add a printer definition to a stand-alone workstation running LPRng. Which file should you edit to add the printer?</Question>
+		<Answer isTrue="0" name="A">/etc/cups/printers.conf</Answer>
+		<Answer isTrue="1" name="B">/etc/printcap</Answer>
+		<Answer isTrue="0" name="C">/etc/cups/cupsd.conf</Answer>
+		<Answer isTrue="0" name="D">/etc/rc.d/init.d/lpd</Answer>
+		<Explanation>You can add or delete printers by editing the /etc/printcap file, which consists of printer definitions for BSD LPD or LPRng. The /etc/cups/printers.conf file holds printer definitions for CUPS, and although you can directly edit this file to add a printer, doing so is tricky. /etc/cups/cupsd.conf is the main CUPS configuration file, /etc/rc.d/init.d/lpd is the BSD LPD printing startup script.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Which of the following describes the function of a smart filter?</Question>
+		<Answer isTrue="1" name="A">It detects the type of a file and passes it through programs to make it printable on a given model of printer.</Answer>
+		<Answer isTrue="0" name="B">It detects information in print jobs that might be confidential as a measure against industrial espionage.</Answer>
+		<Answer isTrue="0" name="C">It sends e-mail to the person who submitted the print job, obviating the need to wait around the printer for a printout.</Answer>
+		<Answer isTrue="0" name="D">It detects and deletes prank print jobs that are likely to have been created by miscreants trying to waste your paper and ink.</Answer>
+		<Explanation>The smart filter makes a print queue “smart” in that it can accept different file types (plain text, PostScript, graphics, etc.) and print them all correctly. It does not detect confidential information or prank print jobs. The lpr program in the BSD, LPD, and LPRng printing systems can be given a parameter to e-mail a user when the job finishes, but the smart filter doesn’t do this.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="1">
+		<Question>What information about print jobs does the lpq command display? (Select all that apply.)</Question>
+		<Answer isTrue="0" name="A">The name of the application that submitted the job.</Answer>
+		<Answer isTrue="1" name="B">A numerical job ID that can be used to manipulate the job.</Answer>
+		<Answer isTrue="0" name="C">The amount of ink or toner left in the printer.</Answer>
+		<Answer isTrue="1" name="D">The username of the person who submitted the job.</Answer>
+		<Explanation>The job ID and job owner are both displayed by lpq. Unless the application embeds its own name in the filename, that information won’t be present. Most printers lack Linux utilities to query ink or toner status; certainly lpq can’t do this.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>You’ve submitted several print jobs, but you’ve just realized that you mistakenly submitted a huge document that you didn’t want to print. Assuming you can identify which job this was, that it’s not yet printing, and that its job ID number is 749, what command would you type to delete it from the okidata print queue?</Question>
+		<Answer isTrue="0" name="A">The answer depends on whether you’re using BSD LPD, LPRng, or CUPS.</Answer>
+		<Answer isTrue="0" name="B">lpdel -Pokidata 749</Answer>
+		<Answer isTrue="1" name="C">lprm -Pokidata 749</Answer>
+		<Answer isTrue="0" name="D">None of the above; the task is impossible.</Answer>
+		<Explanation>The lprm command deletes a job from the print queue. It can take the -Pqueue option to specify the queue and a print job number or various other parameters to specify which jobs to delete. BSD LPD, LPRng, and CUPS all implement the lprm command, so you can use it with any of these systems. Option B presents the correct syntax but the wrong command name; there is no standard lpdel command.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Which of the following is generally true of Linux programs that print?</Question>
+		<Answer isTrue="0" name="A">They send data directly to the printer port.</Answer>
+		<Answer isTrue="1" name="B">They produce PostScript output for printing.</Answer>
+		<Answer isTrue="0" name="C">They include extensive collections of printer drivers.</Answer>
+		<Answer isTrue="0" name="D">They can print only with the help of add-on commercial programs.</Answer>
+		<Explanation>PostScript is the de facto printing standard for Unix and Linux programs. Linux programs generally do not send data directly to the printer port; on a multi-tasking, multi-user system, this would produce chaos because of competing print jobs. Although a few programs include printer driver collections, most forgo this in favor of generating PostScript. Printing utilities come standard with Linux; add-on commercial utilities aren’t required.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>What tool might you use to print a four-page PostScript file on a single sheet of paper?</Question>
+		<Answer isTrue="0" name="A">PAM</Answer>
+		<Answer isTrue="1" name="B">mpage</Answer>
+		<Answer isTrue="0" name="C">4Front</Answer>
+		<Answer isTrue="0" name="D">route</Answer>
+		<Explanation>The mpage utility prints multiple input pages on a single output page, so it’s ideally suited to the specified task. PAM is the Pluggable Authentication Modules, a tool for helping to authenticate users. 4Front is the name of a company that produces commercial sound drivers for Linux. The route command is used to display or configure a Linux routing table.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Which of the following commands would you type to see if the mail service is functioning and view a backlog of old messages?</Question>
+		<Answer isTrue="0" name="A">postfix</Answer>
+		<Answer isTrue="0" name="B">traceroute</Answer>
+		<Answer isTrue="0" name="C">sendmail</Answer>
+		<Answer isTrue="1" name="D">mailq</Answer>
+		<Explanation>The mailq utility can display a backlog of old messages and show you if the mail service is functioning. Postfix and sendmail are both mail server programs, and their executable commands won’t perform this function. The traceroute program is an enhanced version of ping that shows the route data takes to reach a target, as described in Chapter 9.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>What will be the effect of the following lines in a sendmail m4 configuration file?&lt;br&gt;MASQUERADE_AS(`example.org')&lt;br&gt;FEATURE(masquerade_envelope)</Question>
+		<Answer isTrue="0" name="A">Mail addressed to users in the example.org domain will be hidden from view until the postmaster can examine it.</Answer>
+		<Answer isTrue="0" name="B">The server will change all domain name references in all e-mail headers to example.org, for both incoming and outgoing e-mail.</Answer>
+		<Answer isTrue="0" name="C">Mail sent through the server will be identified as coming from example.org, but only if the mail’s return address omits a domain name.</Answer>
+		<Answer isTrue="1" name="D">Mail sent through the server will be identified as coming from example.org, even if the user has set another address in a mail client.</Answer>
+		<Explanation>Option D correctly describes the effect of these lines. Option A describes the effect of some advanced spam- and virus-fighting tools, but not of the specified lines. Option B goes too far; hostname masquerading applies only to the From: address line on outgoing mail, not to all headers. Option C correctly describes the effect of the first line alone but not of both lines together.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="1">
+		<Question>Which file might you edit to have mail addressed to gertrude redirected to gerty? (Select all that apply.)</Question>
+		<Answer isTrue="0" name="A">/var/spool/mail/gertrude</Answer>
+		<Answer isTrue="0" name="B">newnames in /etc or /etc/mail</Answer>
+		<Answer isTrue="1" name="C">aliases in /etc or /etc/mail</Answer>
+		<Answer isTrue="1" name="D">.forward in gertrude’s home directory</Answer>
+		<Explanation>The aliases file in /etc or /etc/mail sets up e-mail aliases, which are effectively alternative e-mail names for accounts. A user’s ~/.forward file holds information that causes messages to the account to be forwarded to another account or address. Both approaches can accomplish the stated goal, although the ~/.forward file requires that the gertrude account exists and has a home directory. The /var/spool/mail/gertrude file is one possible location for mail addressed to gertrude to be stored by the mail server, but editing this file won’t do any good. The newnames file of option B is fictitious.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Your network’s Internet connection went down an hour ago and has only recently come back up. How would you check to see how many outgoing mail messages have been stuck on your local sendmail server because of this problem?</Question>
+		<Answer isTrue="0" name="A">Type sendmail -q.</Answer>
+		<Answer isTrue="1" name="B">Type mailq.</Answer>
+		<Answer isTrue="0" name="C">Type xmqueue and click the Queued Messages button.</Answer>
+		<Answer isTrue="0" name="D">Log in as postmaster and type pqcheck.</Answer>
+		<Explanation>The mailq program returns information on the mail queue, including how many messages are awaiting delivery. You might type sendmail -q, as in option A, to clear the queue quickly, but this command won’t actually tell you how many messages are waiting in the queue. The xmqueue and pqcheck commands of options C and D are both fictitious.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>What is the name of the protocol Apache uses to communicate with clients?</Question>
+		<Answer isTrue="0" name="A">The Patchy Server Protocol</Answer>
+		<Answer isTrue="1" name="B">The Hypertext Transfer Protocol</Answer>
+		<Answer isTrue="0" name="C">The File Transfer Protocol</Answer>
+		<Answer isTrue="0" name="D">The Hypertext Markup Language</Answer>
+		<Explanation>The Hypertext Transfer Protocol (HTTP) is the name of the protocol Apache uses and is the source of the http:// code in front of web page names. Option A is fictitious, although it’s related to a pun that gave rise to the server name Apache (because the server had been greatly patched). Option C, the File Transfer Protocol (FTP), is the name of a common protocol for transferring files, but it’s not one that’s implemented by Apache. Option D, the Hypertext Markup Language (HTML), is a common format for files delivered by Apache, but this isn’t the protocol used by the server.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>In what directory will you find the files delivered by an Apache server to its clients?</Question>
+		<Answer isTrue="0" name="A">/var/www/htdocs</Answer>
+		<Answer isTrue="0" name="B">/var/www/localhost/htdocs</Answer>
+		<Answer isTrue="0" name="C">/var/apache/htmlfiles</Answer>
+		<Answer isTrue="1" name="D">The location is not consistent across systems.</Answer>
+		<Explanation>No one directory is a correct answer to this question because the directory is set with the DocumentRoot directive in the Apache configuration file.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>What port should you block with a firewall if you want to limit access to a web server running on its standard port?</Question>
+		<Answer isTrue="0" name="A">TCP port 22</Answer>
+		<Answer isTrue="0" name="B">TCP port 25</Answer>
+		<Answer isTrue="1" name="C">TCP port 80</Answer>
+		<Answer isTrue="0" name="D">TCP port 901</Answer>
+		<Explanation>Web servers run on TCP port 80 by default. TCP port 22 is the Secure Shell (SSH) port, TCP port 25 is the Simple Mail Transfer Protocol (SMTP) port, and TCP port 901 is used by the Samba Web Administration Tool (SWAT).</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>How does an NFS server determine who may access files it’s exporting?</Question>
+		<Answer isTrue="1" name="A">It uses the local file ownership and permission in conjunction with the client’s user authentication and a list of trusted client computers.</Answer>
+		<Answer isTrue="0" name="B">It uses a password that’s sent in unencrypted form across the network.</Answer>
+		<Answer isTrue="0" name="C">It uses a password that’s sent in encrypted form across the network.</Answer>
+		<Answer isTrue="0" name="D">It uses the contents of individual users’ .rlogin files to determine which client computers may access a share.</Answer>
+		<Explanation>NFS uses a “trusted host” policy to let clients police their own users, including access to the NFS server’s files. NFS does not use a password, nor does it use the .rlogin file in users’ home directories.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>What is the effect of the following line in /etc/fstab?&lt;br&gt;share:/server /mnt/samba nfs defaults 0 0</Question>
+		<Answer isTrue="0" name="A">It mounts the SMB/CIFS share called server from the server called share at /mnt/samba.</Answer>
+		<Answer isTrue="0" name="B">It mounts the SMB/CIFS share called share from the server called server at /mnt/samba.</Answer>
+		<Answer isTrue="0" name="C">It mounts the NFS export called share from the server called server at /mnt/samba.</Answer>
+		<Answer isTrue="1" name="D">It mounts the NFS export called server from the server called share at /mnt/samba.</Answer>
+		<Explanation>Option D correctly describes the effect of this /etc/fstab entry. The server, share, and mount point names are all deceptive in this example. Options A and B both incorrectly state that the share is an SMB/CIFS share, when in fact it’s an NFS export, as indicated by both the format of the server identification and by the use of an nfs filesystem type code. Option C is closer to correct, but it confuses the role of the server and export; in an NFS specification, the server name comes first, followed by a :/ symbol pair and the name of the export.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Which of the following parameters should you definitely check and, if necessary, adjust in the [global] section of your smb.conf file when configuring Samba?</Question>
+		<Answer isTrue="0" name="A">path</Answer>
+		<Answer isTrue="1" name="B">workgroup</Answer>
+		<Answer isTrue="0" name="C">comment</Answer>
+		<Answer isTrue="0" name="D">write list</Answer>
+		<Explanation>The workgroup parameter identifies the name of the workgroup or domain to which the Samba server belongs. This is a global option that must be set correctly for Samba to interact normally with other SMB/CIFS clients and servers. The path, comment, and write list parameters are all share-level parameters that describe individual shares. Although you could theoretically find any of them in the [global] section as a way of setting defaults for subsequent shares, they aren’t as necessary for basic Samba functioning, and they can all be overridden within individual share definitions.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Joe is editing an smb.conf file and spots the line print ok = Yes in a share definition. He changes this line to read printable = Yes. What effect will this change have on the operation of the share?</Question>
+		<Answer isTrue="0" name="A">It converts a printer share into a file share.</Answer>
+		<Answer isTrue="0" name="B">It converts a file share into a printer share.</Answer>
+		<Answer isTrue="0" name="C">It makes Samba report errors correctly when they occur.</Answer>
+		<Answer isTrue="1" name="D">None of the above.</Answer>
+		<Explanation>The print ok and printable parameters are synonyms, so Joe’s change has no effect on the operation of the share. Both before and after the change, the share was a printer share. Errors are handled in precisely the same way, no matter which parameter name is used.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Why might you want to run SWAT?</Question>
+		<Answer isTrue="0" name="A">It provides name resolution using NetBIOS protocols.</Answer>
+		<Answer isTrue="1" name="B">It provides Web-based GUI administration of a Samba server.</Answer>
+		<Answer isTrue="0" name="C">It’s run from the inetd or xinetd super server, unlike many servers.</Answer>
+		<Answer isTrue="0" name="D">It helps to find and correct bugs in a wide variety of servers.</Answer>
+		<Explanation>SWAT is the Samba Web Administration Tool, which provides local or remote GUI administration for a Samba server. Option A describes certain configuration changes to /etc/nsswitch.conf, but SWAT is unnecessary for making these changes. Option C is a true statement, but the fact that SWAT is run from a super server is not sufficient reason to run it. Option D is simply a made-up description; it doesn’t describe SWAT.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>How many individual queries are involved in a full recursive DNS lookup?</Question>
+		<Answer isTrue="0" name="A">1</Answer>
+		<Answer isTrue="0" name="B">3</Answer>
+		<Answer isTrue="0" name="C">7</Answer>
+		<Answer isTrue="1" name="D">A variable number</Answer>
+		<Explanation>Recursive DNS lookups take an unknown number of queries to various DNS servers that handle different parts of the DNS name space.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>You compare two /etc/named.conf files and find that they differ in only one line. The first includes a line in the options section that reads forward first;, while the second contains a line that reads forward only;. Assuming the rest of the forwarding name server configurations in these files are correct, what is the effect of this small difference?</Question>
+		<Answer isTrue="1" name="A">The forward first; configuration performs a forwarding lookup and then does a full recursive lookup if the forwarding lookup fails; the forward only; configuration performs a forwarding lookup but never attempts a full recursive lookup.</Answer>
+		<Answer isTrue="0" name="B">The forward first; configuration forwards DNS information to clients before logging the data; the forward only; configuration forwards DNS information to clients without logging information on the lookup.</Answer>
+		<Answer isTrue="0" name="C">The forward first; configuration does a forwarding lookup and checks the results against a full recursive lookup; the forward only; configuration performs a forwarding lookup but never attempts a full recursive lookup.</Answer>
+		<Answer isTrue="0" name="D">None of the above; neither configuration is valid.</Answer>
+		<Explanation>Option A correctly describes the difference between these two configuration options. Option B is a completely fictitious description. Option C is almost correct, but forward first; does not result in a full recursive lookup unless the forwarding lookup fails in certain ways. Both configurations are valid, at least within the context of an otherwise valid BIND 8/9 configuration.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>In what file would you enter the following line to use a forwarding DNS server you’ve set up on 192.168.1.1?&lt;br&gt;nameserver 192.168.1.1</Question>
+		<Answer isTrue="0" name="A">/etc/named.conf</Answer>
+		<Answer isTrue="0" name="B">/etc/nameservers.conf</Answer>
+		<Answer isTrue="1" name="C">/etc/resolv.conf</Answer>
+		<Answer isTrue="0" name="D">/etc/dnsrc</Answer>
+		<Explanation>The /etc/resolv.conf file holds the IP addresses of the DNS servers your system should use, in the format of the specified line; thus, option C is correct. Option A, /etc/named.conf, is the main BIND configuration file on the DNS server itself. Options B and D are both fictitious files.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Under what circumstances should a forwarding-only name server be accessible to the Internet at large?</Question>
+		<Answer isTrue="1" name="A">Rarely or never</Answer>
+		<Answer isTrue="0" name="B">Almost always</Answer>
+		<Answer isTrue="0" name="C">Only when your domain already has two other DNS servers on the Internet</Answer>
+		<Answer isTrue="0" name="D">Only when you use BIND 8.x or later</Answer>
+		<Explanation>A forwarding-only name server is normally intended for use only by the systems on a local network. Exposing such a system to the Internet at large is almost certainly an unnecessary security risk, so option A is correct. Option B is the exact opposite of the correct answer. Option C is incorrect because the number of existing DNS servers you have serving your domain is irrelevant to the question of forwarding DNS servers. The version of BIND, as mentioned in option D, is also unimportant to the question, at least as a matter of principle. (As with all servers, some versions have known security bugs, of course.)</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="1">
+		<Question>Which servers might you consider retiring after activating an SSH server? (Select all that apply.)</Question>
+		<Answer isTrue="0" name="A">SMTP</Answer>
+		<Answer isTrue="1" name="B">Telnet</Answer>
+		<Answer isTrue="1" name="C">FTP</Answer>
+		<Answer isTrue="0" name="D">NFS</Answer>
+		<Explanation>SSH is most directly a replacement for Telnet, but SSH also includes file transfer features that enable it to replace FTP in many situations. SSH is not a direct replacement for either SMTP or NFS.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>You find that the ssh_host_dsa_key file in /etc/ssh has 0666 (-rw-rw-rw) permissions. Your SSH server has been in operation for several months. Should you be concerned?</Question>
+		<Answer isTrue="1" name="A">Yes</Answer>
+		<Answer isTrue="0" name="B">No</Answer>
+		<Answer isTrue="0" name="C">Only if the ssh_host_dsa_key.pub file is also world-readable</Answer>
+		<Answer isTrue="0" name="D">Only if you’re launching SSH from a super server</Answer>
+		<Explanation>The ssh_host_dsa_key file holds one of three critical private keys for SSH. The fact that this key is readable (and writeable!) to the entire world is disturbing. In principle, a miscreant who has acquired this file might be able to redirect traffic and masquerade as your system, duping users into delivering passwords and other sensitive data.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>For best SSH server security, how should you set the Protocol option in /etc/ssh/sshd_config?</Question>
+		<Answer isTrue="0" name="A">Protocol 1</Answer>
+		<Answer isTrue="1" name="B">Protocol 2</Answer>
+		<Answer isTrue="0" name="C">Protocol 1,2</Answer>
+		<Answer isTrue="0" name="D">Protocol 2,1</Answer>
+		<Explanation>SSH protocol level 2 is more secure than protocol level 1; thus, option B (specifying acceptance of level 2 only) is the safest approach. Option A is the least safe approach because it precludes the use of the safer level 2. Options C and D are exactly equivalent in practice; both support both protocol levels.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Why is it unwise to allow root to log on directly using SSH?</Question>
+		<Answer isTrue="1" name="A">Somebody with the root password but no other password could then break into the computer.</Answer>
+		<Answer isTrue="0" name="B">The root password should never be sent over a network connection; allowing root logins in this way is inviting disaster.</Answer>
+		<Answer isTrue="0" name="C">SSH stores all login information, including passwords, in a publicly readable file.</Answer>
+		<Answer isTrue="0" name="D">When logged on using SSH, root’s commands can be easily intercepted and duplicated by undesirable elements.</Answer>
+		<Explanation>Allowing only normal users to log in via SSH effectively requires two passwords for any remote root maintenance, improving security. SSH encrypts all connections, so it’s unlikely that the password, or commands issued during an SSH session, will be intercepted. (Nonetheless, some administrators prefer not to take even this small risk.) SSH doesn’t store passwords in a file.</Explanation>
+	</TestQuestion>
+</Quiz>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="entries_list_preference">
+        <item>ADM</item>
+        
+    </string-array>
+
+    <!-- vales are the xml files name with quiz questions -->
+    <string-array name="entryvalues_list_preference">
+        <item>101</item>
+       
+    </string-array>
+
+</resources>

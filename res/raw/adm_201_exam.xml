@@ -1,0 +1,574 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Quiz xmlns="http://mycompany.com/hr/schemas"  >
+	<TestQuestion isMultiple="0" noOfOptions="2">
+		<Name>Siva Nadavati</Name>
+		<BloodGroup isTrue="0" name="A">B+</BloodGroup>
+		<Email isTrue="1" name="B">nadavati.siva776@gmail.com</Email>
+		<Phone isTrue="0" name="C">8951283077</Phone>
+		<Location isTrue="0" name="D">Bangalore</Location>
+		<Age isTrue ="0" name="E">25</Age>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>__________ are a collection of Force.com components and applications that are made available to other organizations through the AppExchange.</Question>
+		<Answer isTrue="0" name="A">Application</Answer>
+		<Answer isTrue="0" name="B">Object</Answer>
+		<Answer isTrue="0" name="C">Workflow Rules</Answer>
+		<Answer isTrue="1" name="D">Packages</Answer>
+		<Explanation>http://na15.salesforce.com/help/doc/en/sharing_apps.htm</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>A Account team is a set of users that normally work together on _________?</Question>
+		<Answer isTrue="0" name="A">Accounts</Answer>
+		<Answer isTrue="0" name="B">Leads</Answer>
+		<Answer isTrue="0" name="C">Opportunities</Answer>
+		<Answer isTrue="1" name="D">Contacts</Answer>
+		<Explanation>A Account team is a set of users that normally work together on Contacts</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>A custom field is made Read only from the Field level security and Required from Page layout. The Field will be...</Question>
+		<Answer isTrue="1" name="A">Read Only for the User</Answer>
+		<Answer isTrue="0" name="B">Required for the User</Answer>
+		<Answer isTrue="0" name="C">Throws an error and don’t allow to make Read only field Mandatory from page layout.</Answer>
+		<Answer isTrue="0" name="D">User is given a choice in a pop up window</Answer>
+		<Explanation>A custom field is made Read only from the Field level security and Required from Page layout. The Field will be Read Only for the User</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>A custom lookup field can be added to create a relationship between a standard object and which of the following objects?</Question>
+		<Answer isTrue="1" name="A">Users, Standard and Custom Objects</Answer>
+		<Answer isTrue="0" name="B">Leads, Accounts, Contacts and Custom Objects</Answer>
+		<Answer isTrue="0" name="C">Users, Custom Objects and Campaigns</Answer>
+		<Answer isTrue="0" name="D">Custom Objects, Contract and Campaign</Answer>
+		<Explanation>Source: https://help.salesforce.com/apex/HTViewHelpDoc?id=custom_field_types.htm and language=en</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>A opportunity team is a set of users that normally work together on _________ ?</Question>
+		<Answer isTrue="0" name="A">Accounts</Answer>
+		<Answer isTrue="0" name="B">Leads</Answer>
+		<Answer isTrue="1" name="C">Opportunities</Answer>
+		<Answer isTrue="0" name="D">Contacts</Answer>
+		<Explanation>A opportunity team is a set of users that normally work together on Opportunities</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>A record is modified on 1/1/2008. It meets criteria for a time-based workflow rule; this rule schedules an action for 7 days after rule execution. On 1/4/2008 the record is modified and no longer meets workflow rule criteria. On 1/5/2008 the record is modified and once again meets the initial time-based workflow rule criteria. How many workflow actions will execute and when?</Question>
+		<Answer isTrue="0" name="A">0</Answer>
+		<Answer isTrue="0" name="B">1 on 1/8/2008</Answer>
+		<Answer isTrue="1" name="C">1 on 1/12/2008</Answer>
+		<Answer isTrue="0" name="D">2 on 1/8/2008 and 1/12/2008"</Answer>
+		<Explanation>When the record is modified and no longer meets criteria on 1/4 the initial workflow action is dropped from the queue. The workflow action created on 1/5 is scheduled for 7 days after rule execution (which is 1/5), therefore the only rule that would be executed is on 1/12.</Explanation>
+	</TestQuestion>
+	
+	<TestQuestion isMultiple="1">
+		<Question>A record owner has the privileges to: View and edit records, transfer or change ownership of records, and delete owned records.</Question>
+		<Answer isTrue="0" name="A">True. All the time.</Answer>
+		<Answer isTrue="0" name="B">False. All the time.</Answer>
+		<Answer isTrue="1" name="C">True. If Object permission is enabled.</Answer>
+		<Answer isTrue="1" name="D"> False. If Object permission is disabled.</Answer>
+		<Explanation> https://lms.cfs-api.com/v1/content/8cc7898a-4805-4e78-8d96-4ae36915e3d3/index_lms.html</Explanation>
+	</TestQuestion>
+	
+		<TestQuestion isMultiple="0">
+		<Question>A Report type in the report wizard determines:</Question>
+		<Answer isTrue="1" name="A">Determines which object or related objects you can report on. </Answer>
+		<Answer isTrue="0" name="B">Additional criteria that you can set to limit the data that you see.</Answer>
+		<Answer isTrue="0" name="C">Determines how the records are organized</Answer>
+		<Answer isTrue="0" name="D">Reflects the list of fields available for your report columns</Answer>
+		<Explanation>http://na15.salesforce.com/help/doc/th/reports_report_type_def.htm</Explanation>
+	</TestQuestion>
+	
+	<TestQuestion isMultiple="1">
+		<Question>What may be updated as a result of the status change? Choose 2 answers</Question>
+		<Answer isTrue="0" name="A">Sales quota</Answer>
+		<Answer isTrue="0" name="B">Amount rating</Answer>
+		<Answer isTrue="1" name="C">Forecast category</Answer>
+		<Answer isTrue="1" name="D">Probability</Answer>
+		<Explanation>Forecast category,Probability</Explanation>
+	</TestQuestion>
+		<TestQuestion isMultiple="0">
+		<Question>A system administrator at Universal Containers created a custom object to capture custom feedback. How can the administrator ensure that users  have access to this new object?</Question>
+		<Answer isTrue="0" name="A">Add fields from the feedback object to the account page layout</Answer>
+		<Answer isTrue="0" name="B">Create a lookup relationship from the account page to the feedback object</Answer>
+		<Answer isTrue="1" name="C">Assign the feedback page layout to the appropriate user profiles</Answer>
+		<Answer isTrue="0" name="D">Create a role in the hierarchy to provide user access to the new object</Answer>
+		<Explanation>Assign the feedback page layout to the appropriate user profiles</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="1">
+		<Question>A system administrator at Universal Containers needs to mass update the lead source on a number of opportunity records.How can this be accomplished?Choose 2 answers</Question>
+		<Answer isTrue="0" name="A">Use similar opportunities to update the opportunities</Answer>
+		<Answer isTrue="1" name="B">Create a list view for opportunities and update using inline editing</Answer>
+		<Answer isTrue="1" name="C">Export opportunities and update using the import wizard</Answer>
+		<Answer isTrue="0" name="D">Export opportunities and update using the data loader</Answer>
+		<Explanation>Create a list view for opportunities and update using inline editing,Export opportunities and update using the import wizard </Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="1">
+		<Question>A system administrator at Universal Containers needs to prevent sales representatives from editing fields on an opportunity once the opportunity has been moved to a closed stage.Which data validation tool can be used to accomplish this?Choose 2 answers</Question>
+		<Answer isTrue="0" name="A">Formula fields</Answer>
+		<Answer isTrue="1" name="B">Data Validation rules</Answer>
+		<Answer isTrue="1" name="C">Record Types and read only page layouts</Answer>
+		<Answer isTrue="0" name="D">Workflow field updates</Answer>
+		<Explanation>Data Validation rules,Record Types and read only page layouts </Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="1">
+		<Question>A System Administrator can edit a profile to:(select two)</Question>
+		<Answer isTrue="1" name="A">Prevent a user from viewing custom tabs</Answer>
+		<Answer isTrue="1" name="B">Prevent the use of Mass Email</Answer>
+		<Answer isTrue="0" name="C">Deny a user access to other users leads</Answer>
+		<Answer isTrue="0" name="D">None</Answer>
+		<Explanation>Prevent a user from viewing custom tabs, Prevent the use of Mass Email</Explanation>
+	</TestQuestion>
+		<TestQuestion isMultiple="0">
+		<Question>A system administrator created a custom object for a recruiting application to track open positions. The administrator needs to give recruiting users the ability to read, create, edit and delete position records.How should the administrator proceed</Question>
+		<Answer isTrue="0" name="A">Modify a standard profile and enable the custom object permissions</Answer>
+		<Answer isTrue="0" name="B">Use an existing standard profile that will automatically have the custom object permissions enabled</Answer>
+		<Answer isTrue="1" name="C">Create a custom profile and enable the custom object permissions</Answer>
+		<Answer isTrue="0" name="D">An option under “Create New” in the Sidebar</Answer>
+		<Explanation>Create a custom profile and enable the custom object permissions</Explanation>
+	</TestQuestion>
+		<TestQuestion isMultiple="0">
+		<Question>A system administrator has created a formula field on a lead object to calculate a number. How can the numerical value be mapped to the account record upon lead conversion?</Question>
+		<Answer isTrue="0" name="A">The lead formula field value can be mapped to a number field on the account record</Answer>
+		<Answer isTrue="0" name="B">The lead formula field value can be mapped to a roll-up summary field on the account record</Answer>
+		<Answer isTrue="1" name="C"> The lead formula field value can be mapped to a formula field on the account record</Answer>
+		<Answer isTrue="0" name="D">The lead formula field value can be mapped to a standard field on the account record</Answer>
+		<Explanation>A. The lead formula field value can be mapped to a number field on the account record</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>A US Sales rep is reporting that the new opportunities she creates do not default to the US Dollar Currency and she has to change them manually. How do you resolve this?</Question>
+		<Answer isTrue="0" name="A">Change corporate setting in Company Profile.</Answer>
+		<Answer isTrue="0" name="B">Enable advanced currency mngt.</Answer>
+		<Answer isTrue="1" name="C">Change the personal currency on user record.</Answer>
+		<Answer isTrue="0" name="D">Change the record currency for oppty.</Answer>
+		<Explanation>Change the personal currency on user record..</Explanation>
+	</TestQuestion>
+		<TestQuestion isMultiple="0">
+		<Question>A user received an error message when attempting to log into Salesforce. What is the first step the Salesforce administrator would take to troubleshoot the problem?</Question>
+		<Answer isTrue="0" name="A">Reset the password</Answer>
+		<Answer isTrue="0" name="B">Unlock the user</Answer>
+		<Answer isTrue="0" name="C">Change the login IP ranges</Answer>
+		<Answer isTrue="1" name="D">View the login history</Answer>
+		<Explanation>View the login history</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+	<Question>A user responsible for managing and creating campaigns is unable to create a new campaign, even though the user's profile has the Create: profile permission for Campaigns. How should a system administrator grant the correct access to the user?</Question>
+		<Answer isTrue="0" name="A">Assign the user to the standard Marketing User profile</Answer>
+		<Answer isTrue="1" name="B">Select the Marketing User checkbox on the user record</Answer>
+		<Answer isTrue="0" name="C">Grant the user delegated administration rights to campaigns</Answer>
+		<Answer isTrue="0" name="D">Create a campaign sharing rule to grant access to the user</Answer>
+		<Explanation>Select the Marketing User checkbox on the user record</Explanation>
+	</TestQuestion>
+	
+		<TestQuestion isMultiple="0">
+	<Question>A user successfully login’s at 3:00 PM, What happens at 3:31 PM, if the Login hours for the user’s Profile are set from 7:30 AM to 3:30 PM?</Question>
+		<Answer isTrue="0" name="A">User is automatically Logged Out</Answer>
+		<Answer isTrue="0" name="B">User keeps working continuously without any issues</Answer>
+		<Answer isTrue="0" name="C">User is asked in a Popup window if he would like to extend his session</Answer>
+		<Answer isTrue="1" name="D">User is logged out once he tries to do any DML (Data Manipulation) Operation i.e. Save, Edit etc.</Answer>
+		<Explanation>User is logged out once he tries to do any DML (Data Manipulation) Operation i.e. Save, Edit etc.</Explanation>
+	</TestQuestion>
+		<TestQuestion isMultiple="0">
+	<Question>A Workflow Approval process may be used for all of the following objects EXCEPT:</Question>
+		<Answer isTrue="0" name="A">Opportunity</Answer>
+		<Answer isTrue="1" name="B">Users</Answer>
+		<Answer isTrue="0" name="C">Assets</Answer>
+		<Answer isTrue="0" name="D">Contracts</Answer>
+		<Explanation>Users</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+	<Question>All of the following actions may take place on a Workflow Rule EXCEPT</Question>
+		<Answer isTrue="0" name="A">Outbound API message</Answer>
+		<Answer isTrue="0" name="B">Update Field</Answer>
+		<Answer isTrue="0" name="C">Create a Task</Answer>
+		<Answer isTrue="1" name="D">Create an Event</Answer>
+		<Explanation>Create an Event</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+	<Question>All of the following are true about Opportunity Pipeline and Forecast reporting EXCEPT:</Question>
+		<Answer isTrue="1" name="A">Pipeline reports may include omitted opportunities from the forecast</Answer>
+		<Answer isTrue="0" name="B">Forecasts may be overridden</Answer>
+		<Answer isTrue="0" name="C">Pipeline reports may be overridden</Answer>
+		<Answer isTrue="0" name="D">Opportunity stages may be used to determine the forecast category of an opportunity</Answer>
+		<Explanation>Pipeline reports may include omitted opportunities from the forecast</Explanation>
+	</TestQuestion>
+	
+	<TestQuestion isMultiple="0">
+	<Question>All of the following may be used when updating a record using the AppExchange Data Loader EXCEPT:</Question>
+		<Answer isTrue="0" name="A">External Id</Answer>
+		<Answer isTrue="0" name="B">Parent External Id</Answer>
+		<Answer isTrue="0" name="C">Record Id</Answer>
+		<Answer isTrue="1" name="D">Record Number</Answer>
+		<Explanation>D. Record Number</Explanation>
+	</TestQuestion>
+	
+	<TestQuestion isMultiple="0">
+	<Question>An opportunity that reaches the threshold with 80% probability will trigger additional alerts if the probability subsequently goes higher to 85%.</Question>
+		<Answer isTrue="0" name="A">Yes</Answer>
+		<Answer isTrue="1" name="B">no</Answer>
+		<Answer isTrue="0" name="C">Depends on the settings</Answer>
+		<Answer isTrue="0" name="D">None</Answer>
+		<Explanation>B.No</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+	<Question>API’s are not available for use in which Salesforce.com edition?</Question>
+		<Answer isTrue="0" name="A">Developer Edition</Answer>
+		<Answer isTrue="1" name="B">Professional Edition</Answer>
+		<Answer isTrue="0" name="C">Enterprise Edition</Answer>
+		<Answer isTrue="0" name="D">Unlimited Edition</Answer>
+		<Explanation>B. Professional Edition</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+	<Question>Auto Response rules work on which objects?</Question>
+		<Answer isTrue="1" name="A">Leads and Cases </Answer>
+		<Answer isTrue="0" name="B">Leads and Accounts </Answer>
+		<Answer isTrue="0" name="C">Accounts and Opportunity </Answer>
+		<Answer isTrue="0" name="D">Account and Cases</Answer>
+		<Explanation>A. Leads and Cases</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+	<Question>AW computing has a discount workflow that requires approval from the Sales director when the discount is over 15% and from the VP of Global sales if the discount is over 30%. The sales rep has created a discount for 10% on a new opportunity. What happens when the sales Rep submits the request for approval?</Question>
+		<Answer isTrue="1" name="A">Discount will be automatically approved </Answer>
+		<Answer isTrue="0" name="B">Request will be sent to the Sales director for approval</Answer>
+		<Answer isTrue="0" name="C">Request will be sent to Sales director and VP of Global Sales for Approval</Answer>
+		<Answer isTrue="0" name="D">Request will be sent to VP of Global Sales for approval</Answer>
+		<Explanation>A. Discount will be automatically approved</Explanation>
+	</TestQuestion>
+		<TestQuestion isMultiple="0">
+	<Question>Can the User Records be permanently deleted from the Salesforce.com?</Question>
+		<Answer isTrue="0" name="A">Yes</Answer>
+		<Answer isTrue="1" name="B">No</Answer>
+		<Answer isTrue="0" name="C">Depends the profile setting of the Administrator</Answer>
+		<Answer isTrue="0" name="D">User Records can be archived so that they are available on request.</Answer>
+		<Explanation>B. No</Explanation>
+	</TestQuestion>
+	
+		<TestQuestion isMultiple="0">
+	<Question>Can you can customize the Opportunity Stage History related list on an Opportunity Page Layout?</Question>
+		<Answer isTrue="0" name="A">yes</Answer>
+		<Answer isTrue="1" name="B">No</Answer>
+		<Answer isTrue="0" name="C">Depends on the edition</Answer>
+		<Answer isTrue="0" name="D">None</Answer>
+		<Explanation>B. NO</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+	<Question>Conditional highlighting can not be used for?</Question>
+		<Answer isTrue="1" name="A">Tabular Reports</Answer>
+		<Answer isTrue="0" name="B">Summary Reports</Answer>
+		<Answer isTrue="0" name="C">Matrix Reports</Answer>
+		<Answer isTrue="0" name="D">None of the above</Answer>
+		<Explanation>A. Tabular Reports</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="1">
+	<Question>Criteria-based sharing rules can be created for which objects?Choose 3 answers:</Question>
+		<Answer isTrue="0" name="A">Leads</Answer>
+		<Answer isTrue="1" name="B">Contacts</Answer>
+		<Answer isTrue="1" name="C">Opportunities</Answer>
+		<Answer isTrue="1" name="D">Accounts</Answer>
+		<Explanation>You can create criteria-based sharing rules for accounts, opportunities, cases, contacts, and custom objects.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+	<Question>Custom Links can be used for the following:</Question>
+		<Answer isTrue="0" name="A"> Launching an External URL</Answer>
+		<Answer isTrue="0" name="B">Running an S Control</Answer>
+		<Answer isTrue="0" name="C">Running a report</Answer>
+		<Answer isTrue="1" name="D">All of the Above</Answer>
+		<Explanation>D. All of the above</Explanation>
+	</TestQuestion>
+	
+	<TestQuestion isMultiple="0">
+	<Question>Data Cleansing is the process of:</Question>
+		<Answer isTrue="0" name="A">Transferring data from on repository to another</Answer>
+		<Answer isTrue="0" name="B">Improving existing data by linking additional data sources</Answer>
+		<Answer isTrue="1" name="C">Creating format consistency and removing bad data</Answer>
+		<Answer isTrue="0" name="D">Identifying and merging duplicate records</Answer>
+		<Explanation>C. Creating format consistency and removing bad data</Explanation>
+	</TestQuestion>
+	
+	<TestQuestion isMultiple="0">
+	<Question>Data Validation rules is not supported in which Salesforce edition?</Question>
+		<Answer isTrue="0" name="A">Group</Answer>
+		<Answer isTrue="0" name="B">Professional</Answer>
+		<Answer isTrue="0" name="C">Developer</Answer>
+		<Answer isTrue="1" name="D">All Editions are supported</Answer>
+		<Explanation>All Editions are supported</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+	<Question>Do Validation rules get enforced on the Lead Conversion?</Question>
+		<Answer isTrue="0" name="A">Yes</Answer>
+		<Answer isTrue="1" name="B">No</Answer>
+		<Answer isTrue="0" name="C">Depends on OWD</Answer>
+		<Answer isTrue="0" name="D">None</Answer>
+		<Explanation>B.No</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+	<Question>For how many days deleted records are kept in the Recycle Bin?</Question>
+		<Answer isTrue="1" name="A">15</Answer>
+		<Answer isTrue="0" name="B">30</Answer>
+		<Answer isTrue="0" name="C">45</Answer>
+		<Answer isTrue="0" name="D">60</Answer>
+		<Explanation>A. 15 Days</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+	<Question>For how many days will Recycle Bin hold deleted data?</Question>
+		<Answer isTrue="0" name="A">10</Answer>
+		<Answer isTrue="0" name="B">5</Answer>
+		<Answer isTrue="0" name="C">8</Answer>
+		<Answer isTrue="1" name="D">15</Answer>
+		<Explanation>D. 15 days</Explanation>
+	</TestQuestion>
+		<TestQuestion isMultiple="0">
+	<Question>How can Lookup fields help keep your data clean?</Question>
+		<Answer isTrue="0" name="A">They restrict who can enter data</Answer>
+		<Answer isTrue="1" name="B">They restrict the number of choices available for a field</Answer>
+		<Answer isTrue="0" name="C">They allow you to override fields on a page layout</Answer>
+		<Answer isTrue="0" name="D">They can make fields conditionally required</Answer>
+		<Explanation>B. They restrict the number of choices available for a field</Explanation>
+	</TestQuestion>
+	
+		<TestQuestion isMultiple="0">
+	<Question>How can Lookup fields help keep your data clean?</Question>
+		<Answer isTrue="0" name="A">They restrict who can enter data</Answer>
+		<Answer isTrue="1" name="B">They restrict the number of choices available for a field</Answer>
+		<Answer isTrue="0" name="C">They allow you to override fields on a page layout</Answer>
+		<Answer isTrue="0" name="D">They can make fields conditionally required</Answer>
+		<Explanation>B. They restrict the number of choices available for a field</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+	<Question>How can you create a CSV file prior to importing data in SF?</Question>
+		<Answer isTrue="0" name="A">Use the Save As command in Excel</Answer>
+		<Answer isTrue="0" name="B"> Choose Export to a CSV in the Outlook Import Wizard</Answer>
+		<Answer isTrue="0" name="C">Choose Export to a CSV in the ACT! Import Wizard</Answer>
+		<Answer isTrue="1" name="D">All of the above</Answer>
+		<Explanation>D. All of the above</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+	<Question>How do you find out that the Approval Process is edited?</Question>
+		<Answer isTrue="0" name="A">Last Modified by Field</Answer>
+		<Answer isTrue="0" name="B">Audit Trail</Answer>
+		<Answer isTrue="0" name="C">History Record on Approval page layout</Answer>
+		<Answer isTrue="1" name="D">All of the above</Answer>
+		<Explanation>A. All of the above"</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+	<Question>How is the expected revenue calculated in the opportunity?</Question>
+		<Answer isTrue="0" name="A">Amount multiplied by the total price of all opportunity line items</Answer>
+		<Answer isTrue="0" name="B">The sales price on any line item times the probability of the opportunity</Answer>
+		<Answer isTrue="1" name="C">Opportunity Amount multiplied by the probability</Answer>
+		<Answer isTrue="0" name="D">Amount multiplied by the discount percent</Answer>
+		<Explanation>C. Opportunity Amount multiplied by the probability</Explanation>
+	</TestQuestion>
+		<TestQuestion isMultiple="0">
+	<Question>How many components can be added to a dashboard?</Question>
+		<Answer isTrue="0" name="A">10</Answer>
+		<Answer isTrue="1" name="B">20</Answer>
+		<Answer isTrue="0" name="C">25</Answer>
+		<Answer isTrue="0" name="D">50</Answer>
+		<Explanation>B. 20</Explanation>
+	</TestQuestion>
+	
+		<TestQuestion isMultiple="0">
+	<Question>How many custom fields can be created on an object in an unlimited Edition?</Question>
+		<Answer isTrue="0" name="A">100</Answer>
+		<Answer isTrue="0" name="B">200</Answer>
+		<Answer isTrue="1" name="C">500</Answer>
+		<Answer isTrue="0" name="D">Unlimited Fields</Answer>
+		<Explanation>C.500 Fields</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+	<Question>How many Custom Summary Formula Fields are allowed on a single Report?</Question>
+		<Answer isTrue="1" name="A">5</Answer>
+		<Answer isTrue="0" name="B">10</Answer>
+		<Answer isTrue="0" name="C">15</Answer>
+		<Answer isTrue="0" name="D">20</Answer>
+		<Explanation>A. 5 Customer Formulas per report</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+	<Question>How many fields can be enabled for tracking on a custom Object?</Question>
+		<Answer isTrue="0" name="A">10</Answer>
+		<Answer isTrue="1" name="B">20</Answer>
+		<Answer isTrue="0" name="C">30</Answer>
+		<Answer isTrue="0" name="D">40</Answer>
+		<Explanation>B. 20"</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+	<Question>How many other fields may a custom lead field be mapped to when converting a lead?</Question>
+		<Answer isTrue="0" name="A">One custom field</Answer>
+		<Answer isTrue="0" name="B">Two custom fields</Answer>
+		<Answer isTrue="1" name="C">Three custom fields</Answer>
+		<Answer isTrue="0" name="D">Custom lead fields cannot be mapped</Answer>
+		<Explanation>C. Three custom fields</Explanation>
+	</TestQuestion>
+		<TestQuestion isMultiple="0">
+	<Question>How many ranges can be defined in the case of a Conditional Highlighting?</Question>
+		<Answer isTrue="0" name="A">2</Answer>
+		<Answer isTrue="1" name="B">3</Answer>
+		<Answer isTrue="0" name="C">4</Answer>
+		<Answer isTrue="0" name="D">5</Answer>
+		<Explanation>B.3</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+	<Question>How many roles can you create for your org?</Question>
+		<Answer isTrue="0" name="A">100</Answer>
+		<Answer isTrue="0" name="B">300</Answer>
+		<Answer isTrue="1" name="C">500</Answer>
+		<Answer isTrue="0" name="D">No Limit</Answer>
+		<Explanation>C. 500</Explanation>
+	</TestQuestion>
+		<TestQuestion isMultiple="0">
+	<Question>How many Roll Up summary fields can be created in the enterprise Edition on a Custom Object?</Question>
+		<Answer isTrue="0" name="A">10</Answer>
+		<Answer isTrue="1" name="B">20</Answer>
+		<Answer isTrue="0" name="C">30</Answer>
+		<Answer isTrue="0" name="D">No restrictions on the number of fields</Answer>
+		<Explanation>B.20</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+	<Question>How many Solution records can be imported via Import Wizard?</Question>
+		<Answer isTrue="0" name="A">500</Answer>
+		<Answer isTrue="0" name="B">5000</Answer>
+		<Answer isTrue="1" name="C">50000</Answer>
+		<Answer isTrue="0" name="D">Solutions Records cannot be imported via Import Wizard</Answer>
+		<Explanation>C. 50000, http://na15.salesforce.com/help/doc/en/importing.htm</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+	<Question>How many User records can be imported via Import Wizard?</Question>
+		<Answer isTrue="0" name="A">500</Answer>
+		<Answer isTrue="0" name="B">5000</Answer>
+		<Answer isTrue="0" name="C">50000</Answer>
+		<Answer isTrue="1" name="D">User Records cannot be imported via Import Wizard</Answer>
+		<Explanation>D. User Records cannot be imported via Import Wizard,http://na15.salesforce.com/help/doc/en/importing.htm</Explanation>
+	</TestQuestion>
+		<TestQuestion isMultiple="0">
+	<Question>How often can export requests be made using the Data Export Tool?</Question>
+		<Answer isTrue="0" name="A">Every day</Answer>
+		<Answer isTrue="1" name="B">Once every six days</Answer>
+		<Answer isTrue="0" name="C">Once a month</Answer>
+		<Answer isTrue="0" name="D">No Limit</Answer>
+		<Explanation>B. Once every six days,Source:http://login.salesforce.com/help/doc/en/admin_exportdata.htm.Your organization can generate backup files of your data on a weekly or monthly basis depending on your edition.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+	<Question>How would you create all collaborative access to the accounts, contacts, contracts, opportunities, and cases of a US Sales Rep, an APAC Sales Rep and an EMEA Sales Rep?</Question>
+		<Answer isTrue="0" name="A">By creating three account sharing rules to share the records between the three sales reps.</Answer>
+		<Answer isTrue="1" name="B">By creating a public group for the three Sales Reps and one account sharing rule to share the public group's records with itself.</Answer>
+		<Answer isTrue="0" name="C">By changing the organization-wide defaults for Accounts to Public Read/Write.</Answer>
+		<Answer isTrue="0" name="D">None</Answer>
+		<Explanation>B. By creating a public group for the three Sales Reps and one account sharing rule to share the public group's records with itself</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+	<Question>Identify the maximum number of leads / contacts that you can add from a report at one time using Integrated Campaign Builder.</Question>
+		<Answer isTrue="0" name="A">25000</Answer>
+		<Answer isTrue="1" name="B">50000</Answer>
+		<Answer isTrue="0" name="C">75000</Answer>
+		<Answer isTrue="0" name="D">100000</Answer>
+		<Explanation>B. 50000,Source: https://help.salesforce.com/apex/HTViewHelpDoc?id=faq_campaigns_how_can_i_add_contacts.htm</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="1">
+	<Question>dentify the statements that are true about the deactivation of a user? (Select all that apply)</Question>
+		<Answer isTrue="0" name="A">All records associated to the user are deleted from Salesforce.</Answer>
+		<Answer isTrue="1" name="B">The integrity of historic data is maintained</Answer>
+		<Answer isTrue="1" name="C">The user is prevented from accessing Salesforce.</Answer>
+		<Answer isTrue="1" name="D">Deactivation frees up a salesforce user license."</Answer>
+		<Explanation>B. The integrity of historic data is maintained, C. The user is prevented from accessing Salesforce,D. Deactivation frees up a salesforce user license.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="1">
+	<Question>Identify the statements that define the data loader?  (Select all that apply)</Question>
+		<Answer isTrue="0" name="A">Can be used only to insert or extract Salesforce Records</Answer>
+		<Answer isTrue="1" name="B">Can be used to Insert, update, delete or export Salesforce records</Answer>
+		<Answer isTrue="0" name="C">Can be used only to update and delete Salesforce records</Answer>
+		<Answer isTrue="1" name="D">Can be used to read, extract and load data from CSV files.</Answer>
+		<Explanation>B. Can be used to Insert, update, delete or export Salesforce records,D. Can be used to read, extract and load data from CSV files.https://na15.salesforce.com/help/doc/en/inserting_updating_or_deleting_data.htm</Explanation>
+	</TestQuestion>
+		<TestQuestion isMultiple="0">
+	<Question>If a field is visible in the search layout but hidden for certain users via the field-level security settings then which of the following statement is true?</Question>
+		<Answer isTrue="0" name="A">The field-level security overrides the search layout and the field will be hidden for all users </Answer>
+		<Answer isTrue="0" name="B">The field will still be visible in search layout to all the users </Answer>
+		<Answer isTrue="1" name="C">The field-level security overrides the search layout and the field will be hidden for those users </Answer>
+		<Answer isTrue="0" name="D">None of the above</Answer>
+		<Explanation>C. The field-level security overrides the search layout and the field will be hidden for those users,https://na15.salesforce.com/help/doc/en/customize_layoutoverview.htm</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+	<Question>If a lead is converted without a value in the company field, what happens?</Question>
+		<Answer isTrue="0" name="A">A Business Account is created</Answer>
+		<Answer isTrue="1" name="B">A Person Account is created</Answer>
+		<Answer isTrue="0" name="C">You will be prompted to decide whether to create a Person or a Business Account.</Answer>
+		<Answer isTrue="0" name="D">Nothing</Answer>
+		<Explanation>B. A Person Account is created,Source: https://help.salesforce.com/apex/HTViewHelpDoc?id=leads_notes.htm</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+	<Question>If a Report is run which returns 20,000 records then...</Question>
+		<Answer isTrue="0" name="A">All 20K records are displayed in the UI </Answer>
+		<Answer isTrue="1" name="B">First 2K records are displayed in the UI </Answer>
+		<Answer isTrue="0" name="C">10 Reports each having 2K records are created </Answer>
+		<Answer isTrue="0" name="D">Report Fails and an error is reported</Answer>
+		<Explanation>B. First 2K records are displayed in the UI,https://help.salesforce.com/apex/HTViewHelpDoc?id=faq_reports_common_limits.htm</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+	<Question>To grant access to a record, you must be one of these:</Question>
+		<Answer isTrue="0" name="A">The record owner</Answer>
+		<Answer isTrue="1" name="B">A user in a role above the owner in the hierarchy (if your organization’s sharing settings control access through hierarchies)</Answer>
+		<Answer isTrue="0" name="C">Any user granted “Full Access” to the record</Answer>
+		<Answer isTrue="0" name="D">An administrator</Answer>
+		<Explanation>Source: https://help.salesforce.com/apex/HTViewHelpDoc?id=granting_access_to_records.htm</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="1">
+	<Question>If you delete a case, which two also get deleted?</Question>
+		<Answer isTrue="0" name="A">Account</Answer>
+		<Answer isTrue="0" name="B">Solution</Answer>
+		<Answer isTrue="1" name="C">Event</Answer>
+		<Answer isTrue="1" name="D">Attachments</Answer>
+		<Explanation>C. Events,D. Attachments,Source: https://help.salesforce.com/apex/HTViewHelpDoc?id=cases_delete.htm</Explanation>
+	</TestQuestion>
+		<TestQuestion isMultiple="0">
+	<Question>If you need to insert, update, delete, or extract data, what is your best tool to use?</Question>
+		<Answer isTrue="0" name="A">Import Wizard</Answer>
+		<Answer isTrue="1" name="B">Data Loader</Answer>
+		<Answer isTrue="0" name="C">Connect for Office</Answer>
+		<Answer isTrue="0" name="D">Excel Connector</Answer>
+		<Explanation>B. Data Loader,Source:http://login.salesforce.com/help/doc/en/data_loader.htm</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+	<Question>In a custom recruiting application, a dashboard component needs to be built that will display progress towards achieving a goal of hiring 10 employees. Which component can be used to implement this feature?</Question>
+		<Answer isTrue="1" name="A">Gauge</Answer>
+		<Answer isTrue="0" name="B">Funnel</Answer>
+		<Answer isTrue="0" name="C">Table</Answer>
+		<Answer isTrue="0" name="D">Chart</Answer>
+		<Explanation>A. Gauge</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+	<Question>In Ideas, the best way to monitor new postings is to regularly review which tabs?</Question>
+		<Answer isTrue="0" name="A">Popular Ideas and Recent Ideas</Answer>
+		<Answer isTrue="0" name="B">Recent Ideas and Top All-Time</Answer>
+		<Answer isTrue="1" name="C">10 Reports each having 2K records are created </Answer>
+		<Answer isTrue="0" name="D">Report Fails and an error is reported</Answer>
+		<Explanation>C.10 Reports each having 2K records are created,Source:http://login.salesforce.com/help/doc/en/salesforce_ideas_implementation_guide.pdf</Explanation>
+		</TestQuestion>
+	<TestQuestion isMultiple="0">
+	<Question>In order to Enable Territory Management you should have:</Question>
+		<Answer isTrue="0" name="A">Standard Profile</Answer>
+		<Answer isTrue="1" name="B">Customizable Forecasting</Answer>
+		<Answer isTrue="0" name="C">Enable Forecasting</Answer>
+		<Answer isTrue="0" name="D">All of the above</Answer>
+		<Explanation>B. Customizable Forecasting,Source: https://help.salesforce.com/apex/HTViewHelpDoc?id=territories_enable.htm</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+	<Question>In Salesforce, what does Data Storage include?</Question>
+		<Answer isTrue="0" name="A">Attachments, Documents, and Salesforce Content Objects</Answer>
+		<Answer isTrue="1" name="B">Everything except Attachments, Documents, and Salesforce Content Objects</Answer>
+		<Answer isTrue="0" name="C">Only Salesforce Content Objects</Answer>
+		<Answer isTrue="0" name="D">Only Attachments and Documents</Answer>
+		<Explanation>B.Everything except Attachments, Documents, and Salesforce Content Objects,Source:http://na15.salesforce.com/help/doc/en/admin_monitorresources.htm</Explanation>
+	</TestQuestion>
+		<TestQuestion isMultiple="0">
+	<Question>Is possible to view a forecast based on all of the following EXCEPT:</Question>
+		<Answer isTrue="0" name="A">Territory</Answer>
+		<Answer isTrue="0" name="B">Product Family</Answer>
+		<Answer isTrue="0" name="C">Date Range</Answer>
+		<Answer isTrue="1" name="D">Sales Team</Answer>
+		<Explanation>D. Sales Team,Source: https://help.salesforce.com/apex/HTViewHelpDoc?id=faq_forecasts3_whats_difference_between_versions.htm</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+	<Question>Noah is a salesforce user for AW Computing. He just called Rob, the SF Admin because he gets a login error message when he tries to login to Salesforce. What should Rob do first to troubleshoot this issue for the user?</Question>
+		<Answer isTrue="0" name="A">Reset the username</Answer>
+		<Answer isTrue="0" name="B">Reset the password</Answer>
+		<Answer isTrue="0" name="C">Unlock the user</Answer>
+		<Answer isTrue="1" name="D">View the login History</Answer>
+		<Explanation>D. View the login History</Explanation>
+	</TestQuestion>
+	</Quiz>

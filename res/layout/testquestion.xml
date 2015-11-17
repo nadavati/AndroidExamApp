@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#FFFFFF" >
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout4"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#BCC6CC"
+        android:padding="5dip" >
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="45dp"
+            android:background="@null"
+            android:text="Total No of Questions:70"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="20sp" >
+        </TextView>
+    </RelativeLayout>
+
+    <!-- view1 goes on top -->
+
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/ScrollViewSing"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="45sp" >
+
+        <TableLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/TableLayoutSing"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="10dp" >
+
+            <TextView
+                android:id="@+id/QuestionTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="16sp" >
+            </TextView>
+            
+            
+
+            <RadioGroup
+                android:id="@+id/RadioGroupSing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="visible" >
+
+                <RadioButton
+                    android:id="@+id/AnswerARadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:textStyle="normal" />
+
+                <RadioButton
+                    android:id="@+id/AnswerBRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:textStyle="normal" />
+
+                <RadioButton
+                    android:id="@+id/AnswerCRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:textStyle="normal" />
+
+                <RadioButton
+                    android:id="@+id/AnswerDRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:textStyle="normal" />
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/RadioGroupMult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <CheckBox
+                    android:id="@+id/AnswerACheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:textStyle="normal" >
+                </CheckBox>
+
+                <CheckBox
+                    android:id="@+id/AnswerBCheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:textStyle="normal" >
+                </CheckBox>
+
+                <CheckBox
+                    android:id="@+id/AnswerCCheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:textStyle="normal" >
+                </CheckBox>
+
+                <CheckBox
+                    android:id="@+id/AnswerDCheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:textStyle="normal" >
+                </CheckBox>
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/ExplenationTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:autoLink="web"
+                android:textSize="18sp" >
+            </TextView>
+        </TableLayout>
+    </ScrollView>
+
+    <!-- view2 goes on the bottom -->
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#BCC6CC"
+        android:padding="5dip" >
+
+        <Button
+            android:id="@+id/NextSing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/btn_default_holo_light"
+            android:nextFocusLeft="@+id/PreviousSing"
+            android:text="@string/next"
+            android:textColor="#FFFFFF" >
+        </Button>
+
+        <Button
+            android:id="@+id/PreviousSing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/btn_default_holo_light"
+            android:nextFocusRight="@+id/NextSing"
+            android:text="@string/previous"
+            android:textColor="#FFFFFF" >
+        </Button>
+    </RelativeLayout>
+
+</RelativeLayout>

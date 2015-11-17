@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Salesforce Administrator (ADM 201) Exam Prep</string>
+    <string name="app_about">About ADM Exam</string>
+    <string name="previous">Previous</string>
+    <string name="next">"   Next   "</string>
+    <string name="finish">"  Finish  "</string>
+    <string name="start_quiz">Start Exam</string>
+    <string name="options">Options</string>
+    <string name="about">About</string>
+    <string name="exit">Exit</string>
+    <string name="ok">"    OK    "</string>
+    <string name="lpi_color">870028</string>
+    <string name="lpi_quiz_title">Salesforce Administrator (ADM 201) Exam Prep</string>
+    <string name="edittext_preference">edittext_preference</string>
+    <string name="list_lpic_exame">list_lpic_exame</string>
+    <string name="lpi_exam">Quiz options</string>
+    <string name="title_list_lpic_exam">ADM Exam</string>
+    <string name="summary_list_preference">Chose ADM Exam type</string>
+    <string name="dialog_title_list_preference">Chose ADM Exam</string>
+    <string name="title_wrong_answers_only">Wrong answers only</string>
+    <string name="summary_wrong_answers_only">Mark this option if you want to see only wrong answers during the review.</string>
+    <string name="lpi_about"><b>Salesforce.com - Administration 201 Exam Prep (ADM 201):</b>\n\n 
+                                With 70 simulated exam questions, Certwin’s Salesforce.com Administration 201 Prep app for Android is your on-the-go way to study for the ADM 201 Exam.\n
+                               After finishing exam you can review your answers and view a detailed explanation about the right answer. The right answer color is in red. 
+                               You also have an option called \'Wrong answers only\'. If you mark the check box, during the review you will see the wrong answers only.</string>
+    <string name="title_about_preference">About</string>
+    <string name="summary_about_preference">About ADM Exam application</string>
+
+</resources>

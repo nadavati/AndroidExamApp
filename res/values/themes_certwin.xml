@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Generated with http://android-holo-colors.com -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <style name="certwin" parent="android:Theme.Light">
+
+    <item name="android:editTextStyle">@style/EditTextcertwin</item>
+
+    <item name="android:autoCompleteTextViewStyle">@style/AutoCompleteTextViewcertwin</item>
+
+    <item name="android:checkboxStyle">@style/CheckBoxcertwin</item>
+
+    <item name="android:radioButtonStyle">@style/RadioButtoncertwin</item>
+
+    <item name="android:buttonStyle">@style/Buttoncertwin</item>
+
+    <item name="android:imageButtonStyle">@style/ImageButtoncertwin</item>
+
+    <item name="android:spinnerStyle">@style/Spinnercertwin</item>
+
+    <item name="android:dropDownSpinnerStyle">@style/Spinnercertwin.DropDown</item>
+
+    <item name="android:spinnerDropDownItemStyle">@style/SpinnerDropDownItemcertwin</item>
+
+    <item name="android:progressBarStyleHorizontal">@style/ProgressBarcertwin</item>
+
+    <item name="android:seekBarStyle">@style/SeekBarcertwin</item>
+
+    <item name="android:ratingBarStyle">@style/RatingBarcertwin</item>
+
+    <item name="android:ratingBarStyleIndicator">@style/RatingBarBigcertwin</item>
+
+    <item name="android:ratingBarStyleSmall">@style/RatingBarSmallcertwin</item>
+
+    <item name="android:buttonStyleToggle">@style/Togglecertwin</item>
+
+    <item name="android:listViewStyle">@style/ListViewcertwin</item>
+
+    <item name="android:listViewWhiteStyle">@style/ListViewcertwin.White</item>
+
+    <item name="android:spinnerItemStyle">@style/SpinnerItemcertwin</item>
+ 
+
+  </style>
+
+</resources>

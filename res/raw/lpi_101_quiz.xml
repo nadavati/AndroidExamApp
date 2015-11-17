@@ -1,0 +1,806 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Quiz xmlns="http://mycompany.com/hr/schemas">
+	<TestQuestion isMultiple="0">
+		<Question>You type a command into bash and pass a long filename to it, but after you enter the command, you receive a File not found error message because of a typo in the filename. How might you proceed?</Question>
+		<Answer isTrue="0" name="A">Retype the command and be sure you type the filename correctly, letter by letter.</Answer>
+		<Answer isTrue="0" name="B">Retype the command, but press the Tab key after typing a few letters of the long filename to ensure that the filename is entered correctly.</Answer>
+		<Answer isTrue="0" name="C">Press the up arrow key and use bash’s editing features to correct the typo.</Answer>
+		<Answer isTrue="1" name="D">Any of the above.</Answer>
+		<Explanation>Any of these approaches will work, or at least could work. (You might err when performing any of them.) Option B or C is likely to be the most efficient approach, though; with a long filename to type, option A is likely to be tedious.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Which of the following commands is implemented as an internal command in bash?</Question>
+		<Answer isTrue="0" name="A">cat</Answer>
+		<Answer isTrue="1" name="B">echo</Answer>
+		<Answer isTrue="0" name="C">tee</Answer>
+		<Answer isTrue="0" name="D">sed</Answer>
+		<Explanation>The echo command is implemented internally to bash, although an external version is also available on most systems. The cat, tee, and sed commands are not implemented internally to bash, although they can be called from bash as external commands.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>You type 'echo $PROC' and the computer replies Go away. What does this mean?</Question>
+		<Answer isTrue="0" name="A">No currently running processes are associated with your shell, so you may log out without terminating them.</Answer>
+		<Answer isTrue="0" name="B">The remote computer PROC is not accepting connections; you should contact its administrator to correct the problem.</Answer>
+		<Answer isTrue="0" name="C">Your computer is handling too many processes; you must kill some of them to regain control of the computer.</Answer>
+		<Answer isTrue="1" name="D">You, one of your configuration files, or a program you’ve run has set the $PROC environment variable to Go away.</Answer>
+		<Explanation>The echo command echoes what follows to standard output, and $PROC is an environment variable. Thus, echo $PROC displays the value of the $PROC environment variable, meaning that it must have been set to the specified value by you, one of your configuration files, or a program you’ve run. Although many environment variables are set to particular values to convey information, $PROC is not a standard environment variable that might be associated with information described in options A, B, or C.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>How does man display information by default on most Linux systems?</Question>
+		<Answer isTrue="0" name="A">Using a custom X-based application</Answer>
+		<Answer isTrue="0" name="B">Using the Mozilla web browser</Answer>
+		<Answer isTrue="1" name="C">Using the less pager</Answer>
+		<Answer isTrue="0" name="D">Using the Vi editor</Answer>
+		<Explanation>By default, man uses the less pager to display information on most Linux systems. Although an X-based version of man does exist (xman), the basic man doesn’t use a custom X-based application, nor does it use Mozilla or the Vi editor.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>You want to store the standard output of the ifconfig command in a text file (file.txt) for future reference, and you want to wipe out any existing data in the file. How would you do so?</Question>
+		<Answer isTrue="0" name="A">ifconfig &lt; file.txt</Answer>
+		<Answer isTrue="0" name="B">ifconfig &gt;&gt; file.txt</Answer>
+		<Answer isTrue="1" name="C">ifconfig &gt; file.txt</Answer>
+		<Answer isTrue="0" name="D">ifconfig | file.txt</Answer>
+		<Explanation>The > redirection operator stores a command’s standard output in a file, overwriting the contents of any existing file by the specified name. Option A specifies the standard input redirection so that ifconfig will take the contents of file.txt as input. Option B is almost correct; the >> redirection operator redirects standard output, as requested, but it appends data to the specified file rather than overwriting it. Option D specifies a pipe; the output of ifconfig is sent through the file.txt program, if it exists. (Chances are it doesn’t, so you’d get a command not found error message.)</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>What is the effect of the following command?&lt;br&gt;$ myprog &amp;&gt; input.txt</Question>
+		<Answer isTrue="0" name="A">Standard error to myprog is taken from input.</Answer>
+		<Answer isTrue="0" name="B">Standard input to myprog is taken from input.</Answer>
+		<Answer isTrue="1" name="C">Standard input and standard error from myprog are written to input.</Answer>
+		<Answer isTrue="0" name="D">All of the above.</Answer>
+		<Explanation>The &amp;&gt; redirection operator sends both standard output and standard error to the specified file, as option C states. (The name of the file, input.txt, is a bit of misdirection, but the usage is still valid.) Option A mentions standard error but describes it as if it were an input stream, which it’s not; it’s an output stream. Option B mentions standard input, but the &amp;&gt; operator doesn’t affect standard input.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>How many commands can you pipe together at once?</Question>
+		<Answer isTrue="0" name="A">2</Answer>
+		<Answer isTrue="0" name="B">3</Answer>
+		<Answer isTrue="0" name="C">4</Answer>
+		<Answer isTrue="1" name="D">An arbitrary number</Answer>
+		<Explanation>In principle, you could pipe together as many commands as you like. (In practice, of course, there will be limits based on input buffer size, memory, and so on, but these limits are far higher than the 2, 3, or 4 commands specified in options A, B, and C.)</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>What program would you use to display the end of a configuration file?</Question>
+		<Answer isTrue="0" name="A">uniq</Answer>
+		<Answer isTrue="0" name="B">cut</Answer>
+		<Answer isTrue="1" name="C">tail</Answer>
+		<Answer isTrue="0" name="D">wc</Answer>
+		<Explanation>The tail command displays the final 10 lines of a file. (You can change the number of lines displayed with the -n option.) The uniq command removes duplicate lines from a list. The cut command echoes the specified characters or fields from an input text file. The wc command displays counts of the number of characters, words, and lines in a file.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>What is the effect of the following command?&lt;br&gt;$ pr report.txt | lpr</Question>
+		<Answer isTrue="1" name="A">The file report.txt is formatted for printing and sent to the lpr program.</Answer>
+		<Answer isTrue="0" name="B">The files report.txt and lpr are combined together into one file and sent to standard output.</Answer>
+		<Answer isTrue="0" name="C">Tabs are converted to spaces in report.txt and the result is saved in lpr.</Answer>
+		<Answer isTrue="0" name="D">None of the above.</Answer>
+		<Explanation>The pr program takes a text file as input and adds formatting features intended for printing, such as a header and blank lines to separate pages. The command also pipes the output through lpr (which is a Linux printing command).</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="1">
+		<Question>Which of the following commands will number the lines in aleph.txt? (Select all that apply.)</Question>
+		<Answer isTrue="0" name="A">fmt aleph.txt</Answer>
+		<Answer isTrue="1" name="B">nl aleph.txt</Answer>
+		<Answer isTrue="1" name="C">cat -b aleph.txt</Answer>
+		<Answer isTrue="1" name="D">cat -n aleph.txt</Answer>
+		<Explanation>The nl command numbers lines, so it does this task without any special options. (Its options can fine-tune the way it numbers lines, though.) The cat command can also number lines via its -b or -n options; -b numbers non-blank lines, while -n numbers all lines (including blank lines). The fmt command is the only one described here that will not number the lines of the input file.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Which of the following commands will change all occurrences of dog in the file animals.txt to mutt in the screen display?</Question>
+		<Answer isTrue="0" name="A">sed –s "dog" "mutt" animals.txt</Answer>
+		<Answer isTrue="0" name="B">grep –s "dog||mutt" animals.txt</Answer>
+		<Answer isTrue="1" name="C">sed 's/dog/mutt/' animals.txt</Answer>
+		<Answer isTrue="0" name="D">cat animals.txt | grep –c "dog" "mutt"</Answer>
+		<Explanation>The sed utility can be used to “stream” text and change one value to another. In this case, the s option is used to replace dog with mutt. The syntax in option A is incorrect, while choices B and D are incorrect since grep does not include the functionality needed to make the changes.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Which of the following commands will print lines from the file world.txt that contain matches to changes and changed?</Question>
+		<Answer isTrue="1" name="A">grep change[ds] world.txt</Answer>
+		<Answer isTrue="0" name="B">sed change[d-s] world.txt</Answer>
+		<Answer isTrue="0" name="C">od "change'd|s'" world.txt</Answer>
+		<Answer isTrue="0" name="D">cat world.txt changes changed</Answer>
+		<Explanation>The grep utility is used to find matching text within a file and print those lines. It accepts regular expressions, which allow for the placing of the two characters you are looking for within brackets. The syntax for sed, od, and cat would not perform the specified task.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Which of the following regular expressions will match the strings dig and dug but not dog?</Question>
+		<Answer isTrue="0" name="A">d</Answer>
+		<Answer isTrue="1" name="B">d[iu]g</Answer>
+		<Answer isTrue="0" name="C">d[i-u]g</Answer>
+		<Answer isTrue="0" name="D">di*g</Answer>
+		<Explanation>The bracket expression within the d[iu]g regular expression means that either i or u may be the middle character; hence, this regular expression matches both dig and dug but not dog. Option A’s dot matches any single character, so d.g matches all three words. The range expression [i-u] matches any single character between i and u, inclusive. Because o falls between these two letters, option C matches all three words. Finally, di*g matches dig, diig, diiig, or any other word that begins with d, ends with g and contains any number of i letters in-between. Thus, option D matches dig but not dug as required.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>How would you remove two lines of text from a file using Vi?</Question>
+		<Answer isTrue="1" name="A">In command mode, position the cursor on the first line and type 2dd.</Answer>
+		<Answer isTrue="0" name="B">In command mode, position the cursor on the last line and type 2yy.</Answer>
+		<Answer isTrue="0" name="C">In insert mode, position the cursor at the start of the first line, hold the Shift key down while pressing the down arrow key twice, and hit the Delete key on the keyboard.</Answer>
+		<Answer isTrue="0" name="D">In insert mode, position the cursor at the start of the first line and press Ctrl+K twice.</Answer>
+		<Explanation>In Vi, dd is the command-mode command that deletes lines. Preceding this command by a number deletes that number of lines. While yy works similarly, it copies (“yanks”) text rather than deleting it. Option C works in many more modern text editors, but not in Vi. Option D works in Emacs and similar text editors, but not in Vi.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>A user types kill -9 11287 at a bash prompt. What is the probable intent, assuming the user typed the correct command?</Question>
+		<Answer isTrue="0" name="A">To cut off a network connection using TCP port 11287.</Answer>
+		<Answer isTrue="0" name="B">To display the number of processes that have been killed with signal 11287 in the last nine days.</Answer>
+		<Answer isTrue="0" name="C">To cause a server with process ID 11287 to reload its configuration file.</Answer>
+		<Answer isTrue="1" name="D">To terminate a misbehaving or hung program with process ID 11287.</Answer>
+		<Explanation>The kill program accepts various signals in numeric or named form (9 in this example) along with a process ID number (11287 in this example). Signal 9 corresponds to SIGKILL, which is an extreme way to kill processes that have run out of control. Although you might use kill to kill network processes, you can’t pass kill a TCP port number and expect it to work. The program also won’t display information on the number of processes that have been killed. To do as option C suggests, you’d need to tell kill to pass SIGHUP (signal 1), so the command would be kill -1 11287.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="1">
+		<Question>What programs might you use to learn what your system’s load average is? (Select all that apply.)</Question>
+		<Answer isTrue="0" name="A">ld</Answer>
+		<Answer isTrue="0" name="B">load</Answer>
+		<Answer isTrue="1" name="C">top</Answer>
+		<Answer isTrue="1" name="D">uptime</Answer>
+		<Explanation>The top utility displays a dynamic list of processes ordered according to their CPU use along with additional system information, including load averages. If you want only the load average at a specific moment, uptime may be better because it presents less extraneous information—it shows the current time, the time since the system was booted, the number of active users, and the load averages. The ld command has nothing to do with displaying load averages (it’s a programming tool that links together program modules into an executable program). There is no standard Linux program called load.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Which of the following commands creates a display of processes, showing the parent/child relationships through links between their names?</Question>
+		<Answer isTrue="1" name="A">ps --forest</Answer>
+		<Answer isTrue="0" name="B">ps aux</Answer>
+		<Answer isTrue="0" name="C">ps -e</Answer>
+		<Answer isTrue="0" name="D">All of the above.</Answer>
+		<Explanation>The --forest option to ps shows parent/child relationships by creating visual links between process names in the ps output. (Listing 1.4 shows this effect.) Options B and C are both valid ps commands, but neither creates the specified effect.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>You use top to examine the CPU time being consumed by various processes on your system. You discover that one process, dfcomp, is consuming over 90 percent of your system’s CPU time. What can you conclude?</Question>
+		<Answer isTrue="1" name="A">Very little; dfcomp could be legitimately consuming that much CPU time or it could be an unauthorized or malfunctioning program.</Answer>
+		<Answer isTrue="0" name="B">No program should consume 90 percent of available CPU time; dfcomp is clearly malfunctioning and should be terminated.</Answer>
+		<Answer isTrue="0" name="C">This is normal; dfcomp is the kernel’s main scheduling process, and it consumes any unused CPU time.</Answer>
+		<Answer isTrue="0" name="D">This behavior is normal if your CPU is less powerful than a 1.5GHz Pentium 4, but on newer systems, no program should consume 90 percent of CPU time.</Answer>
+		<Explanation>CPU-intensive programs routinely consume 90 percent or more of available CPU time, but not all systems run such programs. Furthermore, some types of program bugs can create such CPU loads. Thus, you must investigate the matter more. What is dfcomp? Is it designed as a CPU-intensive program? Is it consuming this much CPU time consistently, or was this a brief burst of activity?</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="1">
+		<Question>Which two of the following commands are equivalent to one another? (Select two.)</Question>
+		<Answer isTrue="0" name="A">nice --value 10 crunch</Answer>
+		<Answer isTrue="0" name="B">nice -n -10 crunch</Answer>
+		<Answer isTrue="1" name="C">nice -10 crunch</Answer>
+		<Answer isTrue="1" name="D">nice crunch</Answer>
+		<Explanation>The nice command launches a program (crunch in this example) with increased or decreased priority. The default priority when none is specified is 10, and the nice -10 crunch command also sets the priority to 10, so options C and D are equivalent. Option A isn’t a valid nice command because nice has no --value option. Option B is a valid nice command, but it sets the priority to –10 rather than 10.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="1">
+		<Question>Which of the following are restrictions on ordinary users’ abilities to run renice? (Select all that apply.)</Question>
+		<Answer isTrue="0" name="A">Users may not modify the priorities of processes that are already running.</Answer>
+		<Answer isTrue="1" name="B">Users may not modify the priorities of other users’ processes.</Answer>
+		<Answer isTrue="0" name="C">Users may not decrease the priority (that is, increase the priority value) of their own processes.</Answer>
+		<Answer isTrue="1" name="D">Users may not increase the priority (that is, decrease the priority value) of their own processes.</Answer>
+		<Explanation>Linux insulates users’ actions from one another, and this rule applies to renice; only root may modify the priority of other users’ processes. Similarly, only root may increase the priority of a process, in order to prevent users from setting their processes to maximum priority, thus stealing CPU time from others. Option A correctly describes nice, but not renice; the whole point of renice is to be able to change the priorities of existing processes. Option C also describes an action that renice permits.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Which of the following is not an advantage of a source package over a binary package?</Question>
+		<Answer isTrue="0" name="A">A single source package can be used on multiple CPU architectures.</Answer>
+		<Answer isTrue="0" name="B">By recompiling a source package, you can sometimes work around library incompatibilities.</Answer>
+		<Answer isTrue="0" name="C">You can modify the code in a source package, altering the behavior of a program.</Answer>
+		<Answer isTrue="1" name="D">Source packages can be installed more quickly than binary packages can.</Answer>
+		<Explanation>Because they must be compiled prior to installation, source packages require more time to install than binary packages do, contrary to option D’s assertion. The other options all describe advantages of source packages over binary packages.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Which is true of using both RPM and Debian package management systems on one computer?</Question>
+		<Answer isTrue="1" name="A">It’s generally inadvisable because the two systems don’t share installed file database information.</Answer>
+		<Answer isTrue="0" name="B">It’s impossible because their installed file databases conflict with one another.</Answer>
+		<Answer isTrue="0" name="C">It causes no problems if you install important libraries once in each format.</Answer>
+		<Answer isTrue="0" name="D">It’s a common practice on Red Hat and Debian systems.</Answer>
+		<Explanation>Package management systems don’t share information, but neither do their databases actively conflict. Installing the same libraries using both systems would almost guarantee that the files served by both systems would conflict with one another. Actively using both RPM and Debian packages isn’t common on any distribution, although it’s possible with all of them.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Which of the following statements is true about binary RPM packages that are built for a particular distribution?</Question>
+		<Answer isTrue="1" name="A">They can often be used on another RPM-based distribution for the same CPU architecture, but this isn’t guaranteed.</Answer>
+		<Answer isTrue="0" name="B">They may be used in another RPM-based distribution only when you set the --convert-distrib parameter to rpm.</Answer>
+		<Answer isTrue="0" name="C">They may be used in another RPM-based distribution only after you convert the package with alien.</Answer>
+		<Answer isTrue="0" name="D">They can be recompiled for an RPM-based distribution running on another type of CPU.</Answer>
+		<Explanation>RPMs are usually portable across distributions, but occasionally they contain incompatibilities. There is no --convert-distrib parameter to rpm, nor is alien used to convert from RPM format to RPM format. Binary packages can’t be rebuilt for another CPU architecture, but source packages may be rebuilt for any supported architecture provided the source code doesn’t rely on any CPU-specific features.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Which is true of source RPM packages?</Question>
+		<Answer isTrue="0" name="A">They consist of three files: an original source tarball, a patch file of changes, and a PGP signature indicating the authenticity of the package.</Answer>
+		<Answer isTrue="0" name="B">They require programming knowledge to rebuild.</Answer>
+		<Answer isTrue="1" name="C">They can sometimes be used to work around dependency problems with a binary package.</Answer>
+		<Answer isTrue="0" name="D">They are necessary to compile software for RPM-based distributions.</Answer>
+		<Explanation>Some dependencies result from dynamically linking binaries to libraries at compile time and so they can be overcome by recompiling the software from a source RPM. Option A describes Debian source packages, not RPM packages. Recompiling a source RPM requires only issuing an appropriate command, although you must also have appropriate compilers and libraries installed. Source tarballs can also be used to compile software for RPM systems, although this results in none of RPM’s advantages.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Which of the following do RPM filenames conventionally include?</Question>
+		<Answer isTrue="0" name="A">Single-letter codes indicating Red Hat–certified build sites.</Answer>
+		<Answer isTrue="0" name="B">Build date information.</Answer>
+		<Answer isTrue="1" name="C">Version number and CPU architecture information.</Answer>
+		<Answer isTrue="0" name="D">The initials of the package’s maintainer.</Answer>
+		<Explanation>The package version number (as well as an RPM build number) and CPU architecture code (or src for source code or noarch for architecture-independent files) are included in most RPM package filenames. Red Hat does not provide certification for RPM maintainers. Build dates and package maintainers’ names are stored in the RPM, but not in the filename. (Some distributions include a code for the distribution name in the RPM filename, but this is not a universal practice.)</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>An administrator types the following command on an RPM-based Linux distribution:&lt;br&gt;# rpm -ivh megaprog.rpm&lt;br&gt;What is the effect of this command?</Question>
+		<Answer isTrue="0" name="A">The megaprog package, if it’s installed, is uninstalled from the computer.</Answer>
+		<Answer isTrue="1" name="B">The megaprog.rpm package, if it exists, is valid, and is not already installed, is installed on the system.</Answer>
+		<Answer isTrue="0" name="C">The megaprog.rpm source RPM package is compiled into a binary RPM for the computer.</Answer>
+		<Answer isTrue="0" name="D">Nothing; megaprog.rpm is not a valid RPM filename, so rpm will refuse to operate on this file.</Answer>
+		<Explanation>The -i operation installs software, so option B is correct. (The -v and -h options cause a status display of the progress of the operation, which wasn’t mentioned in the option.) Uninstallation is performed by the -e operation, and rebuilding source RPMs is done by the --rebuild operation (to either rpm or rpmbuild, depending on the RPM version). Although the filename megaprog.rpm is missing several conventional RPM filename components, the rpm utility doesn’t use the filename as a package validity check, so option D is incorrect.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Which of the following commands will extract the contents of the myfonts.rpm file into the current directory?</Question>
+		<Answer isTrue="1" name="A">rpm2cpio myfonts.rpm | cpio -i --make-directories</Answer>
+		<Answer isTrue="0" name="B">rpm2cpio myfonts.rpm > make-directories</Answer>
+		<Answer isTrue="0" name="C">rpm -e myfonts.rpm</Answer>
+		<Answer isTrue="0" name="D">alien --to-extract myfonts.rpm</Answer>
+		<Explanation>The rpm2cpio program extracts data from an RPM file and converts it into a cpio archive that’s sent to standard output. Piping the results through cpio and using the -i and --make-directories options, as in option A, will extract those files to the current directory. Option B creates a cpio file called make-directories that contains the files from the RPM package. Option C will uninstall the package called myfonts.rpm (but not the myfonts package). The alien utility has no --to-extract target, so option D is invalid.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>To use dpkg to remove a package called theprogram, including its configuration files, which of the following commands would you issue?</Question>
+		<Answer isTrue="1" name="A">dpkg -P theprogram</Answer>
+		<Answer isTrue="0" name="B">dpkg -p theprogram</Answer>
+		<Answer isTrue="0" name="C">dpkg -r theprogram</Answer>
+		<Answer isTrue="0" name="D">dpkg -r theprogram-1.2.3-4.deb</Answer>
+		<Explanation>An uppercase -P invokes the purge operation, which completely removes a package and its configuration files. The lowercase -p causes dpkg to print information on the package’s contents. The -r parameter removes a package but leaves configuration files behind. The final variant (option D) also specifies a complete filename, which isn’t used for removing a package—you should specify only the shorter package name.</Explanation>
+	</TestQuestion>
+	<!-- finished here -->
+	<TestQuestion isMultiple="0">
+		<Question>Which of the following describes a difference between apt-get and dpkg?</Question>
+		<Answer isTrue="0" name="A">apt-get provides a GUI interface to Debian package management; dpkg does not.</Answer>
+		<Answer isTrue="0" name="B">apt-get can install tarballs in addition to Debian packages; dpkg cannot.</Answer>
+		<Answer isTrue="1" name="C">apt-get can automatically retrieve and update programs from Internet sites; dpkg cannot.</Answer>
+		<Answer isTrue="0" name="D">apt-get is provided only with the original Debian distribution, but dpkg comes with Debian and its derivatives.</Answer>
+		<Explanation>You can specify Debian package archive sites in /etc/apt/sources.list, and then you can type apt-get update and apt-get upgrade to quickly update a Debian system to the latest packages. GUI package management tools for Debian and related distributions exist, but they aren’t apt-get. The alien program can convert an RPM file and install the converted package on a Debian system; dpkg and apt-get both come with all Debian-based distributions.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Which of the following is true of an attempt to use a Debian package from one distribution on another Debian-derived distribution?</Question>
+		<Answer isTrue="0" name="A">It’s unlikely to work because of library incompatibilities and divergent package-naming conventions.</Answer>
+		<Answer isTrue="0" name="B">It’s guaranteed to work because of Debian’s strong package definition and enforcement of standards for startup scripts and file locations.</Answer>
+		<Answer isTrue="0" name="C">It will work only when the distributions are built for different CPUs or when the alien package is already installed on the target system.</Answer>
+		<Answer isTrue="1" name="D">It’s likely to work because of the close relationship of Debian-based distributions, assuming the two distributions are for the same CPU architecture.</Answer>
+		<Explanation>Systems that use Debian are based on the same core OS and so they share most components, making package transplants likely—but not certain—to succeed. Library incompatibilities could cause problems but aren’t likely to, especially if you use recent packages and distributions. Although Debian has clearly defined key file locations, startup scripts, and so on, these can’t guarantee success. Binary packages built for different CPUs are almost guaranteed not to work, although scripts or other non-binary packages most likely will work across CPU types.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Which of the following is the default destination format when using alien?</Question>
+		<Answer isTrue="0" name="A">Tarball</Answer>
+		<Answer isTrue="0" name="B">RPM</Answer>
+		<Answer isTrue="1" name="C">Debian package</Answer>
+		<Answer isTrue="0" name="D">Stampede package</Answer>
+		<Explanation>The alien utility can convert to any of these formats, but if you omit the specification, it defaults to a Debian output package.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>How do you select packages for installation using dselect?</Question>
+		<Answer isTrue="1" name="A">You highlight the package in the selection list and press the plus (+) key.</Answer>
+		<Answer isTrue="0" name="B">You right-click the package name with the mouse and select the Mark for Installation option.</Answer>
+		<Answer isTrue="0" name="C">You highlight the package in the selection list and press the spacebar key.</Answer>
+		<Answer isTrue="0" name="D">You click the package name with the mouse and pick the Install main menu.</Answer>
+		<Explanation>The dselect program is a text-based menuing interface to APT or other Debian package tools. Selecting packages to install involves highlighting them and then pressing the plus (+) key. The spacebar, as in option C, does not select packages for installation. Options B and D both describe an X-based GUI tool, but dselect is a text-mode program.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>As root, you type apt-get update on a Debian system. What should be the effect of this command?</Question>
+		<Answer isTrue="0" name="A">None; update is an invalid option to apt-get.</Answer>
+		<Answer isTrue="0" name="B">The APT utilities deliver information on the latest updates you’ve made to the APT Internet repositories, enabling you to share your changes with others.</Answer>
+		<Answer isTrue="0" name="C">The APT utilities download all available upgrades for your installed programs and install them on your system.</Answer>
+		<Answer isTrue="1" name="D">The APT utilities retrieve information on the latest packages available so that you may install them with subsequent apt-get commands.</Answer>
+		<Explanation>The update option to apt-get causes retrieval of new information, as described in option D. This option is perfectly valid, contrary to option A’s assertion. The apt-get program doesn’t permit you to upload information to the Internet repositories, so option B is incorrect. Option C describes the effect of the upgrade or dist-upgrade options, not the update option.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="1">
+		<Question>Which of the following commands would you use to extract the contents of the newprog-5.3.tbz source code tarball? (Select all that apply.)</Question>
+		<Answer isTrue="1" name="A">tar xvjf newprog-5.3.tbz</Answer>
+		<Answer isTrue="1" name="B">bunzip2 -c newprog-5.3.tbz | tar xvf</Answer>
+		<Answer isTrue="0" name="C">tar xvzf newprog-5.3.tbz</Answer>
+		<Answer isTrue="0" name="D">rpm2cpio newprog-5.3.tbz | cpio -i --make-directories</Answer>
+		<Explanation>The package filename ends in .tbz, which means it’s a tarball that’s been compressed with bzip2. This tarball can be extracted by tar if you pass it the -j option, as in option A; or you can uncompress the tarball with bunzip2 and pipe the results through tar without any compression options, as in option B. Option C would work if the file were compressed with gzip; its -z option is appropriate for that compression tool. Option D simply will not work, although it’s appropriate for extracting the contents of an RPM file without installing it using the RPM package system.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Which of the following is not a good reason for installing software from source code?</Question>
+		<Answer isTrue="0" name="A">Installing software from source code enables you to optimize the software for your CPU.</Answer>
+		<Answer isTrue="1" name="B">Installing software from source code helps maintain your RPM or Debian package database.</Answer>
+		<Answer isTrue="0" name="C">Installing software from source code enables you to make changes to the source code.</Answer>
+		<Answer isTrue="0" name="D">Installing software from source code enables you to tweak program options to your liking.</Answer>
+		<Explanation>Your RPM or Debian package database is not used when you install software from source code, so option B is simply an incorrect statement. Options A, C, and D are all advantages of building software from source code.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Which of the following steps should you always take before attempting to compile software from source code?</Question>
+		<Answer isTrue="0" name="A">Edit the Makefile to optimize the compilation for your CPU.</Answer>
+		<Answer isTrue="1" name="B">Read the documentation provided with the source code.</Answer>
+		<Answer isTrue="0" name="C">Type make config to configure the software for your computer.</Answer>
+		<Answer isTrue="0" name="D">Ensure that the Qt and GTK+ libraries are installed for use by the software.</Answer>
+		<Explanation>Reading the documentation ensures that you’ll be aware of any unique requirements or procedures for this software, thus increasing your chances of successfully compiling and installing it. Although you can tweak the Makefile, as described in option A, this isn’t a requirement for compilation, and manual tweaks are often unnecessary. The make config procedure of option C is indeed necessary for some programs, but many others use other configuration procedures, so this precise action is not always required. The Qt and GTK+ libraries referred to in option D are necessary for some programs but not for all of them, so this step is not always required.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="1">
+		<Question>What methods might you use to uninstall a program you installed from source code without the help of a package manager? (Select all that apply.)</Question>
+		<Answer isTrue="0" name="A">Consult the Registry to learn what files are installed and delete those associated with the package.</Answer>
+		<Answer isTrue="1" name="B">Type make uninstall in the original program source code directory.</Answer>
+		<Answer isTrue="0" name="C">Type rpm -e packagename, where packagename is the name of the package.</Answer>
+		<Answer isTrue="1" name="D">Manually track down and delete all the files installed by the package.</Answer>
+		<Explanation>Many programs provide an uninstall target for make, so option B will often (but not always) work. When it doesn’t, or if you no longer have the original source code files, you must remember or be able to figure out which files belong to the package and delete them, as described in option D. Linux has no Registry; that’s a Windows concept, so option A is invalid. Option C would work if you’d installed the package using RPM, but this procedure is useless for packages compiled from source. (An exception would be if you compiled a source RPM file and then installed the resulting binary file, but the question indicates this wasn’t the case.)</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>What is the function of the ldd program?</Question>
+		<Answer isTrue="1" name="A">It displays information on the libraries used by a program or a library.</Answer>
+		<Answer isTrue="0" name="B">It copies a file, optionally applying conversions to it.</Answer>
+		<Answer isTrue="0" name="C">It causes the system to re-create the library cache files and renew library links.</Answer>
+		<Answer isTrue="0" name="D">It flushes the LD_LIBRARY_PATH environment variable.</Answer>
+		<Explanation>Option A correctly summarizes the function of ldd. Option B summarizes the function of dd, an unrelated program described in Chapter 8. Option C describes the function of ldconfig. Option D is pure fiction, although the LD_LIBRARY_PATH environment variable is real.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>What is the preferred method of adding a directory to the library path for all users?</Question>
+		<Answer isTrue="0" name="A">Modify the LD_LIBRARY_PATH environment variable in a global shell script.</Answer>
+		<Answer isTrue="1" name="B">Add the directory to the /etc/ld.so.conf file and then type ldconfig.</Answer>
+		<Answer isTrue="0" name="C">Type ldconfig /new/dir, where /new/dir is the directory you want to add.</Answer>
+		<Answer isTrue="0" name="D">Create a symbolic link from that directory to one that’s already on the library path.</Answer>
+		<Explanation>The /etc/ld.so.conf file holds the global library path, so editing it is the preferred approach. You must then type ldconfig to have the system update its library path cache. Although you can add a directory to the library path by altering the LD_LIBRARY_PATH environment variable globally, this approach is not the preferred one. Option C simply won’t work. Option D also won’t work, although linking individual library files would work. This method is not the preferred one for adding a whole directory, though.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>You prefer the look of GTK+ widgets to Qt widgets, so you want to substitute the GTK+ libraries for the Qt libraries on your system. How would you do this?</Question>
+		<Answer isTrue="0" name="A">You must type ldconfig --makesubs=qt,gtk. This command substitutes the GTK+ libraries for the Qt libraries at load time.</Answer>
+		<Answer isTrue="0" name="B">You must uninstall the Qt library packages and re-install the GTK+ packages with the --substitute=qt option to rpm or the --replace=qt option to dpkg.</Answer>
+		<Answer isTrue="0" name="C">You must note the filenames of the Qt libraries, uninstall the packages, and create symbolic links from the Qt libraries to the GTK+ libraries.</Answer>
+		<Answer isTrue="1" name="D">You can’t easily do this; libraries cannot be arbitrarily exchanged for one another. You would need to rewrite all the Qt-using programs to use GTK+.</Answer>
+		<Explanation>Libraries are selected by programmers, not by users or system administrators. If you don’t like the widgets provided by one library, you have few options. (Many widget sets do provide a great deal of configurability, though, so you may be able to work around the problem in other ways.) Options A and B describe completely fictitious options to ldconfig, rpm, and dpkg. Option C would not work; Qt-using programs would simply crash when they found GTK+ libraries in place of the Qt libraries they were expecting.</Explanation>
+	</TestQuestion>
+	<!-- Finished here -->
+	<TestQuestion isMultiple="0">
+		<Question>Which device file could be a serial device?</Question>
+		<Answer isTrue="1" name="A">/dev/ttyS0</Answer>
+		<Answer isTrue="0" name="B">/dev/ttys0</Answer>
+		<Answer isTrue="0" name="C">/dev/ttySa</Answer>
+		<Answer isTrue="0" name="D">/dev/ttysa</Answer>
+		<Explanation>Only /dev/ttyS0 is acceptable. Serial devices all have a lowercase tty and a capital S followed by a number for their naming convention.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>What is a common tool for configuring sound cards in Linux?</Question>
+		<Answer isTrue="0" name="A">soundconfig</Answer>
+		<Answer isTrue="1" name="B">sndconfig</Answer>
+		<Answer isTrue="0" name="C">configsound</Answer>
+		<Answer isTrue="0" name="D">soundconf</Answer>
+		<Explanation>The sndconfig command is a Red Hat creation for helping to configure sound cards. The other command names are fictional.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="1">
+		<Question>What are common IRQs for serial ports? (Select all that apply.)</Question>
+		<Answer isTrue="0" name="A">1</Answer>
+		<Answer isTrue="1" name="B">3</Answer>
+		<Answer isTrue="1" name="C">4</Answer>
+		<Answer isTrue="0" name="D">16</Answer>
+		<Explanation>IRQs 3 and 4 are common defaults for serial ports. IRQ 1 is reserved for the keyboard, and there is no IRQ 16. IRQs only go from number 0 up to number 15.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>How many devices can be added to an 8-bit SCSI bus, not counting the SCSI host adapter itself?</Question>
+		<Answer isTrue="1" name="A">7</Answer>
+		<Answer isTrue="0" name="B">8</Answer>
+		<Answer isTrue="0" name="C">15</Answer>
+		<Answer isTrue="0" name="D">16</Answer>
+		<Explanation>An 8-bit SCSI bus only has 8 SCSI IDs available and 1 is needed for the controller itself. That leaves only 7 more IDs available for devices. Similarly a 16-bit SCSI bus may only have 15 devices.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>What are the highest- and lowest-priority SCSI IDs on a 16-bit SCSI bus?</Question>
+		<Answer isTrue="0" name="A">0 and 15, respectively</Answer>
+		<Answer isTrue="1" name="B">7 and 8, respectively</Answer>
+		<Answer isTrue="0" name="C">7 and 0, respectively</Answer>
+		<Answer isTrue="0" name="D">15 and 0, respectively</Answer>
+		<Explanation>Because of historical circumstances, SCSI ID 7 remains the highest priority ID. Priorities go from 7 down to 0 and then start up again at 15 and descend to 8.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="1">
+		<Question>Which files contain essential system information such as IRQs, DMA channels and I/O addresses? (Select all that apply.)</Question>
+		<Answer isTrue="1" name="A">/proc/ioports</Answer>
+		<Answer isTrue="0" name="B">/proc/ioaddresses</Answer>
+		<Answer isTrue="1" name="C">/proc/dma</Answer>
+		<Answer isTrue="1" name="D">/proc/interrupts</Answer>
+		<Explanation>There is no /proc/ioaddresses file. All other files contain useful information; /proc/ ioports holds information on I/O ports, /proc/dma holds information on DMA port usage, and /proc/interrupts holds information on IRQs.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Where are settings for ISA Plug and Play devices stored for the isapnp command?</Question>
+		<Answer isTrue="0" name="A">/proc/isa</Answer>
+		<Answer isTrue="1" name="B">/etc/isapnp.conf</Answer>
+		<Answer isTrue="0" name="C">/etc/pnp.conf</Answer>
+		<Answer isTrue="0" name="D">/etc/pnp/isa.conf</Answer>
+		<Explanation>The isapnp configuration file is /etc/isapnp.conf. The other options are all fictitious files.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="1">
+		<Question>You’ve connected two devices to a computer’s USB ports: a USB 1.0 mouse and a USB 2.0 printer. Which USB driver modules are required to use both devices at the best possible speeds? (Select all that apply.)</Question>
+		<Answer isTrue="0" name="A">The usb1.o and usb2.o modules</Answer>
+		<Answer isTrue="1" name="B">An OHCI or UHCI module</Answer>
+		<Answer isTrue="1" name="C">The usbcore.o module</Answer>
+		<Answer isTrue="1" name="D">An EHCI module</Answer>
+		<Explanation>To use the USB 1.0 mouse, you need an OHCI or UHCI module, depending on the computer’s hardware. To use the USB 2.0 printer at full speed, you need the EHCI module. (The printer will work as a USB 1.1 device with an OHCI or UHCI driver, but it will probably print more slowly like this.) The usbcore.o module is at the very base of the USB driver hierarchy; it’s always required. There are no standard usb1.o or usb2.o modules.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>What would be the equivalent RS-232 serial device filename for what Windows would refer to as COM1?</Question>
+		<Answer isTrue="1" name="A">/dev/ttyS0</Answer>
+		<Answer isTrue="0" name="B">/dev/ttyS1</Answer>
+		<Answer isTrue="0" name="C">/dev/lp0</Answer>
+		<Answer isTrue="0" name="D">/dev/lp1</Answer>
+		<Explanation>/dev/ttyS0 is the only correct answer. /dev/ttyS1 is equivalent to COM2. /dev/lp0 and /dev/lp1 are for parallel ports and are equivalent to LPT1 and LPT2, respectively.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="1">
+		<Question>USB device drivers are loaded and unloaded by helper applications. Which application may be used by your Linux system? (Select all that apply.)</Question>
+		<Answer isTrue="1" name="A">usbmgr</Answer>
+		<Answer isTrue="1" name="B">hotplug</Answer>
+		<Answer isTrue="0" name="C">usbmanager</Answer>
+		<Answer isTrue="0" name="D">deviceloader</Answer>
+		<Explanation>The applications usbmgr and hotplug manage this task. Options C and D do not exist.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Typing fdisk -l /dev/hda on an x86 Linux computer produces a listing of four partitions: /dev/hda1, /dev/hda2, /dev/hda5, and /dev/hda6. Which of the following is true?</Question>
+		<Answer isTrue="0" name="A">The disk contains two primary partitions and two extended partitions.</Answer>
+		<Answer isTrue="1" name="B">Either /dev/hda1 or /dev/hda2 is an extended partition.</Answer>
+		<Answer isTrue="0" name="C">The partition table is corrupted; there should be a /dev/hda3 and a /dev/hda4 before /dev/hda5.</Answer>
+		<Answer isTrue="0" name="D">If you add a /dev/hda3 with fdisk, /dev/hda5 will become /dev/hda6 and /dev/hda6 will become /dev/hda7.</Answer>
+		<Explanation>Logical partitions are numbered from 5 and up, and they reside inside an extended partition with a number between 1 and 4. Therefore, one of the first two partitions must be an extended partition that houses partitions 5 and 6. Because logical partitions are numbered starting at 5, their numbers won’t change if /dev/hda3 is subsequently added. The disk holds one primary, one extended, and two logical partitions.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>A new Linux administrator plans to create a system with separate /home, /usr/local, and /etc partitions. Which of the following best describes this configuration?</Question>
+		<Answer isTrue="1" name="A">The system won’t boot because /etc contains configuration files necessary to mount nonroot partitions.</Answer>
+		<Answer isTrue="0" name="B">The system will boot, but /usr/local won’t be available because mounted partitions must be mounted directly off their parent partition, not in a subdirectory.</Answer>
+		<Answer isTrue="0" name="C">The system will boot only if the /home partition is on a separate physical disk from the /usr/local partition.</Answer>
+		<Answer isTrue="0" name="D">The system will boot and operate correctly, provided each partition is large enough for its intended use.</Answer>
+		<Explanation>The /etc/fstab file contains the mapping of partitions to mount points, so /etc must be an ordinary directory on the root partition, not on a separate partition. Options B and C describe restrictions that don’t exist. Option D would be correct if /etc were not a separate partition.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Which of the following directories is most likely to be placed on its own hard disk partition?</Question>
+		<Answer isTrue="0" name="A">/bin</Answer>
+		<Answer isTrue="0" name="B">/sbin</Answer>
+		<Answer isTrue="0" name="C">/mnt</Answer>
+		<Answer isTrue="1" name="D">/home</Answer>
+		<Explanation>The /home directory is frequently placed on its own partition in order to isolate it from the rest of the system and sometimes to enable use of a particular filesystem or filesystem mount options. The /bin and /sbin directories should never be split off from the root (/) filesystem because they contain critical executable files that must be accessible in order to do the most basic work, including mounting filesystems. The /mnt directory often contains subdirectories used for mounting floppy disks, CD-ROMs, and other removable media or may be used for this purpose itself. It’s seldom used to directly access hard disk partitions, although it can be used for this purpose.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>You discover that an x86 hard disk has partitions with type codes of 0x0f, 0x82, and 0x83. Assuming these type codes are accurate, what can you conclude about the disk?</Question>
+		<Answer isTrue="1" name="A">The disk holds a partial or complete Linux system.</Answer>
+		<Answer isTrue="0" name="B">The disk holds DOS or Windows 9x/Me and Windows NT/200x/XP installations.</Answer>
+		<Answer isTrue="0" name="C">The disk holds a FreeBSD installation.</Answer>
+		<Answer isTrue="0" name="D">The disk is corrupt; those partition type codes are incompatible.</Answer>
+		<Explanation>The 0x0f partition type code is one of two valid partition type codes for an extended partition. (The other is 0x05.) The 0x82 code refers to a Linux swap partition, while 0x83 denotes a Linux filesystem partition. Thus, it appears that this disk holds Linux partitions. Windows 9x/Me, Windows NT/200x/XP, and FreeBSD all use other partition type codes for their partitions. Partitions exist, in part, to enable different OSs to store their data side-by-side on the same disk, so mixing several partition types (even for different OSs) on one disk does not indicate disk corruption.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>You run Linux’s fdisk and modify your partition layout. Before exiting from the program, though, you realize that you’ve been working on the wrong disk. What can you do to correct this problem?</Question>
+		<Answer isTrue="0" name="A">Nothing; the damage is done, so you’ll have to recover data from a backup.</Answer>
+		<Answer isTrue="0" name="B">Type w to exit from fdisk without saving changes to disk.</Answer>
+		<Answer isTrue="1" name="C">Type q to exit from fdisk without saving changes to disk.</Answer>
+		<Answer isTrue="0" name="D">Type u repeatedly to undo the operations you’ve made in error.</Answer>
+		<Explanation>Linux’s fdisk doesn’t write changes to disk until you exit from the program by typing w. Typing q exits without writing those changes, so typing q in this situation will avert disaster. Typing w would be precisely the wrong thing to do. Typing u would do nothing useful since it’s not an undo command.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>What does the following command accomplish?&lt;br&gt;# mkfs -t ext2 /dev/sda4</Question>
+		<Answer isTrue="0" name="A">It sets the partition table type code for /dev/sda4 to ext2.</Answer>
+		<Answer isTrue="0" name="B">It converts a FAT partition into an ext2fs partition without damaging the partition’s existing files.</Answer>
+		<Answer isTrue="1" name="C">It creates a new ext2 filesystem on /dev/sda4, overwriting any existing filesystem and data.</Answer>
+		<Answer isTrue="0" name="D">Nothing; the -t option isn’t valid, and so it causes mkfs to abort its operation.</Answer>
+		<Explanation>The mkfs command creates a new filesystem, overwriting any existing data and therefore making existing files inaccessible. This command does not set the partition type code in the partition table. The -t ext2 option tells mkfs to create an ext2 filesystem; it’s a perfectly valid option.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Which of the following best summarizes the differences between DOS’s FDISK and Linux’s fdisk?</Question>
+		<Answer isTrue="0" name="A">Linux’s fdisk is a simple clone of DOS’s FDISK but written to work from Linux rather than from DOS or Windows.</Answer>
+		<Answer isTrue="1" name="B">The two are completely independent programs that accomplish similar goals, although Linux’s fdisk is more flexible.</Answer>
+		<Answer isTrue="0" name="C">DOS’s FDISK uses GUI controls, whereas Linux’s fdisk uses a command-line interface, but they have similar functionality.</Answer>
+		<Answer isTrue="0" name="D">Despite their similar names, they’re completely different tools—DOS’s FDISK handles disk partitioning, whereas Linux’s fdisk formats floppy disks.</Answer>
+		<Explanation>Although they have similar names and purposes, Linux’s fdisk is not modeled after DOS’s FDISK. DOS’s FDISK does not have GUI controls. Linux’s fdisk does not format floppy disks.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>What mount point should you associate with swap partitions?</Question>
+		<Answer isTrue="0" name="A">/</Answer>
+		<Answer isTrue="0" name="B">/swap</Answer>
+		<Answer isTrue="0" name="C">/boot</Answer>
+		<Answer isTrue="1" name="D">None</Answer>
+		<Explanation>Swap partitions aren’t mounted in the way filesystems are, so they have no associated mount points.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Which of the following correctly describes a difference between LILO and GRUB?</Question>
+		<Answer isTrue="0" name="A">LILO includes explicit support for FreeBSD kernels; GRUB does not.</Answer>
+		<Answer isTrue="0" name="B">LILO can boot Linux kernels through the 2.4.x series; GRUB is necessary to boot 2.6.x and later kernels.</Answer>
+		<Answer isTrue="1" name="C">You must reinstall LILO to the MBR or partition boot sector after changing its configuration; this is unnecessary with GRUB.</Answer>
+		<Answer isTrue="0" name="D">LILO can chain load another OS’s boot loader, whereas GRUB can boot only Linux kernels.</Answer>
+		<Explanation>Option C correctly describes the requirements for reinstallation of LILO and GRUB after changing their configurations. Option A has it backwards; it’s GRUB with explicit support for FreeBSD (and some other OS kernels), not LILO. Neither LILO nor GRUB is limited to booting 2.4.x and earlier Linux kernels, so option B is incorrect. Both LILO and GRUB can chain load another boot loader, so option D is incorrect.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Where should you install GRUB if your system dual-boots Linux and Windows and you don’t want Windows to wipe out GRUB if you re-install Windows?</Question>
+		<Answer isTrue="0" name="A">The MBR of the first hard disk</Answer>
+		<Answer isTrue="0" name="B">/var/grub.conf</Answer>
+		<Answer isTrue="0" name="C">The boot sector of a logical Linux partition</Answer>
+		<Answer isTrue="1" name="D">The boot sector of a primary Linux partition</Answer>
+		<Explanation>Placing a Linux boot loader, such as LILO or GRUB, in the boot sector of a primary Linux partition will protect that boot loader from being deleted when you re-install Windows. (It may still be deactivated, but can be reactivated with the DOS/Windows FDISK program.) The standard x86 MBR boot loader can’t redirect the boot process to a logical partition, so option C won’t work unless you use a third-party MBR boot loader, in which case it would be wiped out by a Windows re-installation. Placing GRUB in the MBR of the first hard disk would make it vulnerable to damage by Windows re-installation. Although some distributions call their GRUB configuration files grub.conf, this file is stored in /boot/grub, not in /var, and it’s not where the main boot loader code itself resides.</Explanation>
+	</TestQuestion>
+	<!-- finished here -->
+	<TestQuestion isMultiple="0">
+		<Question>Which of the following options is used with fsck to force it to use a particular filesystem type?</Question>
+		<Answer isTrue="0" name="A">-A</Answer>
+		<Answer isTrue="0" name="B">-N</Answer>
+		<Answer isTrue="1" name="C">-t</Answer>
+		<Answer isTrue="0" name="D">-C</Answer>
+		<Explanation>The –t option is used to tell fsck what filesystem to use. Normally, fsck determines the filesystem type automatically. The –A option causes fsck to check all the filesystems marked to be checked in /etc/fstab. The –N option tells fsck to take no action and to display what it would normally do without actually doing it. The –C option displays a text-mode progress indicator of the check process.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Which of the following pieces of information can df not report?</Question>
+		<Answer isTrue="1" name="A">How long the filesystem has been mounted.</Answer>
+		<Answer isTrue="0" name="B">The number of inodes used on an ext3fs partition.</Answer>
+		<Answer isTrue="0" name="C">The filesystem type of a partition.</Answer>
+		<Answer isTrue="0" name="D">The percentage of available disk space used on a partition.</Answer>
+		<Explanation>A default use of df reports the percentage of disk space used. The number of inodes and filesystem types can both be obtained by passing parameters to df. This utility does not report howlong a filesystem has been mounted.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>What is an advantage of a journaling filesystem over a conventional (non-journaling) filesystem?</Question>
+		<Answer isTrue="0" name="A">Journaling filesystems are older and better tested than non-journaling filesystems.</Answer>
+		<Answer isTrue="0" name="B">Journaling filesystems never need to have their filesystems checked with fsck.</Answer>
+		<Answer isTrue="0" name="C">Journaling filesystems support Linux ownership and permissions; non-journaling filesystems don’t.</Answer>
+		<Answer isTrue="1" name="D">Journaling filesystems require shorter disk checks after a power failure or system crash.</Answer>
+		<Explanation>The journal of a journaling filesystem records pending operations, resulting in quicker disk checks after an uncontrolled shutdown. Contrary to option A, journaling filesystems are, as a class, newer than non-journaling filesystems; in fact, the journaling ext3fs is built upon the nonjournaling ext2fs. Although disk checks are quicker with journaling filesystems than with nonjournaling filesystems, non-journaling filesystems do have fsck utilities, and these may still need to be run from time to time. All Linux native filesystems support Linux ownership and permissions; this isn’t an advantage of journaling filesystems, contrary to option C.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>You want to use /mnt/cdrom to access your CD-ROM drive, so you insert a CD-ROM into the drive and type mount /mnt/cdrom /dev/cdrom as root, but you receive the error message /mnt/cdrom is not a block device. Why did this happen?</Question>
+		<Answer isTrue="0" name="A">You must first prepare the mount point by typing mountpoint /mnt/cdrom; only then will the mount command succeed</Answer>
+		<Answer isTrue="1" name="B">The command reverses the order of the CD-ROM device file and the mount point; it should be mount /dev/cdrom /mnt/cdrom</Answer>
+		<Answer isTrue="0" name="C">The /dev/cdrom filename is not valid; you must determine what device file is associated with your CD-ROM drive</Answer>
+		<Answer isTrue="0" name="D">The CD-ROM is defective or the CD-ROM drive is malfunctioning. Try another CD-ROM and, if necessary, replace the drive.</Answer>
+		<Explanation>The mount command takes a device filename first and a mount point second, so option B is correct. There is no need for special mount point preparation, as option A implies, other than the existence of the mount point directory. Contrary to option C, /dev/cdrom is often a valid device file for CD-ROMs (or more precisely, a symbolic link to a valid device file). Furthermore, the error message mentions /mnt/cdrom, not /dev/cdrom. Defective CD-ROMs and drives can certainly cause problems, as option D implies, but this error message refers to block devices, suggesting the problem is one of Linux configuration, not media viability.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="1">
+		<Question>What is wrong with the following /etc/fstab file entry? (Select all that apply.) /dev/hda8 nfs default 0 0</Question>
+		<Answer isTrue="1" name="A">The entry is missing a mount point specification.</Answer>
+		<Answer isTrue="0" name="B">All /etc/fstab fields should be separated by commas.</Answer>
+		<Answer isTrue="0" name="C">The default option may only be used with ext2 filesystems.</Answer>
+		<Answer isTrue="1" name="D">/dev/hda8 is a disk partition, but nfs indicates a network filesystem.</Answer>
+		<Explanation>A mount directory must be specified between the device entry (/dev/hda8) and the filesystem type code (nfs). The nfs filesystem type code may only be used with an NFS export specification of the form server:/export as the device specification. Fields in /etc/ fstab are separated by spaces or tabs, not commas (but commas are used between individual options if several options are specified in the options column). The default option may be used with any filesystem type.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>You want to discover the sizes of several dot files in a directory. Which of the following commands might you use to do this?</Question>
+		<Answer isTrue="1" name="A">ls -la</Answer>
+		<Answer isTrue="0" name="B">ls -p</Answer>
+		<Answer isTrue="0" name="C">ls -R</Answer>
+		<Answer isTrue="0" name="D">ls -d</Answer>
+		<Explanation>The -l parameter produces a long listing, including file sizes. The -a parameter produces a listing of all files in a directory, including the dot files. Combining the two produces the desired information (along with information on other files). The -p, -R, and -d options do not have the specified effects.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>You want to move a file from your hard disk to a floppy disk. Which of the following is true?</Question>
+		<Answer isTrue="0" name="A">You’ll have to use the --preserve option to mv to keep ownership and permissions set correctly.</Answer>
+		<Answer isTrue="0" name="B">The mv command will adjust filesystem pointers without physically rewriting data if the floppy uses the same filesystem type as the hard disk partition.</Answer>
+		<Answer isTrue="0" name="C">You must use the same filesystem type on both media to preserve ownership and permissions.</Answer>
+		<Answer isTrue="1" name="D">The mv command will delete the file on the hard disk after copying it to the floppy.</Answer>
+		<Explanation>When moving from one partition or disk to another, mv must necessarily read and copy the file and then delete the original if that copy was successful. If both filesystems support ownership and permissions, they’ll be preserved; mv doesn’t need an explicit --preserve option to do this, and this preservation does not rely on having exactly the same filesystem types. Although mv doesn’t physically rewrite data when moving within a single low-level filesystem, this approach cannot work when you are copying to a separate low-level filesystem (such as from a hard disk to a floppy disk); if the data isn’t written to the new location, it won’t be accessible should the disk be inserted in another computer.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="1">
+		<Question>You type mkdir one/two/three and receive an error message that reads, in part, No such file or directory. What can you do to overcome this problem? (Select all that apply.)</Question>
+		<Answer isTrue="1" name="A">Add the --parents parameter to the mkdir command.</Answer>
+		<Answer isTrue="1" name="B">Issue three separate mkdir commands: mkdir one, then mkdir one/two, then mkdir one/two/three.</Answer>
+		<Answer isTrue="0" name="C">Type touch /bin/mkdir to be sure the mkdir program file exists.</Answer>
+		<Answer isTrue="0" name="D">Type rmdir one to clear away the interfering base of the desired new directory tree.</Answer>
+		<Explanation>If you try to create a directory inside a directory that doesn’t exist, mkdir responds with a No such file or directory error. The --parents parameter tells mkdir to automatically create all necessary parent directories in such situations. You can also manually do this by creating each necessary directory separately. (It’s possible that mkdir one wouldn’t be necessary in this example if the directory one already exists. No harm will come from trying to create a directory that already exists, although mkdir will return a File exists error.)</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>You want to create a link from your home directory on your hard disk to a directory on a CD-ROM drive. Which of the following types of links might you use?</Question>
+		<Answer isTrue="1" name="A">Only a symbolic link.</Answer>
+		<Answer isTrue="0" name="B">Only a hard link.</Answer>
+		<Answer isTrue="0" name="C">Either a symbolic or a hard link.</Answer>
+		<Answer isTrue="0" name="D">None of the above; such links are not possible under Linux.</Answer>
+		<Explanation>Symbolic links can point across filesystems, so creating a symbolic link from one filesystem (in which your home directory resides) to another (on the CD-ROM) isn’t a problem. Hard links, as in options B and C, are restricted to a single filesystem and so won’t work for the described purpose. Because symbolic links will work as described, option D is incorrect.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>What command would you type to change the ownership of somefile.txt from ralph to tony?</Question>
+		<Answer isTrue="0" name="A">chown ralph:tony somefile.txt</Answer>
+		<Answer isTrue="0" name="B">chmod somefile.txt tony</Answer>
+		<Answer isTrue="0" name="C">chown somefile.txt tony</Answer>
+		<Answer isTrue="1" name="D">chown tony somefile.txt</Answer>
+		<Explanation>Option D is the correct command. Typing chown ralph:tony somefile.txt, as in option A, sets the owner of the file to ralph and the group to tony. The chmod command used in option B is used to change file permissions, not ownership. Option C reverses the order of the filename and the owner.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="1">
+		<Question>Typing ls -ld wonderjaye reveals a symbolic file mode of drwxr-xr-x. Which of the following is true? (Select all that apply.)</Question>
+		<Answer isTrue="0" name="A">wonderjaye is a symbolic link.</Answer>
+		<Answer isTrue="0" name="B">wonderjaye is an executable program.</Answer>
+		<Answer isTrue="1" name="C">wonderjaye is a directory.</Answer>
+		<Answer isTrue="1" name="D">wonderjaye may be read by all users of the system.</Answer>
+		<Explanation>The d character that leads the mode indicates that the file is actually a directory, while the r symbol in the r-x triplet at the end of the symbolic mode indicates that all users of the system have read access to the directory. Symbolic links are denoted by leading l characters, which this mode lacks, so option A is incorrect. Although the x symbols usually denote executable program files, as specified in option B, in the case of directories this permission bit indicates that the directory’s contents may be searched; executing a directory is meaningless.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>When should programs be configured SUID root?</Question>
+		<Answer isTrue="0" name="A">At all times; this permission is required for executable programs.</Answer>
+		<Answer isTrue="0" name="B">Whenever a program should be able to access a device file.</Answer>
+		<Answer isTrue="1" name="C">Only when they require root privileges to do their job.</Answer>
+		<Answer isTrue="0" name="D">Never; this permission is a severe security risk.</Answer>
+		<Explanation>The set user ID (SUID) bit enables programs to run as the program’s owner rather than as the user who ran them. This makes SUID root programs risky, so setting the SUID bit on root-owned programs should be done only when it’s required for the program’s normal functioning, as stated in option C. This should certainly not be done for all programs because the SUID bit is not required of all executable programs as option A asserts. Although the SUID root configuration does enable programs to access device files, the device files’ permissions can be modified to give programs access to those files, if this is required, so option B is incorrect. Although SUID root programs are a security risk, as stated in option D, they’re a necessary risk for a few programs, so option D goes too far.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Which of the following commands would you type to give all users read access to the file myfile.txt? (Assume that you’re the owner of myfile.txt.)</Question>
+		<Answer isTrue="0" name="A">chmod 741 myfile</Answer>
+		<Answer isTrue="0" name="B">chmod 0640 myfile</Answer>
+		<Answer isTrue="0" name="C">chmod u+r myfile</Answer>
+		<Answer isTrue="1" name="D">chmod o+r myfile</Answer>
+		<Explanation>Using symbolic modes, the o+r option adds read (r) permissions to the world (o). Thus, option D is correct. Option A sets the mode to rwxr----x, which is a bit odd and does not provide world read access to the file, although it does provide world execute access. Option B sets the mode to rw-r-----, which gives the world no access whatsoever to the file. Option C adds read access to the file for the owner (u) if the owner does not already have this access; it doesn’t affect the world permissions.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Which of the following umask values will result in files with rw-r----- permissions?</Question>
+		<Answer isTrue="0" name="A">640</Answer>
+		<Answer isTrue="0" name="B">210</Answer>
+		<Answer isTrue="0" name="C">022</Answer>
+		<Answer isTrue="1" name="D">027</Answer>
+		<Explanation>Option D, 027, removes write permissions for the group and all world permissions. (Files normally don’t have execute permissions set, but explicitly removing write permissions when removing read permissions ensures reasonable behavior for directories.) Option A, 640, is the octal equivalent of the desired rw-r----- permissions, but the umask sets the bits that are to be removed from permissions, not those that are to be set. Option B, 210, would remove write permission for the owner, but it would not remove write permission for the group, which is incorrect. This would also leave all world permissions open. Finally, option C, 022, would not remove world read permission.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>You see the usrquota and grpquota options in the /etc/fstab entry for a filesystem. What is the consequence of these entries?</Question>
+		<Answer isTrue="0" name="A">Quota support will be available if it’s compiled into the kernel; it will be automatically activated when you mount the filesystem.</Answer>
+		<Answer isTrue="1" name="B">Quota support will be available if it’s compiled into your kernel, but you must activate it with the quotaon command.</Answer>
+		<Answer isTrue="0" name="C">Quota support will be disabled on the filesystem in question unless you activate it with the quotaon command.</Answer>
+		<Answer isTrue="0" name="D">Nothing; these options are malformed and so will have no effect.</Answer>
+		<Explanation>Using quotas requires kernel support, the usrquota or grpquota (for user or group quotas) filesystem mount option, and activation via the quotaon command (which often appears in SysV startup scripts). Thus, option B is correct. Option A suggests that quotaon is not necessary, and option C suggests that quotaon is sufficient, but neither is true. The usrquota and grpquota options are both valid, so option D is incorrect.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Which of the following commands can be used to summarize the quota information on all filesystems?</Question>
+		<Answer isTrue="0" name="A">repquota</Answer>
+		<Answer isTrue="1" name="B">repquota -a</Answer>
+		<Answer isTrue="0" name="C">quotacheck</Answer>
+		<Answer isTrue="0" name="D">quotacheck -a</Answer>
+		<Explanation>The repquota utility is used to summarize the quota information on the filesystem. When used with the –a option, it will show this information for all filesystems. The quotacheck utility checks quota information on a disk and writes corrections.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>You’ve installed a commercial spreadsheet program, called WonderCalc, on a workstation. In which of the following directories are you most likely to find the program executable file?</Question>
+		<Answer isTrue="0" name="A">/usr/sbin</Answer>
+		<Answer isTrue="0" name="B">/etc/X11</Answer>
+		<Answer isTrue="0" name="C">/bin</Answer>
+		<Answer isTrue="1" name="D">/opt/wcalc/bin</Answer>
+		<Explanation>The /opt directory tree exists to hold programs that aren’t a standard part of a Linux distribution, such as commercial programs. These programs should install in their own directories under /opt; these directories usually have bin subdirectories of their own, although this isn’t required. The /usr/sbin directory holds programs that are normally run only by the system administrator, and /bin holds critical basic binary files. The /etc/X11 directory holds X-related configuration files. None of these directories is an appropriate place for a spreadsheet program.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Which of the following file-location commands is likely to take the most time to find a file that might be located anywhere on the computer?</Question>
+		<Answer isTrue="1" name="A">The find command.</Answer>
+		<Answer isTrue="0" name="B">The locate command.</Answer>
+		<Answer isTrue="0" name="C">The whereis command.</Answer>
+		<Answer isTrue="0" name="D">They’re all equal in speed.</Answer>
+		<Explanation>The find utility operates by searching all files in a directory tree, and so it is likely to take along time to search all a computer’s directories. The locate program uses a precompiled database, and whereis searches a limited set of directories, so these commands will take less time.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>You want to track down all the files in /home that are owned by karen. Which of the following commands will do the job?</Question>
+		<Answer isTrue="0" name="A">find /home -uid karen</Answer>
+		<Answer isTrue="1" name="B">find /home -user karen</Answer>
+		<Answer isTrue="0" name="C">locate /home -username karen</Answer>
+		<Answer isTrue="0" name="D">locate /home karen</Answer>
+		<Explanation>The find command includes the ability to search by username using the -user name option, where name is the username; thus, option B is correct. The -uid option to find can also locate files owned by a user, but it takes a numeric user ID (UID) number as an argument, so option A isn’t quite correct. The locate command provides no ability to search by user, so options C and D are incorrect.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>What can you conclude from the following interaction?&lt;br&gt;$ which man /usr/bin/man</Question>
+		<Answer isTrue="0" name="A">The only file called man on the system is in /usr/bin.</Answer>
+		<Answer isTrue="0" name="B">The /usr/bin/man program was installed by system package tools.</Answer>
+		<Answer isTrue="0" name="C">The /usr/bin/man program will be run by any user who types man.</Answer>
+		<Answer isTrue="1" name="D">The first instance of the man program, in path search order, is in /usr/bin.</Answer>
+		<Explanation>The which program searches the path just as bash does, but it prints the path to the first executable program it finds on the path. Thus, option D is correct. The which program does not conduct an exhaustive search of the system, so there could be many more files called man on the system, contrary to option A. System package tools and which are not closely related; option B is incorrect. Although /usr/bin/man would be run when the user whose which output matches that in the question types man, this might not be true of others because the path can vary from one user to another. Thus, option C is incorrect.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>You want to reconfigure X.org-X11 after changing a computer’s video card, so you type XF86Setup as root and enter the new information in the program’s GUI. When you test the X server, though, you find that your changes had no effect. Why not?</Question>
+		<Answer isTrue="0" name="A">The XF86Setup program is designed to be run by an ordinary user, not by root.</Answer>
+		<Answer isTrue="0" name="B">You selected the wrong video card in the XF86Setup program.</Answer>
+		<Answer isTrue="0" name="C">You must copy the temporary configuration file created by XF86Setup to /etc/X11.</Answer>
+		<Answer isTrue="1" name="D">XF86Setup is a configuration tool for XFree86 3.3.6 and earlier, not for X.org-X11.</Answer>
+		<Explanation>You must use an X configuration program for the X server you use, and in this case, XF86Setup is the wrong tool for configuring X.org-X11, as stated in option D. X configuration programs can sometimes be run by ordinary users, but this isn’t a requirement, and if they write their changes directly to the configuration file, they must be run as root, contrary to option A. Although it’s possible that you selected the wrong video card, as stated in option B, this isn’t the most important problem, and even if you selected the right card, this problem would occur. Some configuration tools do drop new configuration files in /root or some other directory, as suggested by option C, but again, such placement isn’t the main problem in this scenario.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>When you configure an X server, you need to make changes to configuration files and then start or restart the X server. Which of the following can help streamline this process?</Question>
+		<Answer isTrue="1" name="A">Shut down X by switching to a runlevel in which X doesn’t run automatically, and then reconfigure it and use startx to test X startup.</Answer>
+		<Answer isTrue="0" name="B">Shut down X by booting into single-user mode, and then reconfigure X and use telinit to start X running again.</Answer>
+		<Answer isTrue="0" name="C">Reconfigure X, and then unplug the computer to avoid the lengthy shutdown process before restarting the system and X along with it.</Answer>
+		<Answer isTrue="0" name="D">Use the startx utility to check the X configuration file for errors before restarting the X server.</Answer>
+		<Explanation>On most Linux systems, some runlevels don’t run X by default, so using one of them along with the startx program (which starts X running) can be an effective way to quickly test changes to an X configuration. The telinit program changes runlevels, which is a lengthy process compared to using startx. Unplugging the computer to avoid the shutdown process is selfdefeating since you’ll have to suffer through a long startup (if you use a non-journaling filesystem), and it can also result in data loss. The startx utility doesn’t check the veracity of an X configuration file; it starts X running from a text-mode login.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Which of the following summarizes the organization of the XF86Config and xorg.conf files?</Question>
+		<Answer isTrue="0" name="A">The file contains multiple sections, one for each screen. Each section includes subsections for individual components (keyboard, video card, and so on).</Answer>
+		<Answer isTrue="0" name="B">Configuration options are entered in any order desired. Options relating to specific components (keyboard, video card, and so on) may be interspersed.</Answer>
+		<Answer isTrue="0" name="C">The file begins with a summary of individual screens. Configuration options are preceded by a code word indicating the screen to which they apply.</Answer>
+		<Answer isTrue="1" name="D">The file is broken into sections, one or more for each component (keyboard, video card, and so on). The file also has one or more sections that define how to combine the main sections.</Answer>
+		<Explanation>The XF86Config and xorg.conf file design enables you to define variants or multiple components and easily combine or recombine them as necessary.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>A monitor’s manual lists its range of acceptable synchronization values as 27–96kHz horizontal and 50–160Hz vertical. What implications does this have for the resolutions and refresh rates the monitor can handle?</Question>
+		<Answer isTrue="0" name="A">The monitor can run at up to 160Hz vertical refresh rate in all resolutions.</Answer>
+		<Answer isTrue="0" name="B">The monitor can handle up to 160Hz vertical refresh rate depending on the color depth.</Answer>
+		<Answer isTrue="1" name="C">The monitor can handle up to 160Hz vertical refresh rate depending on the resolution.</Answer>
+		<Answer isTrue="0" name="D">The monitor can handle vertical resolutions of up to 600 lines (96,000 ÷ 160), but no more.</Answer>
+		<Explanation>The vertical refresh rate range includes a maximum value, but that value may be reduced when the resolution and vertical refresh rate would demand a higher horizontal refresh rate than the monitor can handle. In practice, it’s usually the horizontal limit that’s most important, at least when running at typical resolutions. The color depth is irrelevant to the computation.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>In what section of XF86Config or xorg.conf do you specify the resolution that you want to run?</Question>
+		<Answer isTrue="1" name="A">In the Screen section, subsection Display, using the Modes option.</Answer>
+		<Answer isTrue="0" name="B">In the Monitor section, using the Modeline option.</Answer>
+		<Answer isTrue="0" name="C">In the Device section, using the Modeline option.</Answer>
+		<Answer isTrue="0" name="D">In the DefaultResolution section, using the Define option.</Answer>
+		<Explanation>Option A describes the correct location for this option. The Modeline option in the Monitor section (as described in option B) defines one possible resolution, but there are usually several Modeline entries defining many resolutions. The Modeline option doesn’t exist in the Device section (as suggested by option C), however, nor is that section where the resolution is set. There is no DefaultResolution section (as referenced in option D).</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>The following line appears in your X server’s mouse configuration area. What can you conclude? Option "Protocol" "PS/2"</Question>
+		<Answer isTrue="0" name="A">The mouse is connected to the PS/2 hardware mouse port.</Answer>
+		<Answer isTrue="1" name="B">The mouse uses the PS/2 software communication standard.</Answer>
+		<Answer isTrue="0" name="C">The computer is an ancient IBM PS/2 system.</Answer>
+		<Answer isTrue="0" name="D">The mouse was designed for use with IBM’s OS/2.</Answer>
+		<Explanation>“PS/2” can refer to both a hardware interface and a software protocol, but used in the context of the Protocol option, it unambiguously refers to the software protocol. Option A might be correct, but the specified line is insufficient evidence of that; USB mice generally use the PS/2 protocol or a variant of it, such as the Intellimouse PS/2 protocol. Although the PS/2 hardware port and protocol originated with the IBM PS/2 computer mentioned in option C, many other computers now use them. Mice that use the PS/2 protocol may be used with just about any OS, not just IBM’s OS/2.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Which of the following sections is present in the X configuration files for XFree86 4.x and X.org-X11 but not for XFree86 3.3.6?</Question>
+		<Answer isTrue="0" name="A">Monitor</Answer>
+		<Answer isTrue="1" name="B">ServerLayout</Answer>
+		<Answer isTrue="0" name="C">Pointer</Answer>
+		<Answer isTrue="0" name="D">Screen</Answer>
+		<Explanation>The ServerLayout section is unique to XFree86 4.x and its derivative, X.org-X11; this section was not present in XFree86 3.3.6 and earlier. The Monitor and Screen sections are present in all three X servers’ configuration files, while the Pointer section is unique to XFree86 3.3.6.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>What is an advantage of a font server?</Question>
+		<Answer isTrue="0" name="A">It provides faster font displays than is otherwise possible.</Answer>
+		<Answer isTrue="1" name="B">It can simplify font maintenance on a network with many X servers.</Answer>
+		<Answer isTrue="0" name="C">It’s the only means of providing TrueType support for XFree86 4.x.</Answer>
+		<Answer isTrue="0" name="D">It enables the computer to turn a bitmapped display into an ASCII text file.</Answer>
+		<Explanation>By maintaining fonts on one font server and pointing other X servers to that font server, you can reduce the administrative cost of maintaining the fonts on all the systems. Font servers do not produce faster font displays than X’s local font handling; if anything, the opposite is true. XFree86 4.x supports TrueType fonts directly, but XFree86 3.3.6 and earlier didn’t include this support by default. Converting a bitmapped display into ASCII text is a function of optical character recognition (OCR) software, not a font server.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="1">
+		<Question>What methods do Linux distributions use to start X automatically when the system boots? (Select all that apply.)</Question>
+		<Answer isTrue="0" name="A">Start an XDMCP server from the Start folder</Answer>
+		<Answer isTrue="0" name="B">Start an XDMCP server from an ~/.xinitrc script</Answer>
+		<Answer isTrue="1" name="C">Start an XDMCP server via a SysV startup script</Answer>
+		<Answer isTrue="1" name="D">Start an XDMCP server from init</Answer>
+		<Explanation>XDMCP servers are typically launched either from a SysV startup script or by init (as specified in /etc/inittab), as described in options C and D. The XDMCP server then starts X. The Start folder mentioned in option A is a Windows construct, not a Linux construct. The ~/.xinitrc script mentioned in option B is an X login script used when starting X from the command line via startx; it’s not used to automatically start X when the system boots.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>You find a reference to the prefdm program in /etc/inittab. Why does this program do?</Question>
+		<Answer isTrue="1" name="A">It reads /etc/sysconfig/desktop to determine which XDMCP server to run and then runs the XDMCP server.</Answer>
+		<Answer isTrue="0" name="B">It's an XDMCP server that provides preferential login treatment to important users, such as root.</Answer>
+		<Answer isTrue="0" name="C">It displays a dialog box that enables you to select which XDMCP server you want to run as the default.</Answer>
+		<Answer isTrue="0" name="D">It runs before the fdm program, preparing data directories to hold important login variables.</Answer>
+		<Explanation>Some distributions, such as Fedora and Red Hat, use prefdm as a front end to the XDMCP server, enabling init to call a single program (namely, prefdm), which in turn launches the specific XDMCP server the system administrator has configured by editing /etc/sysconfig/ desktop. Options B, C, and D all describe completely fictitious programs.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>How would you change the text displayed by XDM as a greeting?</Question>
+		<Answer isTrue="0" name="A">Click Configure dialog box. Greeting from the XDM main menu and edit the text in the resulting.</Answer>
+		<Answer isTrue="1" name="B">Edit the /etc/X11/xdm/Xresources file and change the text in the xlogin*greeting line.</Answer>
+		<Answer isTrue="0" name="C">Edit the /etc/X11/XF86Config file and change the Greeting option in the xdm area.</Answer>
+		<Answer isTrue="0" name="D">Run xdmconfig and change the greeting on the Login tab.</Answer>
+		<Explanation>The XDM greeting is a resource set in the /etc/X11/xdm/Xresources file, so option B is correct. XDM doesn’t offer many options on its main screen and certainly not one to change its greeting, as described in option A. Although the XF86Config file mentioned in option C is real, this file provides no XDM configuration options because XDM is a separate program from XFree86. There is no standard xdmconfig program, as mentioned in option D.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Which of the following features do KDM and GDM provide that XDM does not?</Question>
+		<Answer isTrue="0" name="A">An encrypted remote X-based access ability, improving network security.</Answer>
+		<Answer isTrue="0" name="B">The ability to accept logins from remote computers, once properly configured.</Answer>
+		<Answer isTrue="1" name="C">The ability to select the login environment from a menu on the main login screen.</Answer>
+		<Answer isTrue="0" name="D">A login screen that shows the username and password simultaneously rather than sequentially.</Answer>
+		<Explanation>KDM and GDM add many features, one of which is a menu that enables users to select their desktop environment or window manager when they log in rather than specifying it in a configuration file, as option C states. Option A describes one of the advantages of the Secure Shell (SSH) as a remote-access protocol. Option B describes a feature common to all three XDMCP servers. Option D describes the way both KDM and XDM function; GDM is the one that presents username and password fields in series rather than simultaneously.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>You want to enable remote access in GDM. Which of the following is one step you would take in doing so?</Question>
+		<Answer isTrue="0" name="A">Edit the /etc/X11/gdm/gdm-config file and set the DisplayManager.requestPort option to 177.</Answer>
+		<Answer isTrue="0" name="B">Edit the /etc/ssh/sshd_config file’s X11Forwarding line to read yes.</Answer>
+		<Answer isTrue="1" name="C">Edit the /etc/X11/gdm/gdm.conf file and change the enable line in the [xdmcp] section to yes.</Answer>
+		<Answer isTrue="0" name="D">You can’t; this feature isn’t supported by GDM, but it is supported by KDM and XDM.</Answer>
+		<Explanation>Enabling remote access via GDM requires making the changes described in option C. Option A describes the equivalent change that’s necessary in XDM (except for slight changes to the filename), but GDM doesn’t use this method. Option B describes one change that may be necessary to use SSH’s X forwarding feature, but this change doesn’t affect GDM. Contrary to option D, all three XDMCP servers accept remote logins.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Which of the following desktop environments is a commercial package?</Question>
+		<Answer isTrue="0" name="A">KDE</Answer>
+		<Answer isTrue="0" name="B">GNOME</Answer>
+		<Answer isTrue="1" name="C">CDE</Answer>
+		<Answer isTrue="0" name="D">XFce</Answer>
+		<Explanation>CDE is a commercial desktop environment. KDE, GNOME, and XFce are all open-source packages.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>You want users to be able to select a new window manager you’ve installed from the GDM login screen. In what directory should you create a configuration file to add this option?</Question>
+		<Answer isTrue="0" name="A">/var/spool/logins</Answer>
+		<Answer isTrue="0" name="B">/etc/X11/gdm</Answer>
+		<Answer isTrue="1" name="C">/usr/share/xsessions</Answer>
+		<Answer isTrue="0" name="D">/etc/X11/xlogin</Answer>
+		<Explanation>The /usr/share/xsessions directory holds files that define login sessions, including their names and the commands used to launch them. The remaining options are incorrect (options A and D aren’t even standard directories).</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>The following .xinitrc script is present in a user’s home directory, with the correct permissions. What will be the effect when the user types startx from a text-mode login? #/bin/bash; xterm; startkde &amp;</Question>
+		<Answer isTrue="0" name="A">The xterm program will run, and once it’s started, KDE will start. The X session will terminate when the user exits from KDE, whereupon the xterm will also close.</Answer>
+		<Answer isTrue="1" name="B">The xterm program will run and remain active, with no window manager, until the user terminates it. At that time, KDE will begin to start, but X will terminate before KDE can fully load.</Answer>
+		<Answer isTrue="0" name="C">The xterm program will run, and once it’s started, KDE will start. The X session will terminate when the user exits from both KDE and the xterm program; quitting either alone will not terminate X.</Answer>
+		<Answer isTrue="0" name="D">The xterm program will run and immediately terminate, whereupon KDE will start. KDE will remain active until the user exits from it, whereupon X will also stop.</Answer>
+		<Explanation>In an X startup script such as ~/.xinitrc, most program calls should terminate in an ampersand (&amp;), which indicates that execution should continue. An exception is the window manager or desktop environment; execution of the script should stop at this point because if it doesn’t, the script will terminate before the user is finished (and probably even before the desktop environment can fully start). The ampersand placement is reversed in the sample script, and option B correctly describes the events that will occur when this script is run as part of the startx X startup procedure.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>What file should you edit to change the desktop environment or window manager launched by XDM?</Question>
+		<Answer isTrue="0" name="A">~/.bashrc</Answer>
+		<Answer isTrue="1" name="B">~/.xsession</Answer>
+		<Answer isTrue="0" name="C">~/.xinitrc</Answer>
+		<Answer isTrue="0" name="D">~/.Xresources</Answer>
+		<Explanation>XDM runs the ~/.xsession file as part of its login procedure, so option B is correct. The ~/.bashrc file is one of the startup files for bash, not for XDM. The ~/.xinitrc file is used when starting X from text mode via startx. The ~/.Xresources file holds X resources; it’s not used to start a desktop environment or window manager.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>The X-based program MegaProg’s menu font has changed to Times, but you prefer Helvetica in this role. The program’s in-window font was, and should remain, Times. In investigating this problem, you discover several lines in your ~/.Xresources file that seem suspicious. Which one should you edit to fix the problem?</Question>
+		<Answer isTrue="0" name="A">MegaProg*mfont: Times</Answer>
+		<Answer isTrue="0" name="B">MegaProg*body: Times</Answer>
+		<Answer isTrue="0" name="C">MegaProg*font: Times</Answer>
+		<Answer isTrue="1" name="D">Possibly any or none of the above; consult the program’s documentation.</Answer>
+		<Explanation>Unfortunately, X resource names (as stored in ~/.Xresources) are not standardized. Thus, you must consult the program’s documentation to learn which (if any) of the resources controls the menu font.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>Which of the following commands tells the X server to accept connections from penguin.example.com?</Question>
+		<Answer isTrue="1" name="A">xhost +penguin.example.com</Answer>
+		<Answer isTrue="0" name="B">export DISPLAY=penguin.example.com:0</Answer>
+		<Answer isTrue="0" name="C">telnet penguin.example.com</Answer>
+		<Answer isTrue="0" name="D">xaccess penguin.example.com</Answer>
+		<Explanation>The xhost command controls various aspects of the local X server, including from which remote computers it will accept connections. Option B sets the DISPLAY environment variable, which doesn’t directly affect the X server (it does tell X clients which X server to use, though). Option C simply initiates a text-mode remote login session with penguin.example.com. Option D’s xaccess is a fictitious program.</Explanation>
+	</TestQuestion>
+	<TestQuestion isMultiple="0">
+		<Question>What is an advantage of using SSH to tunnel an X session compared to using X’s network features more directly?</Question>
+		<Answer isTrue="0" name="A">SSH supports a higher bit depth than do other network access methods.</Answer>
+		<Answer isTrue="0" name="B">SSH supports font smoothing, which isn’t possible with more direct connections.</Answer>
+		<Answer isTrue="0" name="C">SSH provides compression features to fit larger displays on smaller monitors.</Answer>
+		<Answer isTrue="1" name="D">SSH provides encryption features that improve the security of the connection.</Answer>
+		<Explanation>The Secure Shell (SSH) is a remote login tool that’s well known for its encryption and thus for its improved security compared to other login methods. By tunneling an X session, you gain the benefits of that security for all the X programs you run, as described in option D. X’s bit depth isn’t affected by SSH tunneling, contrary to what option A suggests. Likewise, option B’s font smoothing isn’t affected by SSH tunneling. Although SSH does provide compression features, these features affect data transfer rates, not the size of the image displayed on the screen as option C suggests.</Explanation>
+	</TestQuestion>
+</Quiz>
